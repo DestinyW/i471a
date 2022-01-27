@@ -1,0 +1,426 @@
+Script started on 2022-01-27 14:58:57-05:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="80" LINES="24"]
+[?2004hdwalcot1@q22-16:~/tmp/lab0$ ls
+[?2004llab0.LOG
+[?2004hdwalcot1@q22-16:~/tmp/lab0$ [7mls ~/.ssh[27mls ~/.ssh
+[?2004lauthorized_keys  known_hosts
+[?2004hdwalcot1@q22-16:~/tmp/lab0$ [7m~/.ssh/id_rsa[27m~/.ssh/id_rsa
+[?2004lbash: /home/dwalcot1/.ssh/id_rsa: No such file or directory
+[?2004hdwalcot1@q22-16:~/tmp/lab0$ [7m~/.ssh/id_rsa.pub[27m~/.ssh/id_rsa.pub
+[?2004lbash: /home/dwalcot1/.ssh/id_rsa.pub: No such file or directory
+[?2004hdwalcot1@q22-16:~/tmp/lab0$ [7mssh-copy-id user@remote[27mssh-copy-id user@remote[1P@remote[1P@remote[1P@remote[1P@remoted@remotew@remotea@remotel@remotec@remoteo@remotet@remote1@remote
+[?2004l/usr/bin/ssh-copy-id: ERROR: No identities found
+[?2004hdwalcot1@q22-16:~/tmp/lab0$ ssh-copy-id dwalcot1@remote[Ke.cs.binghamton.edu
+[?2004l/usr/bin/ssh-copy-id: ERROR: No identities found
+[?2004hdwalcot1@q22-16:~/tmp/lab0$ ssh-copy-id dwalcot1@remote.cs.binghamton.edu[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[?2004l/usr/bin/ssh-copy-id: ERROR: No identities found
+[?2004hdwalcot1@q22-16:~/tmp/lab0$ [7mls ~/.ssh[27mls ~/.ssh
+[?2004lauthorized_keys  known_hosts
+[?2004hdwalcot1@q22-16:~/tmp/lab0$ ssh-key-gen[K[K[K[K [Kgen
+[?2004lGenerating public/private rsa key pair.
+Enter file in which to save the key (/home/dwalcot1/.ssh/id_rsa): 
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /home/dwalcot1/.ssh/id_rsa
+Your public key has been saved in /home/dwalcot1/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:G0H+s0tclBz381smq3YNLDVfcYICg3LPewzRZg0AEmk dwalcot1@q22-16
+The key's randomart image is:
++---[RSA 3072]----+
+|    oo.o=+.o...  |
+|    E.oo..=.o+.o.|
+|   . o oo+ .+  o+|
+|        +o .  o +|
+|        S+o .o.o=|
+|        .+o+. o++|
+|        ..+  ..+ |
+|         . .... .|
+|          ....   |
++----[SHA256]-----+
+[?2004hdwalcot1@q22-16:~/tmp/lab0$ ssh-keygen[1Pls ~/.ssh
+[?2004lauthorized_keys  id_rsa  id_rsa.pub  known_hosts
+[?2004hdwalcot1@q22-16:~/tmp/lab0$ ls ~/.sshssh-keygen[1Pls ~/.sshssh-copy-id dwalcot1@remote.cs.binghamton.edu[K
+[?2004l/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/dwalcot1/.ssh/id_rsa.pub"
+The authenticity of host 'remote (128.226.114.198)' can't be established.
+ECDSA key fingerprint is SHA256:UEIh1TASIC96TC1hhxVbkVS0DrddNKHk7Q2nzgDCt+Y.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? 
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+The authenticity of host 'remote (128.226.114.198)' can't be established.
+ECDSA key fingerprint is SHA256:UEIh1TASIC96TC1hhxVbkVS0DrddNKHk7Q2nzgDCt+Y.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? 
+
+/usr/bin/ssh-copy-id: ERROR: Host key verification failed.
+
+[?2004hdwalcot1@q22-16:~/tmp/lab0$ ssh-copy-id dwalcot1@remote
+[?2004l/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/home/dwalcot1/.ssh/id_rsa.pub"
+The authenticity of host 'remote (128.226.114.198)' can't be established.
+ECDSA key fingerprint is SHA256:UEIh1TASIC96TC1hhxVbkVS0DrddNKHk7Q2nzgDCt+Y.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+dwalcot1@remote's password: 
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh 'dwalcot1@remote'"
+and check to make sure that only the key(s) you wanted were added.
+
+[?2004hdwalcot1@q22-16:~/tmp/lab0$ [7mssh://user@remote.cs.binghamton.edu/~umrigar/git-rep[27m[7mo[27m[7ms/cs471.git[27m[K[Adwalcot1@q22-16:~/tmp/lab0$ [7mssh://user@remote.cs.binghamton.edu/~umrigar/git-repo[27m[7ms[27m[7m/cs471.git[27m[K[Adwalcot1@q22-16:~/tmp/lab0$ [7mssh://user@remote.cs.binghamton.edu/~umrigar/git-repos[27m[7m/[27m[7mcs471.git[27m[K[Adwalcot1@q22-16:~/tmp/lab0$ [7mssh://user@remote.cs.binghamton.edu/~umrigar/git-repos/[27m[7mc[27m[7ms471.git[27m[K[Adwalcot1@q22-16:~/tmp/lab0$ [7mssh://user@remote.cs.binghamton.edu/~umrigar/git-repos/c[27m[7ms[27m[7m471.git[27m[K[Adwalcot1@q22-16:~/tmp/lab0$ [7mssh://user@remote.cs.binghamton.edu/~umrigar/git-repos/cs[27m[7m4[27m[7m71.git[27m[K[Adwalcot1@q22-16:~/tmp/lab0$ [7mssh://user@remote.cs.binghamton.edu/~umrigar/git-repos/cs4[27m[7m7[27m[7m1.git[27m[K[Adwalcot1@q22-16:~/tmp/lab0$ [7mssh://user@remote.cs.binghamton.edu/~umrigar/git-repos/cs47[27m[7m1[27m[7m.git[27m[K[Adwalcot1@q22-16:~/tmp/lab0$ [7mssh://user@remote.cs.binghamton.edu/~umrigar/git-repos/cs471[27m[7m.[27m[7mgit[27m[K[Adwalcot1@q22-16:~/tmp/lab0$ [7mssh://user@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.[27m[7mg[27m[7mit[27m[K[Adwalcot1@q22-16:~/tmp/lab0$ [7mssh://user@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.g[27m[7mi[27m[7mt[27m[K[Adwalcot1@q22-16:~/tmp/lab0$ [7mssh://user@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.gi[27m[7mt[27m[K[Adwalcot1@q22-16:~/tmp/lab0$ [7mssh://user@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[27m [K[Adwalcot1@q22-16:~/tmp/lab0$ [7mssh://user@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[27m[Kdwalcot1@q22-16:~/tmp/lab0$ [7mssh://user@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[27m[Kdwalcot1@q22-16:~/tmp/lab0$ [7mssh://user@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[27m[Kdwalcot1@q22-16:~/tmp/lab0$ [7mssh://user@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[27m[Kdwalcot1@q22-16:~/tmp/lab0$ [7mssh://user@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[27m[Kdwalcot1@q22-16:~/tmp/lab0$ [7mssh://user@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[27m[Kdwalcot1@q22-16:~/tmp/lab0$ [7mssh://user@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[27m[Kdwalcot1@q22-16:~/tmp/lab0$ [7mssh://user@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[27m[Kdwalcot1@q22-16:~/tmp/lab0$ [7mssh://user@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[27m[Kdwalcot1@q22-16:~/tmp/lab0$ [7mssh://user@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[27m[Kdwalcot1@q22-16:~/tmp/lab0$ [7mssh://user@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[27m[Kdwalcot1@q22-16:~/tmp/lab0$ [7mssh://user@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[27m[Kdwalcot1@q22-16:~/tmp/lab0$ [7mssh://user@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[27m[Kdwalcot1@q22-16:~/tmp/lab0$ [7mssh://user@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cssh://user@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[C[1P@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cd@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cw@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ca@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cl@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cc@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Co@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ct@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C1@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[?2004lbash: ssh://dwalcot1@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git: No such file or directory
+[?2004hdwalcot1@q22-16:~/tmp/lab0$ [7mmkdir -p ~/projects[27mmkdir -p ~/projects
+[?2004l[?2004hdwalcot1@q22-16:~/tmp/lab0$ [7mcd ~/projects[27mcd ~/projects
+[?2004l[?2004hdwalcot1@q22-16:~/projects$ git clone [7mssh://user@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cssh://user@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[1P@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cd@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cw@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ca@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cl@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cc@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Co@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ct@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C1@remote.cs.binghamton.edu/~umrigar/git-repos/cs471.git [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[?2004lCloning into 'cs471'...
+remote: Enumerating objects: 158, done.[K
+remote: Counting objects:   0% (1/158)[Kremote: Counting objects:   1% (2/158)[Kremote: Counting objects:   2% (4/158)[Kremote: Counting objects:   3% (5/158)[Kremote: Counting objects:   4% (7/158)[Kremote: Counting objects:   5% (8/158)[Kremote: Counting objects:   6% (10/158)[Kremote: Counting objects:   7% (12/158)[Kremote: Counting objects:   8% (13/158)[Kremote: Counting objects:   9% (15/158)[Kremote: Counting objects:  10% (16/158)[Kremote: Counting objects:  11% (18/158)[Kremote: Counting objects:  12% (19/158)[Kremote: Counting objects:  13% (21/158)[Kremote: Counting objects:  14% (23/158)[Kremote: Counting objects:  15% (24/158)[Kremote: Counting objects:  16% (26/158)[Kremote: Counting objects:  17% (27/158)[Kremote: Counting objects:  18% (29/158)[Kremote: Counting objects:  19% (31/158)[Kremote: Counting objects:  20% (32/158)[Kremote: Counting objects:  21% (34/158)[Kremote: Counting objects:  22% (35/158)[Kremote: Counting objects:  23% (37/158)[Kremote: Counting objects:  24% (38/158)[Kremote: Counting objects:  25% (40/158)[Kremote: Counting objects:  26% (42/158)[Kremote: Counting objects:  27% (43/158)[Kremote: Counting objects:  28% (45/158)[Kremote: Counting objects:  29% (46/158)[Kremote: Counting objects:  30% (48/158)[Kremote: Counting objects:  31% (49/158)[Kremote: Counting objects:  32% (51/158)[Kremote: Counting objects:  33% (53/158)[Kremote: Counting objects:  34% (54/158)[Kremote: Counting objects:  35% (56/158)[Kremote: Counting objects:  36% (57/158)[Kremote: Counting objects:  37% (59/158)[Kremote: Counting objects:  38% (61/158)[Kremote: Counting objects:  39% (62/158)[Kremote: Counting objects:  40% (64/158)[Kremote: Counting objects:  41% (65/158)[Kremote: Counting objects:  42% (67/158)[Kremote: Counting objects:  43% (68/158)[Kremote: Counting objects:  44% (70/158)[Kremote: Counting objects:  45% (72/158)[Kremote: Counting objects:  46% (73/158)[Kremote: Counting objects:  47% (75/158)[Kremote: Counting objects:  48% (76/158)[Kremote: Counting objects:  49% (78/158)[Kremote: Counting objects:  50% (79/158)[Kremote: Counting objects:  51% (81/158)[Kremote: Counting objects:  52% (83/158)[Kremote: Counting objects:  53% (84/158)[Kremote: Counting objects:  54% (86/158)[Kremote: Counting objects:  55% (87/158)[Kremote: Counting objects:  56% (89/158)[Kremote: Counting objects:  57% (91/158)[Kremote: Counting objects:  58% (92/158)[Kremote: Counting objects:  59% (94/158)[Kremote: Counting objects:  60% (95/158)[Kremote: Counting objects:  61% (97/158)[Kremote: Counting objects:  62% (98/158)[Kremote: Counting objects:  63% (100/158)[Kremote: Counting objects:  64% (102/158)[Kremote: Counting objects:  65% (103/158)[Kremote: Counting objects:  66% (105/158)[Kremote: Counting objects:  67% (106/158)[Kremote: Counting objects:  68% (108/158)[Kremote: Counting objects:  69% (110/158)[Kremote: Counting objects:  70% (111/158)[Kremote: Counting objects:  71% (113/158)[Kremote: Counting objects:  72% (114/158)[Kremote: Counting objects:  73% (116/158)[Kremote: Counting objects:  74% (117/158)[Kremote: Counting objects:  75% (119/158)[Kremote: Counting objects:  76% (121/158)[Kremote: Counting objects:  77% (122/158)[Kremote: Counting objects:  78% (124/158)[Kremote: Counting objects:  79% (125/158)[Kremote: Counting objects:  80% (127/158)[Kremote: Counting objects:  81% (128/158)[Kremote: Counting objects:  82% (130/158)[Kremote: Counting objects:  83% (132/158)[Kremote: Counting objects:  84% (133/158)[Kremote: Counting objects:  85% (135/158)[Kremote: Counting objects:  86% (136/158)[Kremote: Counting objects:  87% (138/158)[Kremote: Counting objects:  88% (140/158)[Kremote: Counting objects:  89% (141/158)[Kremote: Counting objects:  90% (143/158)[Kremote: Counting objects:  91% (144/158)[Kremote: Counting objects:  92% (146/158)[Kremote: Counting objects:  93% (147/158)[Kremote: Counting objects:  94% (149/158)[Kremote: Counting objects:  95% (151/158)[Kremote: Counting objects:  96% (152/158)[Kremote: Counting objects:  97% (154/158)[Kremote: Counting objects:  98% (155/158)[Kremote: Counting objects:  99% (157/158)[Kremote: Counting objects: 100% (158/158)[Kremote: Counting objects: 100% (158/158), done.[K
+remote: Compressing objects:   0% (1/149)[Kremote: Compressing objects:   1% (2/149)[Kremote: Compressing objects:   2% (3/149)[Kremote: Compressing objects:   3% (5/149)[Kremote: Compressing objects:   4% (6/149)[Kremote: Compressing objects:   5% (8/149)[Kremote: Compressing objects:   6% (9/149)[Kremote: Compressing objects:   7% (11/149)[Kremote: Compressing objects:   8% (12/149)[Kremote: Compressing objects:   9% (14/149)[Kremote: Compressing objects:  10% (15/149)[Kremote: Compressing objects:  11% (17/149)[Kremote: Compressing objects:  12% (18/149)[Kremote: Compressing objects:  13% (20/149)[Kremote: Compressing objects:  14% (21/149)[Kremote: Compressing objects:  15% (23/149)[Kremote: Compressing objects:  16% (24/149)[Kremote: Compressing objects:  17% (26/149)[Kremote: Compressing objects:  18% (27/149)[Kremote: Compressing objects:  19% (29/149)[Kremote: Compressing objects:  20% (30/149)[Kremote: Compressing objects:  21% (32/149)[Kremote: Compressing objects:  22% (33/149)[Kremote: Compressing objects:  23% (35/149)[Kremote: Compressing objects:  24% (36/149)[Kremote: Compressing objects:  25% (38/149)[Kremote: Compressing objects:  26% (39/149)[Kremote: Compressing objects:  27% (41/149)[Kremote: Compressing objects:  28% (42/149)[Kremote: Compressing objects:  29% (44/149)[Kremote: Compressing objects:  30% (45/149)[Kremote: Compressing objects:  31% (47/149)[Kremote: Compressing objects:  32% (48/149)[Kremote: Compressing objects:  33% (50/149)[Kremote: Compressing objects:  34% (51/149)[Kremote: Compressing objects:  35% (53/149)[Kremote: Compressing objects:  36% (54/149)[Kremote: Compressing objects:  37% (56/149)[Kremote: Compressing objects:  38% (57/149)[Kremote: Compressing objects:  39% (59/149)[Kremote: Compressing objects:  40% (60/149)[Kremote: Compressing objects:  41% (62/149)[Kremote: Compressing objects:  42% (63/149)[Kremote: Compressing objects:  43% (65/149)[Kremote: Compressing objects:  44% (66/149)[Kremote: Compressing objects:  45% (68/149)[Kremote: Compressing objects:  46% (69/149)[Kremote: Compressing objects:  47% (71/149)[Kremote: Compressing objects:  48% (72/149)[Kremote: Compressing objects:  49% (74/149)[Kremote: Compressing objects:  50% (75/149)[Kremote: Compressing objects:  51% (76/149)[Kremote: Compressing objects:  52% (78/149)[Kremote: Compressing objects:  53% (79/149)[Kremote: Compressing objects:  54% (81/149)[Kremote: Compressing objects:  55% (82/149)[Kremote: Compressing objects:  56% (84/149)[Kremote: Compressing objects:  57% (85/149)[Kremote: Compressing objects:  58% (87/149)[Kremote: Compressing objects:  59% (88/149)[Kremote: Compressing objects:  60% (90/149)[Kremote: Compressing objects:  61% (91/149)[Kremote: Compressing objects:  62% (93/149)[Kremote: Compressing objects:  63% (94/149)[Kremote: Compressing objects:  64% (96/149)[Kremote: Compressing objects:  65% (97/149)[Kremote: Compressing objects:  66% (99/149)[Kremote: Compressing objects:  67% (100/149)[Kremote: Compressing objects:  68% (102/149)[Kremote: Compressing objects:  69% (103/149)[Kremote: Compressing objects:  70% (105/149)[Kremote: Compressing objects:  71% (106/149)[Kremote: Compressing objects:  72% (108/149)[Kremote: Compressing objects:  73% (109/149)[Kremote: Compressing objects:  74% (111/149)[Kremote: Compressing objects:  75% (112/149)[Kremote: Compressing objects:  76% (114/149)[Kremote: Compressing objects:  77% (115/149)[Kremote: Compressing objects:  78% (117/149)[Kremote: Compressing objects:  79% (118/149)[Kremote: Compressing objects:  80% (120/149)[Kremote: Compressing objects:  81% (121/149)[Kremote: Compressing objects:  82% (123/149)[Kremote: Compressing objects:  83% (124/149)[Kremote: Compressing objects:  84% (126/149)[Kremote: Compressing objects:  85% (127/149)[Kremote: Compressing objects:  86% (129/149)[Kremote: Compressing objects:  87% (130/149)[Kremote: Compressing objects:  88% (132/149)[Kremote: Compressing objects:  89% (133/149)[Kremote: Compressing objects:  90% (135/149)[Kremote: Compressing objects:  91% (136/149)[Kremote: Compressing objects:  92% (138/149)[Kremote: Compressing objects:  93% (139/149)[Kremote: Compressing objects:  94% (141/149)[Kremote: Compressing objects:  95% (142/149)[Kremote: Compressing objects:  96% (144/149)[Kremote: Compressing objects:  97% (145/149)[Kremote: Compressing objects:  98% (147/149)[Kremote: Compressing objects:  99% (148/149)[Kremote: Compressing objects: 100% (149/149)[Kremote: Compressing objects: 100% (149/149), done.[K
+Receiving objects:   0% (1/158)Receiving objects:   1% (2/158)Receiving objects:   2% (4/158)Receiving objects:   3% (5/158)Receiving objects:   4% (7/158)Receiving objects:   5% (8/158)Receiving objects:   6% (10/158)Receiving objects:   7% (12/158)Receiving objects:   8% (13/158)Receiving objects:   9% (15/158)Receiving objects:  10% (16/158)Receiving objects:  11% (18/158)Receiving objects:  12% (19/158)Receiving objects:  13% (21/158)Receiving objects:  14% (23/158)Receiving objects:  15% (24/158)Receiving objects:  16% (26/158)Receiving objects:  17% (27/158)Receiving objects:  18% (29/158)Receiving objects:  19% (31/158)Receiving objects:  20% (32/158)Receiving objects:  21% (34/158)Receiving objects:  22% (35/158)Receiving objects:  23% (37/158)Receiving objects:  24% (38/158)Receiving objects:  25% (40/158)Receiving objects:  26% (42/158)Receiving objects:  27% (43/158)Receiving objects:  28% (45/158)Receiving objects:  29% (46/158)Receiving objects:  30% (48/158)Receiving objects:  31% (49/158)Receiving objects:  32% (51/158)Receiving objects:  33% (53/158)Receiving objects:  34% (54/158)Receiving objects:  35% (56/158)Receiving objects:  36% (57/158)Receiving objects:  37% (59/158)Receiving objects:  38% (61/158)Receiving objects:  39% (62/158)Receiving objects:  40% (64/158)Receiving objects:  41% (65/158)Receiving objects:  42% (67/158)Receiving objects:  43% (68/158)Receiving objects:  44% (70/158)Receiving objects:  45% (72/158)Receiving objects:  46% (73/158)Receiving objects:  47% (75/158)Receiving objects:  48% (76/158)Receiving objects:  49% (78/158)Receiving objects:  50% (79/158)Receiving objects:  51% (81/158)Receiving objects:  52% (83/158)Receiving objects:  53% (84/158)Receiving objects:  54% (86/158)Receiving objects:  55% (87/158)Receiving objects:  56% (89/158)Receiving objects:  57% (91/158)Receiving objects:  58% (92/158)Receiving objects:  59% (94/158)Receiving objects:  60% (95/158)Receiving objects:  61% (97/158)Receiving objects:  62% (98/158)Receiving objects:  63% (100/158)Receiving objects:  64% (102/158)Receiving objects:  65% (103/158)Receiving objects:  66% (105/158)Receiving objects:  67% (106/158)Receiving objects:  68% (108/158)Receiving objects:  69% (110/158)Receiving objects:  70% (111/158)Receiving objects:  71% (113/158)Receiving objects:  72% (114/158)Receiving objects:  73% (116/158)Receiving objects:  74% (117/158)Receiving objects:  75% (119/158)Receiving objects:  76% (121/158)Receiving objects:  77% (122/158)Receiving objects:  78% (124/158)Receiving objects:  79% (125/158)Receiving objects:  80% (127/158)Receiving objects:  81% (128/158)Receiving objects:  82% (130/158)Receiving objects:  83% (132/158)Receiving objects:  84% (133/158)Receiving objects:  85% (135/158)Receiving objects:  86% (136/158)Receiving objects:  87% (138/158)Receiving objects:  88% (140/158)Receiving objects:  89% (141/158)Receiving objects:  90% (143/158)Receiving objects:  91% (144/158)Receiving objects:  92% (146/158)remote: Total 158 (delta 44), reused 0 (delta 0), pack-reused 0[K
+Receiving objects:  93% (147/158)Receiving objects:  94% (149/158)Receiving objects:  95% (151/158)Receiving objects:  96% (152/158)Receiving objects:  97% (154/158)Receiving objects:  98% (155/158)Receiving objects:  99% (157/158)Receiving objects: 100% (158/158)Receiving objects: 100% (158/158), 685.80 KiB | 6.93 MiB/s, done.
+Resolving deltas:   0% (0/44)Resolving deltas:   2% (1/44)Resolving deltas:   4% (2/44)Resolving deltas:   6% (3/44)Resolving deltas:   9% (4/44)Resolving deltas:  11% (5/44)Resolving deltas:  13% (6/44)Resolving deltas:  15% (7/44)Resolving deltas:  18% (8/44)Resolving deltas:  20% (9/44)Resolving deltas:  22% (10/44)Resolving deltas:  25% (11/44)Resolving deltas:  27% (12/44)Resolving deltas:  29% (13/44)Resolving deltas:  31% (14/44)Resolving deltas:  34% (15/44)Resolving deltas:  36% (16/44)Resolving deltas:  38% (17/44)Resolving deltas:  40% (18/44)Resolving deltas:  43% (19/44)Resolving deltas:  45% (20/44)Resolving deltas:  47% (21/44)Resolving deltas:  50% (22/44)Resolving deltas:  52% (23/44)Resolving deltas:  54% (24/44)Resolving deltas:  56% (25/44)Resolving deltas:  59% (26/44)Resolving deltas:  61% (27/44)Resolving deltas:  63% (28/44)Resolving deltas:  65% (29/44)Resolving deltas:  68% (30/44)Resolving deltas:  70% (31/44)Resolving deltas:  72% (32/44)Resolving deltas:  75% (33/44)Resolving deltas:  77% (34/44)Resolving deltas:  79% (35/44)Resolving deltas:  81% (36/44)Resolving deltas:  84% (37/44)Resolving deltas:  86% (38/44)Resolving deltas:  88% (39/44)Resolving deltas:  90% (40/44)Resolving deltas:  93% (41/44)Resolving deltas:  95% (42/44)Resolving deltas:  97% (43/44)Resolving deltas: 100% (44/44)Resolving deltas: 100% (44/44), done.
+[?2004hdwalcot1@q22-16:~/projects$ cd ~
+[?2004l[?2004hdwalcot1@q22-16:~$ ln -s projects/cs471`[K
+[?2004l[?2004hdwalcot1@q22-16:~$ ln -s projects/cs471cd ~[K
+[?2004l[?2004hdwalcot1@q22-16:~$ [7mln -s projects/cs471 .[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cln -s projects/cs471 .
+[?2004lln: failed to create symbolic link './cs471': File exists
+[?2004hdwalcot1@q22-16:~$ ls
+[?2004lcs120  cs240  cs350  cs375  cs471    Documents	Music	   old_cs350  Pictures	Public	   tmp	   work
+cs220  cs320  cs373  cs428  Desktop  Downloads	old_cs320  old_cs375  projects	Templates  Videos
+[?2004hdwalcot1@q22-16:~$ [7mcd ~/projects/cs471[27mcd ~/projects/cs471
+[?2004l[?2004hdwalcot1@q22-16:~/projects/cs471$ git pull
+[?2004l[33mhint: Pulling without specifying how to reconcile divergent branches is[m
+[33mhint: discouraged. You can squelch this message by running one of the following[m
+[33mhint: commands sometime before your next pull:[m
+[33mhint: [m
+[33mhint:   git config pull.rebase false  # merge (the default strategy)[m
+[33mhint:   git config pull.rebase true   # rebase[m
+[33mhint:   git config pull.ff only       # fast-forward only[m
+[33mhint: [m
+[33mhint: You can replace "git config" with "git config --global" to set a default[m
+[33mhint: preference for all repositories. You can also pass --rebase, --no-rebase,[m
+[33mhint: or --ff-only on the command line to override the configured default per[m
+[33mhint: invocation.[m
+Already up to date.
+[?2004hdwalcot1@q22-16:~/projects/cs471$ [7m git log -5[27m git log -5[C[1P
+[?2004l[?1h=[33mcommit 9d65b43113fd1d2f3367e2631f8e5483572375dd[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Thu Jan 27 09:51:34 2022 -0500[m
+[m
+    class video links[m
+[m
+[33mcommit 7bdc1773d317bd9dd009aad993fe104841fcc6da[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Jan 26 15:37:58 2022 -0500[m
+[m
+    minor post-class correction[m
+[m
+[33mcommit 2d124a3bb310eaa8c766ae0a072a0d1f040cecfd[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Jan 26 12:56:40 2022 -0500[m
+[m
+    more tweaks[m
+[m
+[33mcommit c819f6e4122eabfc4c1c130fecbf4ae8c5ea06f3[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Jan 26 12:07:03 2022 -0500[m
+[m
+:[K[K:[K[K    tweaks[m
+:[K[K [KESCESC[KESCESC[K:[K[K:[K[K:[K[K[m
+:[K[K[?1l>[?2004hdwalcot1@q22-16:~/projects/cs471$ [7mgit log -3 labs/lab0.umt[27mgit log -3 labs/lab0.umt
+[?2004lfatal: ambiguous argument 'labs/lab0.umt': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+[?2004hdwalcot1@q22-16:~/projects/cs471$ ls
+[?2004lannounce.html  assets  docs	  hw	      index.umt  misc	   README.md  umt.make
+announce.umt   bin     exercises  index.html  labs	 projects  slides
+[?2004hdwalcot1@q22-16:~/projects/cs471$ [7mgit diff -r XXXXX labs/lab0.umt[27mgit diff -r XXXXX labs/lab0.umt
+[?2004lfatal: ambiguous argument 'XXXXX': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+[?2004hdwalcot1@q22-16:~/projects/cs471$ git diff -r XXXXX labs/lab0.umt[K[Kdwalcot1@q22-16:~/projects/cs471$ git diff -r XXXXX labs/lab0.umtls[Kgit log -3 labs/lab0.umt5[K
+[?2004l[?1h=[33mcommit 9d65b43113fd1d2f3367e2631f8e5483572375dd[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Thu Jan 27 09:51:34 2022 -0500[m
+[m
+    class video links[m
+[m
+[33mcommit 7bdc1773d317bd9dd009aad993fe104841fcc6da[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Jan 26 15:37:58 2022 -0500[m
+[m
+    minor post-class correction[m
+[m
+[33mcommit 2d124a3bb310eaa8c766ae0a072a0d1f040cecfd[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Jan 26 12:56:40 2022 -0500[m
+[m
+    more tweaks[m
+[m
+[33mcommit c819f6e4122eabfc4c1c130fecbf4ae8c5ea06f3[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Jan 26 12:07:03 2022 -0500[m
+[m
+    tweaks[m
+:[K...skipping...
+[33mcommit 9d65b43113fd1d2f3367e2631f8e5483572375dd[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Thu Jan 27 09:51:34 2022 -0500[m
+[m
+    class video links[m
+[m
+[33mcommit 7bdc1773d317bd9dd009aad993fe104841fcc6da[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Jan 26 15:37:58 2022 -0500[m
+[m
+    minor post-class correction[m
+[m
+[33mcommit 2d124a3bb310eaa8c766ae0a072a0d1f040cecfd[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Jan 26 12:56:40 2022 -0500[m
+[m
+    more tweaks[m
+[m
+[33mcommit c819f6e4122eabfc4c1c130fecbf4ae8c5ea06f3[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Jan 26 12:07:03 2022 -0500[m
+[m
+    tweaks[m
+[m
+:[K...skipping...
+[33mcommit 9d65b43113fd1d2f3367e2631f8e5483572375dd[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Thu Jan 27 09:51:34 2022 -0500[m
+[m
+    class video links[m
+[m
+[33mcommit 7bdc1773d317bd9dd009aad993fe104841fcc6da[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Jan 26 15:37:58 2022 -0500[m
+[m
+    minor post-class correction[m
+[m
+[33mcommit 2d124a3bb310eaa8c766ae0a072a0d1f040cecfd[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Jan 26 12:56:40 2022 -0500[m
+[m
+    more tweaks[m
+[m
+[33mcommit c819f6e4122eabfc4c1c130fecbf4ae8c5ea06f3[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Jan 26 12:07:03 2022 -0500[m
+[m
+    tweaks[m
+[m
+[33mcommit 0182f464eb50fc3cb7d1ffc6b7254155403132ea[m[m
+:[K...skipping...
+[33mcommit 9d65b43113fd1d2f3367e2631f8e5483572375dd[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Thu Jan 27 09:51:34 2022 -0500[m
+[m
+    class video links[m
+[m
+[33mcommit 7bdc1773d317bd9dd009aad993fe104841fcc6da[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Jan 26 15:37:58 2022 -0500[m
+[m
+    minor post-class correction[m
+[m
+[33mcommit 2d124a3bb310eaa8c766ae0a072a0d1f040cecfd[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Jan 26 12:56:40 2022 -0500[m
+[m
+    more tweaks[m
+[m
+[33mcommit c819f6e4122eabfc4c1c130fecbf4ae8c5ea06f3[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Jan 26 12:07:03 2022 -0500[m
+[m
+    tweaks[m
+[m
+[33mcommit 0182f464eb50fc3cb7d1ffc6b7254155403132ea[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+:[K...skipping...
+[33mcommit 9d65b43113fd1d2f3367e2631f8e5483572375dd[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Thu Jan 27 09:51:34 2022 -0500[m
+[m
+    class video links[m
+[m
+[33mcommit 7bdc1773d317bd9dd009aad993fe104841fcc6da[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Jan 26 15:37:58 2022 -0500[m
+[m
+    minor post-class correction[m
+[m
+[33mcommit 2d124a3bb310eaa8c766ae0a072a0d1f040cecfd[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Jan 26 12:56:40 2022 -0500[m
+[m
+    more tweaks[m
+[m
+[33mcommit c819f6e4122eabfc4c1c130fecbf4ae8c5ea06f3[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Jan 26 12:07:03 2022 -0500[m
+[m
+    tweaks[m
+[m
+[33mcommit 0182f464eb50fc3cb7d1ffc6b7254155403132ea[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Jan 26 01:54:12 2022 -0500[m
+:[K...skipping...
+[33mcommit 9d65b43113fd1d2f3367e2631f8e5483572375dd[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Thu Jan 27 09:51:34 2022 -0500[m
+[m
+    class video links[m
+[m
+[33mcommit 7bdc1773d317bd9dd009aad993fe104841fcc6da[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Jan 26 15:37:58 2022 -0500[m
+[m
+    minor post-class correction[m
+[m
+[33mcommit 2d124a3bb310eaa8c766ae0a072a0d1f040cecfd[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Jan 26 12:56:40 2022 -0500[m
+[m
+    more tweaks[m
+[m
+[33mcommit c819f6e4122eabfc4c1c130fecbf4ae8c5ea06f3[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Jan 26 12:07:03 2022 -0500[m
+[m
+    tweaks[m
+[m
+[33mcommit 0182f464eb50fc3cb7d1ffc6b7254155403132ea[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Jan 26 01:54:12 2022 -0500[m
+[m
+:[K...skipping...
+[33mcommit 9d65b43113fd1d2f3367e2631f8e5483572375dd[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Thu Jan 27 09:51:34 2022 -0500[m
+[m
+    class video links[m
+[m
+[33mcommit 7bdc1773d317bd9dd009aad993fe104841fcc6da[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Jan 26 15:37:58 2022 -0500[m
+[m
+    minor post-class correction[m
+[m
+[33mcommit 2d124a3bb310eaa8c766ae0a072a0d1f040cecfd[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Jan 26 12:56:40 2022 -0500[m
+[m
+    more tweaks[m
+[m
+[33mcommit c819f6e4122eabfc4c1c130fecbf4ae8c5ea06f3[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Jan 26 12:07:03 2022 -0500[m
+[m
+    tweaks[m
+[m
+[33mcommit 0182f464eb50fc3cb7d1ffc6b7254155403132ea[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Jan 26 01:54:12 2022 -0500[m
+[m
+    fix slides index page[m
+:[K...skipping...
+[33mcommit 9d65b43113fd1d2f3367e2631f8e5483572375dd[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Thu Jan 27 09:51:34 2022 -0500[m
+[m
+    class video links[m
+[m
+[33mcommit 7bdc1773d317bd9dd009aad993fe104841fcc6da[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Jan 26 15:37:58 2022 -0500[m
+[m
+    minor post-class correction[m
+[m
+[33mcommit 2d124a3bb310eaa8c766ae0a072a0d1f040cecfd[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Jan 26 12:56:40 2022 -0500[m
+[m
+    more tweaks[m
+[m
+[33mcommit c819f6e4122eabfc4c1c130fecbf4ae8c5ea06f3[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Jan 26 12:07:03 2022 -0500[m
+[m
+    tweaks[m
+[m
+[33mcommit 0182f464eb50fc3cb7d1ffc6b7254155403132ea[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Jan 26 01:54:12 2022 -0500[m
+[m
+    fix slides index page[m
+[1m~[0m
+[K[?1l>[?2004hdwalcot1@q22-16:~/projects/cs471$ [Kdwalcot1@q22-16:~/projects/cs471$ ls
+[?2004lannounce.html  assets  docs	  hw	      index.umt  misc	   README.md  umt.make
+announce.umt   bin     exercises  index.html  labs	 projects  slides
+[?2004hdwalcot1@q22-16:~/projects/cs471$ gti[K[Kit log -3 labs/lab0.umt
+[?2004lfatal: ambiguous argument 'labs/lab0.umt': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+[?2004hdwalcot1@q22-16:~/projects/cs471$ cd labs
+[?2004l[?2004hdwalcot1@q22-16:~/projects/cs471/labs$ ls
+[?2004lindex.html  index.umt  lab0  start-me-up  working
+[?2004hdwalcot1@q22-16:~/projects/cs471/labs$ git pull
+[?2004l[33mhint: Pulling without specifying how to reconcile divergent branches is[m
+[33mhint: discouraged. You can squelch this message by running one of the following[m
+[33mhint: commands sometime before your next pull:[m
+[33mhint: [m
+[33mhint:   git config pull.rebase false  # merge (the default strategy)[m
+[33mhint:   git config pull.rebase true   # rebase[m
+[33mhint:   git config pull.ff only       # fast-forward only[m
+[33mhint: [m
+[33mhint: You can replace "git config" with "git config --global" to set a default[m
+[33mhint: preference for all repositories. You can also pass --rebase, --no-rebase,[m
+[33mhint: or --ff-only on the command line to override the configured default per[m
+[33mhint: invocation.[m
+Already up to date.
+[?2004hdwalcot1@q22-16:~/projects/cs471/labs$ ls
+[?2004lindex.html  index.umt  lab0  start-me-up  working
+[?2004hdwalcot1@q22-16:~/projects/cs471/labs$ cd ..
+[?2004l[?2004hdwalcot1@q22-16:~/projects/cs471$ cd ..[3Plsgit pullls[Kcd labsgit log -3 labs/lab0.umtls[Kgit log -3 labs/lab0.umt[1P.umt[1P.umt[1P.umt[1P.umti.umtn.umtd.umte.umtx.umt
+[?2004l[?1h=[33mcommit 5bc10b7c375186844874aaaed07f0adbcfde92b2[m[m
+Author: zerksis umrigar <umrigar@binghamton.edu>[m
+Date:   Wed Jan 26 01:39:44 2022 -0500[m
+[m
+    added initial course material[m
+[K[?1l>[?2004hdwalcot1@q22-16:~/projects/cs471$ [7m~/.profile[27m~/.profile
+[?2004lbash: /home/dwalcot1/.profile: No such file or directory
+[?2004hdwalcot1@q22-16:~/projects/cs471$ cd ~
+[?2004l[?2004hdwalcot1@q22-16:~$ ls
+[?2004lcs120  cs240  cs350  cs375  cs471    Documents	Music	   old_cs350  Pictures	Public	   tmp	   work
+cs220  cs320  cs373  cs428  Desktop  Downloads	old_cs320  old_cs375  projects	Templates  Videos
+[?2004hdwalcot1@q22-16:~$ [7m~/.profile[27m~/.profile
+[?2004lbash: /home/dwalcot1/.profile: No such file or directory
+[?2004hdwalcot1@q22-16:~$ vim [7m~/.profile[27m~/.profile
+[?2004l[?1000h[?1049h[22;0;0t[>4;2m[?1h=[?2004h[?1004h[1;32r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[32;1H"~/.profile" [New][2;1H▽[6n[2;1H  [3;1HPzz\[0%m[6n[3;1H           [1;1H[>c]10;?]11;?[2;1H[94m~                                                                                                         [3;1H~                                                                                                         [4;1H~                                                                                                         [5;1H~                                                                                                         [6;1H~                                                                                                         [7;1H~                                                                                                         [8;1H~                                                                                                         [9;1H~                                                                                                         [10;1H~                                                                                                         [11;1H~                                                                                                         [12;1H~                                                                                                         [13;1H~                                                                                                         [14;1H~                                                                                                         [15;1H~                                                                                                         [16;1H~                                                                                                         [17;1H~                                                                                                         [18;1H~                                                                                                         [19;1H~                                                                                                         [20;1H~                                                                                                         [21;1H~                                                                                                         [22;1H~                                                                                                         [23;1H~                                                                                                         [24;1H~                                                                                                         [25;1H~                                                                                                         [26;1H~                                                                                                         [27;1H~                                                                                                         [28;1H~                                                                                                         [29;1H~                                                                                                         [30;1H~                                                                                                         [31;1H~                                                                                                         [m[32;89H0,0-1[9CAll]2;.profile (~) - VIM]1;.profile[1;1H[?25hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[?1000l[?1006h[?1002h[?1006l[?1002l[?1006h[?1002hP$q q\[?12$p[?25l[32;79H0[1;1H[32;80H0[1;1H[32;81H0[1;1H[32;82H/[1;1H[32;83H0[1;1H[32;84H0[1;1H[32;85H0[1;1H[32;86H0[1;1H[32;87H/[1;1H[32;88H0[1;1H[32;79H          [1;1H[27m[23m[29m[m[H[2J[2;1H[94m~                                                                                                         [3;1H~                                                                                                         [4;1H~                                                                                                         [5;1H~                                                                                                         [6;1H~                                                                                                         [7;1H~                                                                                                         [8;1H~                                                                                                         [9;1H~                                                                                                         [10;1H~                                                                                                         [11;1H~                                                                                                         [12;1H~                                                                                                         [13;1H~                                                                                                         [14;1H~                                                                                                         [15;1H~                                                                                                         [16;1H~                                                                                                         [17;1H~                                                                                                         [18;1H~                                                                                                         [19;1H~                                                                                                         [20;1H~                                                                                                         [21;1H~                                                                                                         [22;1H~                                                                                                         [23;1H~                                                                                                         [24;1H~                                                                                                         [25;1H~                                                                                                         [26;1H~                                                                                                         [27;1H~                                                                                                         [28;1H~                                                                                                         [29;1H~                                                                                                         [30;1H~                                                                                                         [31;1H~                                                                                                         [m[32;89H0,0-1[9CAll"~/.profile" [New][1;1H[?25h[?25l[32;79H1[1;1H[32;1H[1m-- VISUAL --[m[32;14H[K[32;79H1[1;1H[32;89H0,0-1[9CAll[1;1H[?25h[?25l[?25h[?25l[?25h[?25l[?25h[?25l[32;79Hs[1;1H[32;79H [1;1H[32;4H[1mINSERT [m[32;89H[K[32;89H0,1[11CAll[1;1H[?25h[?25l[32;4H[1m(insert)- VISUAL --[m[32;89H[K[32;79H1[1;1H[32;89H0,0-1[9CAll[1;1H[?25h[?25l[?25h[?25l[?25h[?25l[?25h[?25l[?25h[?25l[?25h[?25l[32;79Hs[1;1H[32;79H [1;1H[32;4H[1mINSERTt --[m[32;13H[K[32;89H0,1[11CAll[1;1H[?25h[38;5;81m^[?25l[m[32;79H^V[1;1H[?25h [?25l[32;79H  [1;1H[38;5;81m^[[m[93m[<[m[95m0[m[93m;[m[95m2[m[93m;[m1M[32;89H1,10-11]2;.profile + (~) - VIM]1;.profile[1;11H[?25h[?25l[95m1[m[1;10H[K[32;91H9-10 [1;10H[?25h[?25l[1;9H[K[32;91H8-9 [1;9H[?25h[?25l[1;8H[K[32;91H7-8[1;8H[?25h[?25l[1;7H[K[32;91H6-7[1;7H[?25h[?25l[1;6H[K[32;91H5-6[1;6H[?25h[?25l[1;5H[K[32;91H4-5[1;5H[?25h[?25l[1;4H[K[32;91H3-4[1;4H[?25h[?25l[1;3H[K[32;91H2-3[1;3H[?25h[?25l[1;1H[K[32;91H1  [1;1H[?25h[?25lp[32;91H2[1;2H[?25h[?25l[1;1H[K[32;91H1[1;1H[?25h[32;1H[K[1;1H[?25l[32;79H^[[1;1H[32;79H  [1;1H[32;89H1,0-1[9CAll[1;1H[?25h[?25l[32;79Hp[1;1H[32;79H [1;1Hcout [93m<< "here 3"[m[95m << endl;[m[2;1H[K[32;91H1  [1;1H[?25h[?25l[32;89H2,0-1[2;1H[?25h[?25l[32;79H~@k[2;1H[32;79H   [1;25H[32;89H1,25 [1;25H[?25h[?25l[32;79H~@k[1;25H[32;79H   [1;24H[32;92H4[1;24H[?25h[?25l[32;79H~@k[1;24H[32;79H   [1;23H[32;92H3[1;23H[?25h[?25l[32;79H~@k[1;23H[32;79H   [1;22H[32;92H2[1;22H[?25h[?25l[32;79H~@k[1;22H[32;79H   [1;21H[32;92H1[1;21H[?25h[?25l[32;79H~@k[1;21H[32;79H   [1;20H[32;92H0[1;20H[?25h[?25l[32;79H~@k[1;20H[32;79H   [1;19H[32;91H19[1;19H[?25h[?25l[32;79H~@k[1;19H[32;79H   [1;18H[32;92H8[1;18H[?25h[?25l[32;79H~@k[1;18H[32;79H   [1;17H[32;92H7[1;17H[?25h[?25l[32;79H~@k[1;17H[32;79H   [1;16H[32;92H6[1;16H[?25h[?25l[32;79H~@k[1;16H[32;79H   [1;15H[32;92H5[1;15H[?25h[?25l[32;79H~@k[1;15H[32;79H   [1;14H[32;92H4[1;14H[?25h[?25l[32;79H~@k[1;14H[32;79H   [1;13H[32;92H3[1;13H[?25h[?25l[32;79H~@k[1;13H[32;79H   [1;12H[32;92H2[1;12H[?25h[?25l[32;91H21[1;21H[?25h[?25l[32;92H4[1;24H[?25h[?25l[32;79Hi[1;24H[32;79H [1;24H[32;1H[1m-- INSERT --[m[32;89H[K[32;89H1,24[10CAll[1;24H[?25h[?25l[32;92H5[1;25H[?25h[?25l[32;92H6[1;26H[?25h[?25l[1;25H[K[32;92H5[1;25H[?25h[?25l[1;24H[K[32;92H4[1;24H[?25h[?25l[1;23H[K[32;92H3[1;23H[?25h[?25l[1;22H[K[32;92H2[1;22H[?25h[?25l[1;21H[K[32;92H1[1;21H[?25h[?25l[1;20H[K[32;92H0[1;20H[?25h[?25l[1;19H[K[32;91H19[1;19H[?25h[?25l[1;18H[K[32;92H8[1;18H[?25h[?25l[1;17H[K[32;92H7[1;17H[?25h[?25l[95m 3[m[1;16H[K[32;92H6[1;16H[?25h[?25l[1;15H[K[32;92H5[1;15H[?25h[?25l[1;14H[K[32;92H4[1;14H[?25h[?25l[1;13H[K[32;92H3[1;13H[?25h[?25l[1;12H[K[32;92H2[1;12H[?25h[?25l[1;11H[K[32;92H1[1;11H[?25h[?25l[1;10H[K[32;92H0[1;10H[?25h[?25l [1;9H[K[32;91H9 [1;9H[?25h[?25l[32;91H8[1;8H[?25h[?25l[1;7H[K[32;91H7[1;7H[?25h[?25l[1;6H[K[32;91H6[1;6H[?25h[?25l[32;91H5[1;5H[?25h[?25l[1;4H[K[32;91H4[1;4H[?25h[?25l[1;3H[K[32;91H3[1;3H[?25h[?25l[1;2H[K[32;91H2[1;2H[?25h[?25l[1;1H[K[32;91H1[1;1H[?25h[?25l~[32;91H2[1;2H[?25h[?25lu[32;91H3[1;3H[?25h[?25lm[32;91H4[1;4H[?25h[?25lr[32;91H5[1;5H[?25h[?25li[32;91H6[1;6H[?25h[?25lg[32;91H7[1;7H[?25h[?25la[32;91H8[1;8H[?25h[?25lr[32;91H9[1;9H[?25h[32;1H[K[1;8H[?25l[32;79H^[[1;8H[32;79H  [1;9H[32;89H1,8[11CAll[1;8H[?25h[?25l[32;79Hi[1;8H[32;79H [1;8H[32;1H[1m-- INSERT --[m[32;89H[K[32;89H1,8[11CAll[1;8H[?25h[?25l[32;91H9[1;9H[?25h[?25l[1;8H[K[32;91H8[1;8H[?25h[?25l[1;7H[K[32;91H7[1;7H[?25h[?25l[1;6H[K[32;91H6[1;6H[?25h[?25l[1;5H[K[32;91H5[1;5H[?25h[?25l[1;4H[K[32;91H4[1;4H[?25h[?25l[1;3H[K[32;91H3[1;3H[?25h[?25l[1;2H[K[32;91H2[1;2H[?25h[?25l[1;1H[K[32;91H1[1;1H[?25h[32;1H[K[1;1H[?25l[32;79H^[[1;1H[32;79H  [1;1H[32;89H1,0-1[9CAll[1;1H[?25h[?25l[32;79H^[[1;1H[32;79H  [1;1H[32;79H^[[1;1H[32;79H  [1;1H[?25h[?25l[32;79Hx[1;1H[32;79H [1;1H[32;79Hdl[1;1H[32;79H  [1;1H[?25h[?25l[32;79HX[1;1H[32;79H [1;1H[32;79Hdh[1;1H[32;79H  [1;1H[?25h[?25l[32;79HX[1;1H[32;79H [1;1H[32;79Hdh[1;1H[32;79H  [1;1H[?25h[?25l[32;89H2[2;1H[?25h[?25l[32;79H^[[2;1H[32;79H  [2;1H[32;79H^[[2;1H[32;79H  [2;1H[?25h[?25l[32;79Hq[2;1H[?25h[?25l[32;80H~@k[2;1H[32;79H    [2;1H[?25h[?25l[32;79Hi[2;1H[32;79H [2;1H[32;1H[1m-- INSERT --[m[32;89H[K[32;89H2,1[11CAll[2;1H[?25h[?25l[94m~                                                                                                         [m[32;89H1[1;1H[?25h[32;1H[K[1;1H[?25l[32;79H^[[1;1H[32;79H  [1;1H[32;89H1,0-1[9CAll[1;1H[?25h[?25l[32;79Hq[1;1H[?25h[?25l[32;80H^M[1;1H[32;79H   [1;1H[?25h[?25l[32;79H:[1;1H[32;79H[K[32;1H:[?25hq[?25l[97m[41mE37: No write since last change (add ! to override)[1;1H[m[32;89H1,0-1[9CAll[1;1H[?25h[?25l[32;79H:[1;1H[32;1H[K[32;1H:[?25hx[?25l[?1006l[?1002l[?2004l[>4;m".profile" [New] 1L, 1B written]2;Terminal - ]1;Terminal - [23;2t[23;1t[22;2t[22;1t[23;2t[23;1t
+[?1004l[?2004l[?1l>[?25h[>4;m[?1049l[23;0;0t[?2004hdwalcot1@q22-16:~$ gedit ~/.p[K[K[K[K[7m ~/.profile[27m ~/.profile[1P~/.profile
+[?2004l
+(gedit:3015533): Gtk-[1;33mWARNING[0m **: [34m15:23:56.038[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~$ gedit ~/.profile[K[K[K[K[K[K[Kbashrc
+[?2004l
+(gedit:3015839): Gtk-[1;33mWARNING[0m **: [34m15:25:56.792[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~$ gedit ~/.bashrc[K[K[K[K[K[Klogin
+[?2004l
+(gedit:3016002): Gtk-[1;33mWARNING[0m **: [34m15:26:59.543[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~$ gedit ~/.login[K[K[K[K[Kcshrc
+[?2004l
+(gedit:3016107): Gtk-[1;33mWARNING[0m **: [34m15:27:26.836[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~$ gedit ~/.cshrc[K[7mcat ~/.ssh/id_rsa.pub[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccat ~/.ssh/id_rsa.pub
+[?2004lssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDKHc7PfTyHU9fG3zeXv3rZ0a7pfq7eP3m9JNy1hFgMAhEnAC6BAOMZNOoUr5OPrScRlPvk7YM+s03yAubGlRiSxnRCqirTIRab9yZbBl0Uxcb3R8PZkK2JaGWzwb0WRuCtjqH6ea58IRrbkbyvlbfKvGrP2RPfAiO4c5vRbnR5lgWjaxWeTzDQCQNbIxtpk74H0ExAgJgcC9VSPF09qMLbnY6KnrYSFdx5XSYbHlX/GxvoIQxlxYGMTG/k5k2oEU25q/vcpvXuC0u/NIz7wG3WukaLeOvtSN+KcEjEvIORC0XdjWHgVQIfc97ihc2ekWdCXYo3e5UqtHhgg+xnKbgS4FcIXK3ZWdENj/JAAQBaMwiAewpGvJ6Yc3n/nZ15+1WQ19jyf5WU4mBlHhckzUZ2uRC1t+lPrK3XM8+stDS7ssbO0PIGzdseEOCjrU1cKZKPcNysZpPP5RZ916tjFcJTaKPJr0IGSwY23Ct6zzF35pJkVGSQWyLWVfemUHFTBjM= dwalcot1@q22-16
+[?2004hdwalcot1@q22-16:~$ [7mmkdir -p ~/projects[27mmkdir -p ~/projects
+[?2004l[?2004hdwalcot1@q22-16:~$ cd ~/projects/[K
+[?2004l[?2004hdwalcot1@q22-16:~/projects$ git clone ^[[200~https://github.com/DestinyW/i471a.git~[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K [7mhttps://github.com/DestinyW/i471a.git[27mhttps://github.com/DestinyW/i471a.git
+[?2004lCloning into 'i471a'...
+Username for 'https://github.com': DestinyW        
+Password for 'https://github.com': 
+remote: Repository not found.
+fatal: Authentication failed for 'https://github.com/DestinyW/i471a.git/'
+[?2004hdwalcot1@q22-16:~/projects$ git clone [7mgit@github.com:DestinyW/i471a.git[27mgit@github.com:DestinyW/i471a.git
+[?2004lCloning into 'i471a'...
+remote: Enumerating objects: 4, done.[K
+remote
