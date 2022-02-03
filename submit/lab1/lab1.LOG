@@ -1,0 +1,218 @@
+Script started on 2022-02-03 14:25:39-05:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="190" LINES="50"]
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1$ cd exercises/regex/
+data.txt         lex1.mjs         lexer.mjs        table-lexer.mjs  
+dwalcot1@q22-13:~/i471a/submit/lab1$ cd exercises/regex/
+[?2004l[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/regex$ ./lexer.mjs 
+[?2004lusage: lexer.mjs RE_TABLE_FILE INPUT_FILE
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/regex$ ./lexer.mjs table-lexer.mjs data.txt 
+[?2004lTypeError: Cannot convert undefined or null to object
+    at Function.entries (<anonymous>)
+    at Lexer._nextToken (file:///home/dwalcot1/projects/i471a/submit/lab1/exercises/regex/table-lexer.mjs:35:16)
+    at Lexer.scan (file:///home/dwalcot1/projects/i471a/submit/lab1/exercises/regex/table-lexer.mjs:9:26)
+    at main (file:///home/dwalcot1/projects/i471a/submit/lab1/exercises/regex/lexer.mjs:22:29)
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/regex$ ./lexer.mjs lex1.mjs data.txt 
+[?2004lToken { kind: [32m'INT'[39m, lexeme: [32m'21'[39m }
+Token { kind: [32m'INT'[39m, lexeme: [32m'23'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m'A'[39m }
+Token { kind: [32m'INT'[39m, lexeme: [32m'34'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m'_'[39m }
+Token { kind: [32m'INT'[39m, lexeme: [32m'22'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m'I'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m'D'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m'_'[39m }
+Token { kind: [32m'INT'[39m, lexeme: [32m'44'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m'/'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m'/'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m'a'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m's'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m'd'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m's'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m'd'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m'f'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m's'[39m }
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/regex$ ls
+[?2004ldata.txt  lex1.mjs  lexer.mjs  table-lexer.mjs
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/regex$ cp lex1.mjs lex2[K1.mjs [1@=[1@2[1P[1P[1P[1@2
+[?2004l[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/regex$ ls
+[?2004ldata.txt  lex1.mjs  lex2.mjs  lexer.mjs  table-lexer.mjs
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/regex$ gedit lex2.mjs 
+[?2004l
+(gedit:51545): Gtk-[1;33mWARNING[0m **: [34m14:31:29.925[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/regex$ gedit lex2.mjs ls[Kcp lex1.mjs lex2.mjs ls[K./lexer.mjs lex1.mjs data.txt [1P[1@2
+[?2004lToken { kind: [32m'INT'[39m, lexeme: [32m'21'[39m }
+Token { kind: [32m'INT'[39m, lexeme: [32m'23'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m'A'[39m }
+Token { kind: [32m'INT'[39m, lexeme: [32m'34'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m'_'[39m }
+Token { kind: [32m'INT'[39m, lexeme: [32m'22'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m'I'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m'D'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m'_'[39m }
+Token { kind: [32m'INT'[39m, lexeme: [32m'44'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m'/'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m'/'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m'a'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m's'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m'd'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m's'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m'd'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m'f'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m's'[39m }
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/regex$ cat data.txt 
+[?2004l   21  23
+   A34  _22  ID_44
+   // asd sdfs
+   
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/regex$ cat data.txt [17@./lexer.mjs lex2.mjs[C[C[C[C[C[C[C[C[C[C[15Pgedit lex2.mjs[C[15@./lexer.mjs lex2.mjs data.txt[C[15Pgedit lex2.mjs[C
+[?2004l
+(gedit:51697): Gtk-[1;33mWARNING[0m **: [34m14:38:12.977[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/regex$ gedit lex2.mjs [2Pcat data.txt[C[17@./lexer.mjs lex2.mjs[C[C[C[C[C[C[C[C[C[C
+[?2004lToken { kind: [32m'INT'[39m, lexeme: [32m'21'[39m }
+Token { kind: [32m'INT'[39m, lexeme: [32m'23'[39m }
+Token { kind: [32m'ID'[39m, lexeme: [32m'A34'[39m }
+Token { kind: [32m'ID'[39m, lexeme: [32m'_22'[39m }
+Token { kind: [32m'ID'[39m, lexeme: [32m'ID_44'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m'/'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m'/'[39m }
+Token { kind: [32m'ID'[39m, lexeme: [32m'asd'[39m }
+Token { kind: [32m'ID'[39m, lexeme: [32m'sdfs'[39m }
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/regex$ ./lexer.mjs lex2.mjs data.txt [15Pgedit lex2.mjs[C[2Pcat data.txt[C[17@./lexer.mjs lex2.mjs[C[C[C[C[C[C[C[C[C[C[15Pgedit lex2.mjs[Cls[Kcp lex1.mjs lex2.mjs [C[C[1P[1@3[C[C[C[1P[1@2
+[?2004l[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/regex$ cp lex2.mjs lex3.mjs [9@./lexer.mjs lex2.mjs data.txt[C[15Pgedit lex2.mjs[C[1P[1@3
+[?2004l
+(gedit:51965): Gtk-[1;33mWARNING[0m **: [34m14:43:13.849[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/regex$ gedit lex3.mjs [6@cp lex2.mjs[C[C[C[C[C[C[C[C[C[C[9@./lexer.mjs lex2.mjs data.txt[C[1P[1@3
+[?2004lToken { kind: [32m'CHAR'[39m, lexeme: [32m' '[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m' '[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m' '[39m }
+Token { kind: [32m'INT'[39m, lexeme: [32m'21'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m' '[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m' '[39m }
+Token { kind: [32m'INT'[39m, lexeme: [32m'23'[39m }
+Token { kind: [32m'$err'[39m, lexeme: [32m'\n'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m' '[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m' '[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m' '[39m }
+Token { kind: [32m'ID'[39m, lexeme: [32m'A34'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m' '[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m' '[39m }
+Token { kind: [32m'ID'[39m, lexeme: [32m'_22'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m' '[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m' '[39m }
+Token { kind: [32m'ID'[39m, lexeme: [32m'ID_44'[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m' '[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m' '[39m }
+Token { kind: [32m'CHAR'[39m, lexeme: [32m' '[39m }
+Token { kind: [32m'$err'[39m, lexeme: [32m'\n'[39m }
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/regex$ ./lexer.mjs lex3.mjs data.txt [15Pgedit lex3.mjs[C
+[?2004l
+(gedit:52039): Gtk-[1;33mWARNING[0m **: [34m14:44:49.656[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/regex$ gedit lex3.mjs [15@./lexer.mjs lex3.mjs data.txt[C
+[?2004lToken { kind: [32m'INT'[39m, lexeme: [32m'21'[39m }
+Token { kind: [32m'INT'[39m, lexeme: [32m'23'[39m }
+Token { kind: [32m'ID'[39m, lexeme: [32m'A34'[39m }
+Token { kind: [32m'ID'[39m, lexeme: [32m'_22'[39m }
+Token { kind: [32m'ID'[39m, lexeme: [32m'ID_44'[39m }
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/regex$ [Kdwalcot1@q22-13:~/i471a/submit/lab1/exercises/regex$ ./lexer.mjs lex3.mjs data.txt [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kdwalcot1@q22-13:~/i471a/submit/lab1/exercises/regex$ [Kdwalcot1@q22-13:~/i471a/submit/lab1/exercises/regex$ [Kdwalcot1@q22-13:~/i471a/submit/lab1/exercises/regex$ [Kdwalcot1@q22-13:~/i471a/submit/lab1/exercises/regex$ [Kdwalcot1@q22-13:~/i471a/submit/lab1/exercises/regex$ cd [7m ~/i471?/submit/lab1/exercises/lexer[27m ~/i471?/submit/lab1/exercises/lexer[1P/submit/lab1/exercises/lexera/submit/lab1/exercises/lexer
+[?2004l[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/lexer$ ./lexer.mjs 
+[?2004lusage: lexer.mjs INPUT_FILE
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/lexer$ ./lexer.mjs data.txt 
+[?2004lToken { kind: [32m'INT'[39m, lexeme: [32m'21'[39m }
+Token { kind: [32m'INT'[39m, lexeme: [32m'23'[39m }
+Token { kind: [32m'A'[39m, lexeme: [32m'A'[39m }
+Token { kind: [32m'INT'[39m, lexeme: [32m'34'[39m }
+Token { kind: [32m'_'[39m, lexeme: [32m'_'[39m }
+Token { kind: [32m'INT'[39m, lexeme: [32m'22'[39m }
+Token { kind: [32m'I'[39m, lexeme: [32m'I'[39m }
+Token { kind: [32m'D'[39m, lexeme: [32m'D'[39m }
+Token { kind: [32m'_'[39m, lexeme: [32m'_'[39m }
+Token { kind: [32m'INT'[39m, lexeme: [32m'44'[39m }
+Token { kind: [32m'/'[39m, lexeme: [32m'/'[39m }
+Token { kind: [32m'/'[39m, lexeme: [32m'/'[39m }
+Token { kind: [32m'a'[39m, lexeme: [32m'a'[39m }
+Token { kind: [32m's'[39m, lexeme: [32m's'[39m }
+Token { kind: [32m'd'[39m, lexeme: [32m'd'[39m }
+Token { kind: [32m's'[39m, lexeme: [32m's'[39m }
+Token { kind: [32m'd'[39m, lexeme: [32m'd'[39m }
+Token { kind: [32m'f'[39m, lexeme: [32m'f'[39m }
+Token { kind: [32m's'[39m, lexeme: [32m's'[39m }
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/lexer$ [Kdwalcot1@q22-13:~/i471a/submit/lab1/exercises/lexer$ [Kdwalcot1@q22-13:~/i471a/submit/lab1/exercises/lexer$ [Kdwalcot1@q22-13:~/i471a/submit/lab1/exercises/lexer$ [Kdwalcot1@q22-13:~/i471a/submit/lab1/exercises/lexer$ [Kdwalcot1@q22-13:~/i471a/submit/lab1/exercises/lexer$ [Kdwalcot1@q22-13:~/i471a/submit/lab1/exercises/lexer$ cat data.txt 
+[?2004l   21  23
+   A34  _22  ID_44
+   // asd sdfs
+   
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/lexer$ cat data.txt [Kgedit a[K[K[K[K[K[K[Kgedit lexer.mjs 
+[?2004l
+(gedit:52292): Gtk-[1;33mWARNING[0m **: [34m14:57:00.772[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/lexer$ gedit lexer.mjs [3Pcat data.txt[C[8@./lexer.mjs[C[C[C[C[C[C[C[C[C[C
+[?2004lToken { kind: [32m'ID'[39m, lexeme: [32m'sdfs'[39m }
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/lexer$ ./lexer.mjs data.txt [5Pgedit lexer.mjs[C[3Pcat data.txt[C[3@gedit lexer.mjs[C
+[?2004l[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/lexer$ cs[Kat ../
+01/        02/        exercises  lexer/     regex/     
+dwalcot1@q22-13:~/i471a/submit/lab1/exercises/lexer$ cat ../regex/
+data.txt         lex2.mjs         lexer.mjs        
+lex1.mjs         lex3.mjs         table-lexer.mjs  
+dwalcot1@q22-13:~/i471a/submit/lab1/exercises/lexer$ cat ../regex/lex3.mjs 
+[?2004lexport default {
+  $Ignore: /\s+|\/\/.*[^.]/,  //this will be ignored.
+  INT: /\d+/,      //token with kind INT  
+  ID: /[_a-zA-Z][_a-zA-Z0-9]*/,      
+  CHAR: /./,       //single char: must be last; 
+  				  // /./ is a regex which matches any char other than '\n'
+
+};
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/lexer$ cat ../regex/lex3.mjs [6Pgedit lexer[C[C[C[C[C
+[?2004l
+(gedit:52445): Gtk-[1;33mWARNING[0m **: [34m15:02:02.425[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/lexer$ gedit lexer.mjs [6@cat ../regex/lex3[C[C[C[C[C[6Pgedit lexer[C[C[C[C[C[5@./lexer.mjs data.txt[C
+[?2004lToken { kind: [32m'INT'[39m, lexeme: [32m'21'[39m }
+Token { kind: [32m'INT'[39m, lexeme: [32m'23'[39m }
+Token { kind: [32m'ID'[39m, lexeme: [32m'A34'[39m }
+Token { kind: [32m'ID'[39m, lexeme: [32m'_22'[39m }
+Token { kind: [32m'ID'[39m, lexeme: [32m'ID_44'[39m }
+Token { kind: [32m'ID'[39m, lexeme: [32m'asd'[39m }
+Token { kind: [32m'ID'[39m, lexeme: [32m'asd'[39m }
+Token { kind: [32m'ID'[39m, lexeme: [32m'sdfs'[39m }
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/lexer$ ./lexer.mjs data.txt [5Pgedit lexer.mjs[C
+[?2004l
+(gedit:52476): Gtk-[1;33mWARNING[0m **: [34m15:02:35.747[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/lexer$ gedit lexer.mjs [5@./lexer.mjs data.txt[C
+[?2004lToken { kind: [32m'ID'[39m, lexeme: [32m'sdfs'[39m }
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/lexer$ ./lexer.mjs data.txt [5Pgedit lexer.mjs[C[5@./lexer.mjs data.txt[C[K./lexer.mjs data.txt [5Pgedit lexer.mjs[C
+[?2004l
+(gedit:52519): Gtk-[1;33mWARNING[0m **: [34m15:05:53.992[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/lexer$ gedit lexer.mjs [5@./lexer.mjs data.txt[C
+[?2004lToken { kind: [32m'$Ignore'[39m, lexeme: [32m'// asd sdfs\n'[39m }
+Token { kind: [32m'$Ignore'[39m, lexeme: [32m'// asd sdfs\n'[39m }
+Token { kind: [32m'$Ignore'[39m, lexeme: [32m'// asd sdfs\n'[39m }
+Token { kind: [32m'ID'[39m, lexeme: [32m'sdfs'[39m }
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/lexer$ ./lexer.mjs data.txt [5Pgedit lexer.mjs[C
+[?2004l
+(gedit:52640): Gtk-[1;33mWARNING[0m **: [34m15:06:53.711[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/lexer$ gedit lexer.mjs [5@./lexer.mjs data.txt[C
+[?2004l[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/lexer$ ./lexer.mjs data.txt [5Pgedit lexer.mjs[C[5@./lexer.mjs data.txt[C
+[?2004l[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/lexer$ ./lexer.mjs data.txt [5Pgedit lexer.mjs[C[5@./lexer.mjs data.txt[C[5Pgedit lexer.mjs[C
+[?2004l
+(gedit:52683): Gtk-[1;33mWARNING[0m **: [34m15:07:37.511[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/lexer$ gedit lexer.mjs [5@./lexer.mjs data.txt[C
+[?2004lToken { kind: [32m'ID'[39m, lexeme: [32m'sd'[39m }
+Token { kind: [32m'ID'[39m, lexeme: [32m'sdfs'[39m }
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/lexer$ ./lexer.mjs data.txt [5Pgedit lexer.mjs[C[5@./lexer.mjs data.txt[C[5Pgedit lexer.mjs[C[5@./lexer.mjs data.txt[C[5Pgedit lexer.mjs[C
+[?2004l
+(gedit:52725): Gtk-[1;33mWARNING[0m **: [34m15:08:35.833[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/lexer$ gedit lexer.mjs [5@./lexer.mjs data.txt[C
+[?2004lToken { kind: [32m'ID'[39m, lexeme: [32m'sdfs'[39m }
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/lexer$ ./lexer.mjs data.txt [5Pgedit lexer.mjs[C
+[?2004l
+(gedit:52829): Gtk-[1;33mWARNING[0m **: [34m15:10:56.287[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/lexer$ gedit lexer.mjs [5@./lexer.mjs data.txt[C
+[?2004lToken { kind: [32m'INT'[39m, lexeme: [32m'21'[39m }
+Token { kind: [32m'INT'[39m, lexeme: [32m'23'[39m }
+Token { kind: [32m'ID'[39m, lexeme: [32m'A34'[39m }
+Token { kind: [32m'ID'[39m, lexeme: [32m'_22'[39m }
+Token { kind: [32m'ID'[39m, lexeme: [32m'ID_44'[39m }
+[?2004hdwalcot1@q22-13:~/i471a/submit/lab1/exercises/lexer$ [7mcd ~/i471?/submit/labN[27mcd ~/i471?/submit/labN[K1[1P/submit/lab1a/submit/lab1
+[?2004l[?2004hdwalcot1@q22-13:~/i471a/submit/lab1$ [?2004l
+exit
+
+Script done on 2022-02-03 15:12:39-05:00 [COMMAND_EXIT_CODE="0"]

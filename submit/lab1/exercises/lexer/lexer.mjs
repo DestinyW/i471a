@@ -13,8 +13,14 @@ function scan(text) {
     if ((m = text.match(/^\s+/))) {
       //empty statement to ignore token
     }
+    else if ((m = text.match(/^\/\/.*[^.]/))) {
+      // ignore token
+    }
     else if ((m = text.match(/^\d+/))) {
       tokens.push(new Token('INT', m[0]));
+    }
+    else if ((m = text.match(/^[_a-zA-Z][_a-zA-Z0-9]*/))) {
+    	tokens.push(new Token('ID', m[0]));
     }
     else {
       m = text.match(/^./);
