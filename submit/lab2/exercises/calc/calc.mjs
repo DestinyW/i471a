@@ -65,14 +65,19 @@ function parse(text) {
     return t;
   }
 
-  function term() {
-    if (check('-')) {
+  function term() {	
+  	if (check('-')) {
       match('-');
       return - term();
-    }
-    else {
-      return factor();
-    }
+    } else {
+      let f = factor();
+      while (check('**')) {
+        match('**');   
+        const t1 = term();
+        f **= t1;
+      }
+      return f;
+	}
   }
 
   function factor() {
@@ -99,8 +104,9 @@ function scan(text) {
     }
     else if ((m = text.match(/^\d+/))) {
       tokens.push(new Token('INT', m[0]));
-    }
-    else {
+    } else if ((m = text.match(/^\*\*/))) {
+      tokens.push(new Token('**', m[0]));
+    } else {
       m = text.match(/^./);
       tokens.push(new Token(m[0], m[0]));
     }

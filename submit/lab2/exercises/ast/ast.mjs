@@ -71,7 +71,13 @@ function parse(text) {
       return new Ast('-', term());
     }
     else {
-      return factor();
+      let f = factor();
+      while (check('**')) {
+      	match('**');  
+        const f1 = term();
+        f = new Ast('**', f, f1);
+      }
+      return f;
     }
   }
 
@@ -101,8 +107,9 @@ function scan(text) {
     }
     else if ((m = text.match(/^\d+/))) {
       tokens.push(new Token('INT', m[0]));
-    }
-    else {
+    } else if ((m = text.match(/^\*\*/))) {
+      tokens.push(new Token('**', m[0]));
+    } else {
       m = text.match(/^./);
       tokens.push(new Token(m[0], m[0]));
     }

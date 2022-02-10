@@ -1,0 +1,741 @@
+Script started on 2022-02-10 14:32:40-05:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="80" LINES="24"]
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2$ cd [7mexercises/calc [27mexercises/calc 
+[?2004l[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ls
+[?2004lcalc.mjs  calc.py  data.txt  expn-data.txt
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ cat calc.mjs 
+[?2004l#!/usr/bin/env node
+
+import fs from 'fs';
+import Path from 'path';
+
+
+/* 
+program
+  : expr ';' program
+  | #empty
+  ;
+expr
+  : term ( ( '+' | '-' ) term )*
+  ;
+term
+  : '-' term
+  | factor
+  ;
+factor
+  : INT
+  | '(' expr ')'
+  ;
+*/
+
+function parse(text) {
+  const tokens = scan(text);
+  let index = 0;
+  let lookahead = nextToken();
+  const value = program();
+  return value;
+  
+  function check(kind) { return lookahead.kind === kind; }
+  function match(kind) {
+    if (check(kind)) {
+      lookahead = nextToken();
+    }
+    else {
+      console.error(`expecting ${kind} at ${lookahead.kind}`);
+      process.exit();
+    }
+  }
+  function nextToken() {
+    return (
+      (index >=  tokens.length) ? new Token('EOF', '<EOF>') : tokens[index++]
+    );
+  }
+
+  function program() {
+    const values = [];
+    while (!check('EOF')) {
+      values.push(expr());
+      match(';');
+    }
+    return values;
+  }
+
+  function expr() {
+    let t = term();
+    while (check('+') || check('-')) {
+      const kind = lookahead.kind;
+      match(kind);   
+      const t1 = term();
+      t += (kind === '+') ? t1 : -t1;
+    }
+    return t;
+  }
+
+  function term() {
+    if (check('-')) {
+      match('-');
+      return - term();
+    }
+    else {
+      return factor();
+    }
+  }
+
+  function factor() {
+    if (check('INT')) {
+      const value = parseInt(lookahead.lexeme);
+      match('INT');
+      return value;
+    }
+    else {
+      match('(');
+      const value = expr();
+      match(')');
+      return value;
+    }
+  }
+}
+
+
+function scan(text) {
+  const tokens = [];
+  while (text.length > 0) {
+    let m;
+    if ((m = text.match(/^\s+/))) {
+    }
+    else if ((m = text.match(/^\d+/))) {
+      tokens.push(new Token('INT', m[0]));
+    }
+    else {
+      m = text.match(/^./);
+      tokens.push(new Token(m[0], m[0]));
+    }
+    text = text.substring(m[0].length);
+  }
+  return tokens;
+}
+
+
+const CHAR_SET = 'utf8';
+function main() {
+  if (process.argv.length !== 3) usage();
+  const file = process.argv[2];
+  const text = fs.readFileSync(file === '-' ? 0 : file, CHAR_SET);
+  const value = parse(text);
+  console.log(value);
+}
+
+function usage() {
+  const prog = Path.basename(process.argv[1])
+  console.error(`usage: ${prog} INPUT_FILE`);
+  process.exit(1);
+}
+
+class Token {
+  constructor(kind, lexeme) {
+    Object.assign(this, {kind, lexeme});
+  }
+}
+
+main();
+
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ cat data.txt 
+[?2004l1 + 2 - 3;
+
+--2 - (3 - 4);
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs data.txt 
+[?2004l[ [33m0[39m, [33m3[39m ]
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs data.txt [K[K[K[K[K[K[K[K[Kexpn-data.txt 
+[?2004lexpecting ; at *
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs 
+[?2004l[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [K[K[K[Kpy 
+[?2004l[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ls
+[?2004lcalc.mjs  calc.py  data.txt  expn-data.txt
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ lsgedit calc.py [1@mjs[C
+[?2004l
+(gedit:193333): Gtk-[1;33mWARNING[0m **: [34m14:42:34.309[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs ls[Kgedit calc.py [1@mjs[C[10@./calc.mjs expn-data.txt[C
+[?2004lfile:///home/dwalcot1/projects/i471a/submit/lab2/exercises/calc/calc.mjs:71
+  	  return ** term();
+  	         ^^
+
+SyntaxError: Unexpected token '**'
+[90m    at Loader.moduleStrategy (node:internal/modules/esm/translators:147:18)[39m
+[90m    at async link (node:internal/modules/esm/module_job:48:21)[39m
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:195172): Gtk-[1;33mWARNING[0m **: [34m14:51:23.187[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004lfile:///home/dwalcot1/projects/i471a/submit/lab2/exercises/calc/calc.mjs:71
+  	  return term() **;
+  	                  ^
+
+SyntaxError: Unexpected token ';'
+[90m    at Loader.moduleStrategy (node:internal/modules/esm/translators:147:18)[39m
+[90m    at async link (node:internal/modules/esm/module_job:48:21)[39m
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:196204): Gtk-[1;33mWARNING[0m **: [34m15:02:35.081[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004lexpecting ; at **
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:197171): Gtk-[1;33mWARNING[0m **: [34m15:03:04.717[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004lfile:///home/dwalcot1/projects/i471a/submit/lab2/exercises/calc/calc.mjs:74
+      int f = factor();
+          ^
+
+SyntaxError: Unexpected identifier
+[90m    at Loader.moduleStrategy (node:internal/modules/esm/translators:147:18)[39m
+[90m    at async link (node:internal/modules/esm/module_job:48:21)[39m
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:198486): Gtk-[1;33mWARNING[0m **: [34m15:11:39.559[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004l[ [33m-64[39m, [33m9[39m, [33m-7[39m ]
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:198601): Gtk-[1;33mWARNING[0m **: [34m15:17:39.824[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004lexpecting ( at **
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ cat expn-data.txt 
+[?2004l-2 ** 2 ** 3 ;
+1 + 2**(1 + 2) ;
+1 + -2**(1 + 2) ;
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ cat expn-data.txt [7@./calc.mjs[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[10Pgedit calc.mjs[C
+[?2004l
+(gedit:200911): Gtk-[1;33mWARNING[0m **: [34m15:28:22.299[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [3@cat expn-data.txt[C[3Pgedit calc.mjs[C[3@cat expn-data.txt[C[7@./calc.mjs[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[?2004l[]
+expecting ; at **
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:201086): Gtk-[1;33mWARNING[0m **: [34m15:29:35.070[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004l[]
+expecting ; at **
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C[10@./calc.mjs expn-data.txt[C[10Pgedit calc.mjs[C[10@./calc.mjs expn-data.txt[C[10Pgedit calc.mjs[C
+[?2004l
+(gedit:201218): Gtk-[1;33mWARNING[0m **: [34m15:30:16.609[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004l[]
+expecting ; at **
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:201301): Gtk-[1;33mWARNING[0m **: [34m15:30:48.117[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004l[]
+expecting ; at **
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:201393): Gtk-[1;33mWARNING[0m **: [34m15:31:16.908[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004l[]
+expecting ; at **
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:201471): Gtk-[1;33mWARNING[0m **: [34m15:31:43.479[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004l[]
+expecting ; at **
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:201663): Gtk-[1;33mWARNING[0m **: [34m15:33:00.366[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004l[]
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+[ [33m-64[39m, [33m9[39m, [33m-7[39m ]
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:201745): Gtk-[1;33mWARNING[0m **: [34m15:33:37.972[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004l[]
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+[ [33m-64[39m, [33m9[39m, [33m-7[39m ]
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:201855): Gtk-[1;33mWARNING[0m **: [34m15:34:12.730[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004l[]
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+[ [33m-64[39m, [33m9[39m, [33m-7[39m ]
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:201933): Gtk-[1;33mWARNING[0m **: [34m15:34:33.548[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004l[]
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+[ [33m-64[39m, [33m9[39m, [33m-7[39m ]
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:201990): Gtk-[1;33mWARNING[0m **: [34m15:34:52.058[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004l[]
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+[ [33m-64[39m, [33m9[39m, [33m-7[39m ]
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:202047): Gtk-[1;33mWARNING[0m **: [34m15:35:12.355[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004l[]
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+[ [33m-64[39m, [33m9[39m, [33m-7[39m ]
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:202279): Gtk-[1;33mWARNING[0m **: [34m15:36:52.305[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004l[]
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+[ [33m-64[39m, [33m9[39m, [33m-7[39m ]
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:202351): Gtk-[1;33mWARNING[0m **: [34m15:37:58.355[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004l[]
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+[]
+[ [33m-64[39m, [33m9[39m, [33m-7[39m ]
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:202526): Gtk-[1;33mWARNING[0m **: [34m15:38:34.065[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004lfile:///home/dwalcot1/projects/i471a/submit/lab2/exercises/calc/calc.mjs:80
+        if (kind === '**') f **= f1 : f1;
+                                    ^
+
+SyntaxError: Unexpected token ':'
+[90m    at Loader.moduleStrategy (node:internal/modules/esm/translators:147:18)[39m
+[90m    at async link (node:internal/modules/esm/module_job:48:21)[39m
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:203520): Gtk-[1;33mWARNING[0m **: [34m15:45:17.648[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004l[ [33m-64[39m, [33m9[39m, [33m-7[39m ]
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:203588): Gtk-[1;33mWARNING[0m **: [34m15:46:47.254[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004lexpecting ; at **
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:203796): Gtk-[1;33mWARNING[0m **: [34m15:47:45.510[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004l[ [33m-64[39m, [33m9[39m, [33m-7[39m ]
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ cat expn-data.txt 
+[?2004l-2 ** 2 ** 3 ;
+1 + 2**(1 + 2) ;
+1 + -2**(1 + 2) ;
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ cat expn-data.txt [3Pgedit calc.mjs[C
+[?2004l
+(gedit:204139): Gtk-[1;33mWARNING[0m **: [34m15:49:50.051[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [3@cat expn-data.txt[C[3Pgedit calc.mjs[C[10@./calc.mjs expn-data.txt[C[10Pgedit calc.mjs[C[10@./calc.mjs expn-data.txt[C
+[?2004lexpecting ( at ;
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:204496): Gtk-[1;33mWARNING[0m **: [34m15:52:04.998[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004lexpecting ; at **
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:204682): Gtk-[1;33mWARNING[0m **: [34m15:53:49.768[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004lexpecting ; at **
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:204887): Gtk-[1;33mWARNING[0m **: [34m15:54:37.461[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004lexpecting ; at **
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:205001): Gtk-[1;33mWARNING[0m **: [34m15:55:24.924[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004lfile:///home/dwalcot1/projects/i471a/submit/lab2/exercises/calc/calc.mjs:74
+      while () {
+             ^
+
+SyntaxError: Unexpected token ')'
+[90m    at Loader.moduleStrategy (node:internal/modules/esm/translators:147:18)[39m
+[90m    at async link (node:internal/modules/esm/module_job:48:21)[39m
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:205453): Gtk-[1;33mWARNING[0m **: [34m15:58:43.895[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004lexpecting ; at **
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:205537): Gtk-[1;33mWARNING[0m **: [34m15:59:03.432[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004lexpecting ; at **
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:205626): Gtk-[1;33mWARNING[0m **: [34m15:59:30.533[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004lexpecting ; at **
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:205674): Gtk-[1;33mWARNING[0m **: [34m15:59:42.726[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004lexpecting ; at **
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:205725): Gtk-[1;33mWARNING[0m **: [34m15:59:59.597[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004lexpecting ; at **
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:205943): Gtk-[1;33mWARNING[0m **: [34m16:01:30.812[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004lexpecting ; at **
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:206011): Gtk-[1;33mWARNING[0m **: [34m16:01:50.444[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004lexpecting ; at **
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:206054): Gtk-[1;33mWARNING[0m **: [34m16:02:05.690[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004lexpecting ; at INT
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:206179): Gtk-[1;33mWARNING[0m **: [34m16:02:55.524[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs 
+[?2004l
+(gedit:206222): Gtk-[1;33mWARNING[0m **: [34m16:03:05.792[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004l[ [33m-64[39m, [33m9[39m, [33m-7[39m ]
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:206290): Gtk-[1;33mWARNING[0m **: [34m16:03:30.649[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004lexpecting ; at **
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:206359): Gtk-[1;33mWARNING[0m **: [34m16:04:24.187[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004lexpecting ; at INT
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:206633): Gtk-[1;33mWARNING[0m **: [34m16:05:44.723[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004lexpecting ; at **
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:206689): Gtk-[1;33mWARNING[0m **: [34m16:06:20.337[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004lexpecting ; at **
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l
+(gedit:206881): Gtk-[1;33mWARNING[0m **: [34m16:07:23.648[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ gedit calc.mjs [10@./calc.mjs expn-data.txt[C
+[?2004l[ [33m-256[39m, [33m9[39m, [33m-7[39m ]
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ ./calc.mjs expn-data.txt [10Pgedit calc.mjs[C
+[?2004l[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ cd [7m~/i471?/submit/lab2/exercises/ast[27m~/i471?/submit/lab2/exercises/ast[1P/submit/lab2/exercises/asta/submit/lab2/exercises/ast
+[?2004l[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ ls
+[?2004last.mjs  ast.py  data.json  data.txt  expn-data.json  expn-data.txt
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ as
+as                  asan_symbolize-3.5  aseqdump            aspell              astyle
+asan_symbolize      asciitopgm          aseqnet             aspell-import       asy
+asan_symbolize-11   ascii-xfr           asn1_compiler       assistant           
+dwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ as[K[Kls
+[?2004last.mjs  ast.py  data.json  data.txt  expn-data.json  expn-data.txt
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ ast.mjs [K[K[K[K[K[K[K[K./ast.mjs data.txt 
+[?2004l[{"tag":"-","xkids":[{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"INT","xkids":[],"value":2}]},{"tag":"INT","xkids":[],"value":3}]},{"tag":"-","xkids":[{"tag":"-","xkids":[{"tag":"-","xkids":[{"tag":"INT","xkids":[],"value":2}]}]},{"tag":"-","xkids":[{"tag":"INT","xkids":[],"value":3},{"tag":"INT","xkids":[],"value":4}]}]}]
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ ./ast.mjs data.txt [K[K[K[K[K[K[K[K[Kexpn-data.txt 
+[?2004lexpecting ; at *
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ ./ast.mjs expn-data.txt [5P[C[C[C[C[C[C[C[C[C[5@expn-[C[C[C[C[C[C[C[C[C[Kgedit ast.mjs 
+[?2004l[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ gedit ast.mjs [10@./ast.mjs expn-data.txt[C[5P[C[C[C[C[C[C[C[C[Cls[K./ast.mjs data.txt [K[K[K[K[K.json 
+[?2004lexpecting ( at [
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ ./ast.mjs data.json [6Pgedit ast.mjs[C[10@./ast.mjs expn-data.txt[C[10Pgedit ast.mjs[C
+[?2004l
+(gedit:208215): Gtk-[1;33mWARNING[0m **: [34m16:18:13.074[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ gedit ast.mjs [Kcd [7m~/i471?/submit/lab2/exercises/calc [27m~/i471?/submit/lab2/exercises/calc [C[C[1P[1@a
+[?2004l[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ cat calc.mjs 
+[?2004l#!/usr/bin/env node
+
+import fs from 'fs';
+import Path from 'path';
+
+
+/* 
+program
+  : expr ';' program
+  | #empty
+  ;
+expr
+  : term ( ( '+' | '-' ) term )*
+  ;
+term
+  : '-' term
+  | factor
+  ;
+factor
+  : INT
+  | '(' expr ')'
+  ;
+*/
+
+function parse(text) {
+  const tokens = scan(text);
+  let index = 0;
+  let lookahead = nextToken();
+  const value = program();
+  return value;
+  
+  function check(kind) { return lookahead.kind === kind; }
+  function match(kind) {
+    if (check(kind)) {
+      lookahead = nextToken();
+    }
+    else {
+      console.error(`expecting ${kind} at ${lookahead.kind}`);
+      process.exit();
+    }
+  }
+  function nextToken() {
+    return (
+      (index >=  tokens.length) ? new Token('EOF', '<EOF>') : tokens[index++]
+    );
+  }
+
+  function program() {
+    const values = [];
+    while (!check('EOF')) {
+      values.push(expr());
+      match(';');
+    }
+    return values;
+  }
+
+  function expr() {
+    let t = term();
+    while (check('+') || check('-')) {
+      const kind = lookahead.kind;
+      match(kind);   
+      const t1 = term();
+      t += (kind === '+') ? t1 : -t1;
+    }
+    return t;
+  }
+
+  function term() {	
+  	if (check('-')) {
+      match('-');
+      return - term();
+    } else {
+      let f = factor();
+      while (check('**')) {
+        match('**');   
+        const t1 = term();
+        f **= t1;
+      }
+      return f;
+	}
+  }
+
+  function factor() {
+    if (check('INT')) {
+      const value = parseInt(lookahead.lexeme);
+      match('INT');
+      return value;
+    }
+    else {
+      match('(');
+      const value = expr();
+      match(')');
+      return value;
+    }
+  }
+}
+
+
+function scan(text) {
+  const tokens = [];
+  while (text.length > 0) {
+    let m;
+    if ((m = text.match(/^\s+/))) {
+    }
+    else if ((m = text.match(/^\d+/))) {
+      tokens.push(new Token('INT', m[0]));
+    } else if ((m = text.match(/^\*\*/))) {
+      tokens.push(new Token('**', m[0]));
+    } else {
+      m = text.match(/^./);
+      tokens.push(new Token(m[0], m[0]));
+    }
+    text = text.substring(m[0].length);
+  }
+  return tokens;
+}
+
+
+const CHAR_SET = 'utf8';
+function main() {
+  if (process.argv.length !== 3) usage();
+  const file = process.argv[2];
+  const text = fs.readFileSync(file === '-' ? 0 : file, CHAR_SET);
+  const value = parse(text);
+  console.log(value);
+}
+
+function usage() {
+  const prog = Path.basename(process.argv[1])
+  console.error(`usage: ${prog} INPUT_FILE`);
+  process.exit(1);
+}
+
+class Token {
+  constructor(kind, lexeme) {
+    Object.assign(this, {kind, lexeme});
+  }
+}
+
+main();
+
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/calc$ cat calc.mjs [25@d ~/i471a/submit/lab2/exercises/calc[Cat calc.mjs [K[25@d ~/i471a/submit/lab2/exercises/calc[C[24Pgedit ast.mjs[C[6@./ast.mjs data.json[C[6Pgedit ast.mjs[C[10@./ast.mjs expn-data.txt[C[5P[C[C[C[C[C[C[C[C[Cls[Kcd ~/i471a/submit/lab2/exercises/ast[21Pgedit calc.mjs cd ~/i471a/submit/lab2/exercises/ast
+[?2004l[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ cd ~/i471a/submit/lab2/exercises/ast[23Pat calc.mjs [25@d ~/i471a/submit/lab2/exercises/calc[C[24Pgedit ast.mjs[C
+[?2004l
+(gedit:208991): Gtk-[1;33mWARNING[0m **: [34m16:22:23.816[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ ./ast.mjs data.txt [K[K[K[K[K[K[K[K[Kexpn-data.txt 
+[?2004l[{"tag":"-","xkids":[{"tag":"**","xkids":[{"tag":"INT","xkids":[],"value":2},{"tag":"**","xkids":[{"tag":"INT","xkids":[],"value":2},{"tag":"INT","xkids":[],"value":3}]}]}]},{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"**","xkids":[{"tag":"INT","xkids":[],"value":2},{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"INT","xkids":[],"value":2}]}]}]},{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"-","xkids":[{"tag":"**","xkids":[{"tag":"INT","xkids":[],"value":2},{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"INT","xkids":[],"value":2}]}]}]}]}]
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ diff data.[K[K[K[K[K[K[K[K[K[Kls
+[?2004last.mjs  ast.py  data.json  data.txt  expn-data.json  expn-data.txt
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ cat expn-data.json 
+[?2004l[{"tag":"-","xkids":[{"tag":"**","xkids":[{"tag":"INT","xkids":[],"value":2},{"tag":"**","xkids":[{"tag":"INT","xkids":[],"value":2},{"tag":"INT","xkids":[],"value":3}]}]}]},{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"**","xkids":[{"tag":"INT","xkids":[],"value":2},{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"INT","xkids":[],"value":2}]}]}]},{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"-","xkids":[{"tag":"**","xkids":[{"tag":"INT","xkids":[],"value":2},{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"INT","xkids":[],"value":2}]}]}]}]}]
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ diff expn-data.json i[Kexpn-data.txt 
+[?2004l1c1,3
+< [{"tag":"-","xkids":[{"tag":"**","xkids":[{"tag":"INT","xkids":[],"value":2},{"tag":"**","xkids":[{"tag":"INT","xkids":[],"value":2},{"tag":"INT","xkids":[],"value":3}]}]}]},{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"**","xkids":[{"tag":"INT","xkids":[],"value":2},{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"INT","xkids":[],"value":2}]}]}]},{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"-","xkids":[{"tag":"**","xkids":[{"tag":"INT","xkids":[],"value":2},{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"INT","xkids":[],"value":2}]}]}]}]}]
+---
+> -2 ** 2 ** 3 ;
+> 1 + 2**(1 + 2) ;
+> 1 + -2**(1 + 2) ;
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ diff expn-data.json expn-data.txt [15Pcat expn-data.json[Cls[K./ast.mjs expn-data.txt [10Pgedit ast.mjs[C[10@./ast.mjs expn-data.txt[C
+[?2004l[{"tag":"-","xkids":[{"tag":"**","xkids":[{"tag":"INT","xkids":[],"value":2},{"tag":"**","xkids":[{"tag":"INT","xkids":[],"value":2},{"tag":"INT","xkids":[],"value":3}]}]}]},{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"**","xkids":[{"tag":"INT","xkids":[],"value":2},{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"INT","xkids":[],"value":2}]}]}]},{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"-","xkids":[{"tag":"**","xkids":[{"tag":"INT","xkids":[],"value":2},{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"INT","xkids":[],"value":2}]}]}]}]}]
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ ./ast.mjs expn-data.txt [10@diff expn-data.json[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[15Pcat expn-data.json[Cls[K./ast.mjs expn-data.txt [10Pgedit ast.mjs[Ccd ~/i471a/submit/lab2/exercises/ast[22Pgedit ast.mjs 
+[?2004l[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ gedit ast.mjs [10@./ast.mjs expn-data.txt[C[K[K[K[K[K[K[K[K[K[K[K[K[K[Kdata.[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kcat data.json 
+[?2004l[{"tag":"-","xkids":[{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"INT","xkids":[],"value":2}]},{"tag":"INT","xkids":[],"value":3}]},{"tag":"-","xkids":[{"tag":"-","xkids":[{"tag":"-","xkids":[{"tag":"INT","xkids":[],"value":2}]}]},{"tag":"-","xkids":[{"tag":"INT","xkids":[],"value":3},{"tag":"INT","xkids":[],"value":4}]}]}]
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ ckle[K[K[Klear
+[?2004l[H[2J[3J[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ clearat data.json 
+[?2004l[{"tag":"-","xkids":[{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"INT","xkids":[],"value":2}]},{"tag":"INT","xkids":[],"value":3}]},{"tag":"-","xkids":[{"tag":"-","xkids":[{"tag":"-","xkids":[{"tag":"INT","xkids":[],"value":2}]}]},{"tag":"-","xkids":[{"tag":"INT","xkids":[],"value":3},{"tag":"INT","xkids":[],"value":4}]}]}]
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ cat data.json lear[Kat data.json gedit ast.mjs[C[10@./ast.mjs expn-data.txt[C[K[K[K[K[K[K[K[K[K[K[K[K[K[Kdata.txt 
+[?2004l[{"tag":"-","xkids":[{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"INT","xkids":[],"value":2}]},{"tag":"INT","xkids":[],"value":3}]},{"tag":"-","xkids":[{"tag":"-","xkids":[{"tag":"-","xkids":[{"tag":"INT","xkids":[],"value":2}]}]},{"tag":"-","xkids":[{"tag":"INT","xkids":[],"value":3},{"tag":"INT","xkids":[],"value":4}]}]}]
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ diff data.json data.txt 
+[?2004l1c1,3
+< [{"tag":"-","xkids":[{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"INT","xkids":[],"value":2}]},{"tag":"INT","xkids":[],"value":3}]},{"tag":"-","xkids":[{"tag":"-","xkids":[{"tag":"-","xkids":[{"tag":"INT","xkids":[],"value":2}]}]},{"tag":"-","xkids":[{"tag":"INT","xkids":[],"value":3},{"tag":"INT","xkids":[],"value":4}]}]}]
+---
+> 1 + 2 - 3;
+> 
+> --2 - (3 - 4);
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ diff data.json data.txt [5P./ast.mjs[C[C[C[C[C[C[C[C[C[C
+[?2004l[{"tag":"-","xkids":[{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"INT","xkids":[],"value":2}]},{"tag":"INT","xkids":[],"value":3}]},{"tag":"-","xkids":[{"tag":"-","xkids":[{"tag":"-","xkids":[{"tag":"INT","xkids":[],"value":2}]}]},{"tag":"-","xkids":[{"tag":"INT","xkids":[],"value":3},{"tag":"INT","xkids":[],"value":4}]}]}]
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ ./ast.mjs data.txt [5@diff data.json[C[C[C[C[C[C[C[C[C[C
+[?2004l1c1,3
+< [{"tag":"-","xkids":[{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"INT","xkids":[],"value":2}]},{"tag":"INT","xkids":[],"value":3}]},{"tag":"-","xkids":[{"tag":"-","xkids":[{"tag":"-","xkids":[{"tag":"INT","xkids":[],"value":2}]}]},{"tag":"-","xkids":[{"tag":"INT","xkids":[],"value":3},{"tag":"INT","xkids":[],"value":4}]}]}]
+---
+> 1 + 2 - 3;
+> 
+> --2 - (3 - 4);
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ diff data.json data.txt [5P./ast.mjs[C[C[C[C[C[C[C[C[C[C[5@diff data.json[C[C[C[C[C[C[C[C[C[C[5P./ast.mjs[C[C[C[C[C[C[C[C[C[C[5Pcat data.json[Clear[Kat data.json gedit ast.mjs[C
+[?2004l
+(gedit:209880): Gtk-[1;33mWARNING[0m **: [34m16:30:35.600[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ gedit ast.mjs [10@diff data.json data.txt[C[5P./ast.mjs[C[C[C[C[C[C[C[C[C[C[5@diff data.json[C[C[C[C[C[C[C[C[C[C[5P./ast.mjs[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[Kexpn-data.txt 
+[?2004l[{"tag":"-","xkids":[{"tag":"**","xkids":[{"tag":"**","xkids":[{"tag":"INT","xkids":[],"value":3}]}]}]},{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"**","xkids":[{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"INT","xkids":[],"value":2}]}]}]},{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"-","xkids":[{"tag":"**","xkids":[{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"INT","xkids":[],"value":2}]}]}]}]}]
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ ./ast.mjs expn-data.txt [10Pgedit ast.mjs[C[10@diff data.json data.txt[C[10Pgedit ast.mjs[C[10@./ast.mjs expn-data.txt[C[Kdif [Kf data.[K[K[K[K[Kexpn-data.txt [K[K[Kxt expn-data.json 
+[?2004l1,3c1
+< -2 ** 2 ** 3 ;
+< 1 + 2**(1 + 2) ;
+< 1 + -2**(1 + 2) ;
+---
+> [{"tag":"-","xkids":[{"tag":"**","xkids":[{"tag":"INT","xkids":[],"value":2},{"tag":"**","xkids":[{"tag":"INT","xkids":[],"value":2},{"tag":"INT","xkids":[],"value":3}]}]}]},{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"**","xkids":[{"tag":"INT","xkids":[],"value":2},{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"INT","xkids":[],"value":2}]}]}]},{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"-","xkids":[{"tag":"**","xkids":[{"tag":"INT","xkids":[],"value":2},{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"INT","xkids":[],"value":2}]}]}]}]}]
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ diff expn-data.txt expn-data.json [10P./ast.mjs expn-data.txt[C[10Pgedit ast.mjs[C
+[?2004l
+(gedit:210473): Gtk-[1;33mWARNING[0m **: [34m16:33:08.977[0m: Calling org.xfce.Session.Manager.Inhibit failed: GDBus.Error:org.freedesktop.DBus.Error.UnknownMethod: No such method “Inhibit”
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ gedit ast.mjs [20@diff expn-data.txt expn-data.json[C[20Pgedit ast.mjs[C[Kls
+[?2004last.mjs  ast.py  data.json  data.txt  expn-data.json  expn-data.txt
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ lsgedit ast.mjs [20@diff expn-data.txt expn-data.json[C[10P./ast.mjs expn-data.txt[C[K[K[K[K[K[K[K[K[K[K[K[K[K[Koutput.txt
+[?2004lnode:fs:505
+  handleErrorFromBinding(ctx);
+  ^
+
+Error: ENOENT: no such file or directory, open 'output.txt'
+[90m    at Object.openSync (node:fs:505:3)[39m
+[90m    at Object.readFileSync (node:fs:401:35)[39m
+    at main (file:///home/dwalcot1/projects/i471a/submit/lab2/exercises/ast/ast.mjs:126:19)
+    at file:///home/dwalcot1/projects/i471a/submit/lab2/exercises/ast/ast.mjs:148:1
+[90m    at ModuleJob.run (node:internal/modules/esm/module_job:154:23)[39m
+[90m    at async Loader.import (node:internal/modules/esm/loader:177:24)[39m
+[90m    at async Object.loadESM (node:internal/process/esm_loader:68:5)[39m {
+  errno: [33m-2[39m,
+  syscall: [32m'open'[39m,
+  code: [32m'ENOENT'[39m,
+  path: [32m'output.txt'[39m
+}
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ touch output.txt
+[?2004l[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ touch output.txt[4@./ast.mjs[C[C[C[C[C[C[C[C[C[C[C
+[?2004l[]
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ ./ast.mjs output.txt[4Ptouch[C[C[C[C[C[C[C[C[C[C[C[4@./ast.mjs[C[C[C[C[C[C[C[C[C[C[C[Krm output.txt 
+[?2004l[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ ls
+[?2004last.mjs  ast.py  data.json  data.txt  expn-data.json  expn-data.txt
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ lsrm output.txt ./ast.mjs output.txt[4Ptouch[C[C[C[C[C[C[C[C[C[C[C[4@./ast.mjs[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K expn-data.txt 
+[?2004l[{"tag":"-","xkids":[{"tag":"**","xkids":[{"tag":"INT","xkids":[],"value":2},{"tag":"**","xkids":[{"tag":"INT","xkids":[],"value":2},{"tag":"INT","xkids":[],"value":3}]}]}]},{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"**","xkids":[{"tag":"INT","xkids":[],"value":2},{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"INT","xkids":[],"value":2}]}]}]},{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"-","xkids":[{"tag":"**","xkids":[{"tag":"INT","xkids":[],"value":2},{"tag":"+","xkids":[{"tag":"INT","xkids":[],"value":1},{"tag":"INT","xkids":[],"value":2}]}]}]}]}]
+[?2004hdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [Kdwalcot1@q22-16:~/i471a/submit/lab2/exercises/ast$ [7mcd ~/i471?/submit/labN[27mcd ~/i471?/submit/labN[C[C[C[K2[C[C[1P/submit/lab2a/submit/lab2
+[?2004l[?2004hdwalcot1@q22-16:~/i471a/submit/lab2$ [?2004l
+exit
+
+Script done on 2022-02-10 16:37:24-05:00 [COMMAND_EXIT_CODE="0"]
