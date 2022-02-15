@@ -47,6 +47,7 @@ function main() {
   const text = fs.readFileSync(0, CHAR_SET);
   const tokens = scan(text);
   console.log(tokens);
+  //fs.writeFileSync(1, tokens);
 }
 
 main();
