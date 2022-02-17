@@ -41,7 +41,7 @@ function parse(text) {
   function source() {
     let result = [];
     while(peek('TEXT') || peek('IFDEF') || peek('IFNDEF')) {
-      console.log("in source", lookahead);
+      console.log("in source", index,  lookahead);
       let kind = lookahead[0];
       let lexeme = lookahead[1];
       
@@ -50,38 +50,63 @@ function parse(text) {
         result.push(new AstText(lexeme)); 
       }
       else {
-	
+        const i1 = ifdef();	
       }
     }
     return result;
   }
 
-  function ifdef() {    
-    let result = [];
-    result.push(...source());
-    
-    while(peek('elif')) {
-      match('elif');
+  function ifdef() {
+    let tag, sym, kids; 
 
-      const kind = lookahead[0];
-      const value = lookahead[1];
-      //match(kind);
-
-      if (kind === 'sym') {
-	match();
-        result.push(new ast('elif', value, ...source()))
-      }
-    }  
-    
-    const kind = lookahead[0];
-    if (kind === 'else') {
+    let kind = lookahead[0];
+    if (kind === 'IFDEF' || kind === 'IFNDEF') {
+      tag = kind;
       match(kind);
-      result.push(new ast(kind, null, ...source()));
+
+      console.log("in ifdef", index, lookahead);
+      
+      kind = lookahead[0];
+      const lexeme = lookahead[1];
+      match(kind);
+      if (kind === 'SYM') sym = lexeme;
     }
 
-    match('endif');
+    console.log("in ifdef", index, lookahead);
 
-    return result;
+    kids = source();
+    console.log(kids);
+
+    console.log("in ifdef", index, lookahead);
+    
+    while(peek('ELIF')) {
+      match('ELIF');
+
+      console.log("in ifdef", index, lookahead);
+
+      kind = lookahead[0];
+      const lexeme = lookahead[1];
+      //match(kind);
+
+      if (kind === 'SYM') {
+	match(kind);
+        kids.push(new Ast('ELIF', lexeme, ...source()))
+	console.log(kids);
+      }
+    }
+
+    console.log("in ifdef", index, lookahead);
+    
+    kind = lookahead[0];
+    if (kind === 'ELSE') {
+      match(kind);
+      kids.push(new Ast(kind, null, ...source()));
+      console.log(kids);
+    }
+
+    match('ENDIF');
+
+    return (new Ast(tag, sym, kids));
   }
 
 }
