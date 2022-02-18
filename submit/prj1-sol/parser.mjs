@@ -6,7 +6,7 @@ import Path from 'path';
 function parse(text) {
   const tokens = scan(text);
   let index = 0;
-  let lookahead = nextToken();
+  let lookahead = tokens[index++];
   const value = program();
   return value;
 
@@ -14,7 +14,7 @@ function parse(text) {
 
   function match(kind) {
     if (peek(kind)) {
-      lookahead = nextToken();
+      lookahead = tokens[index++];
     }
     else {
       console.error(`expecting ${kind} at ${lookahead.kind}`);
@@ -22,17 +22,10 @@ function parse(text) {
     }
   }
 
-  function nextToken() {
-    return (
-      (index >= tokens.length) ? tokens.push(['EOF', '<EOF>']) : tokens[index++]
-    );
-  }
-
   function program() {
     const asts = [];
     while (!peek('EOF')) {
       asts.push(...source());
-      match(lookahead[0]);
     }
     return asts;
   }
@@ -133,6 +126,8 @@ function scan(input) {
     tokens.push(['TEXT', text]); 
     text = "";
   }
+
+  tokens.push(['EOF', '<EOF>']);
   
   return tokens;
 }
