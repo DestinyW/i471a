@@ -17,3 +17,24 @@
        '()
        (cons (> (car ls1) (car ls2))
              (cmp-gt (cdr ls1) (cdr ls2)))))
+
+(define (ls-prod ls1 ls2)
+   (if (null? ls1)
+       '()
+       (cons (* (car ls1) (car ls2))
+             (ls-prod (cdr ls1) (cdr ls2)))))
+
+(define ls-f
+  (lambda (ls1 ls2 (f (lambda (a b) (+ a b))))
+    (if (null? ls1)
+      '()
+      (cons (f (car ls1) (car ls2))
+             (ls-f (cdr ls1) (cdr ls2) f)))))
+
+(define greater-than
+  (lambda (ls (v 0))
+   (if (null? ls)
+       '()
+       (cons (> (car ls) v)
+             (greater-than (cdr ls) v)))))
+
