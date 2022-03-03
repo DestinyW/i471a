@@ -7,14 +7,9 @@
 ;;Given a proper-list list of proper-lists, return the sum of the
 ;;lengths of all the top-level contained lists.
 (define (sum-lengths ls)
-  (cond
-    ((null? ls) 0)
-    ((pair? (car ls))
-     (+ 1 (sum-lengths (car ls)) (sum-lengths (cdr ls))))
-    ((equal? (car ls) '())
-     (sum-lengths (cdr ls)))
-    (else (+ 1 (sum-lengths (cdr ls))))))
-	
+  (if (null? ls)
+    0
+    (+ (length (car ls)) (sum-lengths (cdr ls)))))
 
 (check-eq? (sum-lengths '()) 0)
 (check-eq? (sum-lengths '(() ())) 0)
@@ -23,7 +18,12 @@
 
 ;;Repeat previous exercise where all recursion is tail-recursive
 (define (sum-lengths-tr ls)
-  0)
+  (letrec ([aux-sum
+	     (lambda (sum ls)
+	      (if (null? ls)
+		sum
+		(aux-sum (+ sum (length (car ls))) (cdr ls))))])
+    (aux-sum 0 ls)))
 
 (check-eq? (sum-lengths-tr '()) 0)
 (check-eq? (sum-lengths-tr '(() ())) 0)
@@ -34,7 +34,12 @@
 ;; coeffs[0] + coeffs[1]*x + coeffs[2]*x^2 + ...
 ;; all recursion should be tail-recursive
 (define (poly-eval x coeffs)
-  0)
+  (letrec ([aux-poly-eval
+	     (lambda (sum x-pow x coeffs)
+	       (if (null? coeffs)
+		 sum
+		 (aux-poly-eval (+ sum (* x-pow (car coeffs))) (* x-pow x) x (cdr coeffs))))])
+    (aux-poly-eval 0 1 x coeffs)))
 
 (check-eq? (poly-eval 2 '()) 0)
 (check-eq? (poly-eval 2 '(5)) 5)
@@ -63,7 +68,11 @@
 
 ;; return those elements in list ls which are greater than v
 (define (get-greater-than ls (v 0))
-  '())
+  (cond
+    ((null? ls) '())
+    ((> (car ls) v)
+     (cons (car ls) (get-greater-than (cdr ls) v)))
+    (else (get-greater-than (cdr ls) v))))
 
 (check-equal? (get-greater-than '() 3) '())
 (check-equal? (get-greater-than '(3 2 -2) 1) '(3 2))
@@ -74,7 +83,9 @@
 ;;map elements of ls to #t or #f depending on whether or not
 ;;the element is > v or not > v
 (define (less-than ls (v 0))
-  '())
+  (cond
+    ((null? ls) '())
+    (else (cons (< (car ls) v) (less-than (cdr ls) v)))))
 
 (check-equal? (less-than '(-1 3 6 -3 1 8) 2)
 	      '(#t #f #f #t #t #f))
