@@ -95,7 +95,11 @@
 
 ;; return those elements in list ls which are less than v
 (define (get-less-than ls (v 0))
-  '())
+  (cond
+    ((null? ls) '())
+    ((< (car ls) v)
+     (cons (car ls) (get-less-than (cdr ls) v)))
+    (else (get-less-than (cdr ls) v))))
 
 (check-equal? (get-less-than '() 3) '())
 (check-equal? (get-less-than '(3 2 -2) 1) '(-2))
