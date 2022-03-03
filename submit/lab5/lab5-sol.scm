@@ -7,7 +7,12 @@
 ;;Given a proper-list list of proper-lists, return the sum of the
 ;;lengths of all the top-level contained lists.
 (define (sum-lengths ls)
-  0)
+  (cond 
+    ((null? ls) 0)
+    ((pair? ls) 
+     (+ (sum-lengths (car ls)) (sum-lengths (cdr ls))))
+    (else 0)))
+	
 
 (check-eq? (sum-lengths '()) 0)
 (check-eq? (sum-lengths '(() ())) 0)
