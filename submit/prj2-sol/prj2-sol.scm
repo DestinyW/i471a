@@ -6,7 +6,9 @@
 
 ;;Given a non-negative int argument n, return its unary representation.
 (define (int->unary n)
-  0)
+  (if (equal? n 0)
+    'z
+    (cons 's (int->unary (- n 1)))))
 
 (check-equal? (int->unary 0) 'z)
 (check-equal? (int->unary 1) '(s . z))
@@ -16,7 +18,9 @@
 ;;Given a valid unary representation of a natural number, return the 
 ;;corresponding scheme integer.
 (define (unary->int n)
-  0)
+  (if (equal? n 'z)
+    0
+    (+ 1 (unary->int (cdr n)))))
 
 (check-equal? (unary->int 'z) 0)
 (check-equal? (unary->int '(s . z)) 1)
@@ -27,7 +31,9 @@
 ;;Given two valid unary representations m and n, return the unary representation
 ;;of their sum.
 (define (unary-add m n)
-  0)
+  (if (equal? m 'z)
+    n
+    (cons (car m) (unary-add (cdr m) n))))
 
 (check-equal? (unary-add 'z '(s . z)) '(s . z))
 (check-equal? (unary-add '(s . z) 'z) '(s . z))
@@ -38,7 +44,12 @@
 ;;the 2nd argument to get this alternate function which has the
 ;;advantage that it is tail-recursive.
 (define (unary-add-tr m n)
-  0)
+  (letrec ([aux-add
+    (lambda (m n)
+      (if (equal? m 'z)
+        n
+        (aux-add (cdr m) (cons (car m) n))))])
+  (aux-add m n)))
 
 (check-equal? (unary-add-tr 'z '(s . z)) '(s . z))
 (check-equal? (unary-add-tr '(s . z) 'z) '(s . z))
@@ -49,7 +60,19 @@
 ;;Given two valid unary representations m and n, return the unary representation
 ;;of their product.
 (define (unary-mul m n)
-  0)
+  (letrec ([aux-mul
+    (lambda (m n t)
+      (cond 
+        ((equal? m 'z) m)
+        ((equal? n 'z) n)
+        ((equal? t 'z) m)
+        (else (aux-mul (cons (car m) m) n (cdr t)))))])
+  (aux-mul m n n)))
+
+  ;;(cond 
+    ;;((equal? m 'z) m)
+    ;;((equal? n 'z) m)
+    ;;(else (unary-mul (cons (car m) m) (cdr n)))))
 
 (check-equal? (unary-mul 'z '(s . z)) 'z)
 (check-equal? (unary-mul '(s s . z) 'z) 'z)
