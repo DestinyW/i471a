@@ -61,15 +61,13 @@
 ;;of their product.
 (define (unary-mul m n)
   (letrec ([aux-mul
-    (lambda (ls i)
+    (lambda (ls n)
       (cond
         ((equal? ls 'z) 'z)
         ((equal? n 'z) 'z)
-        ((equal? (cdr ls) 'z) n)
         ((equal? (cdr n) 'z) ls)
-        ((> i (* (- (length (list m)) 1) (- (length (list n)) 1))) ls)
-        (else (aux-mul (unary-add ls m) (+ i 1)))))])
-  (aux-mul m 0)))
+        (else (aux-mul (unary-add ls m) (cdr n)))))])
+  (aux-mul m n)))
 
 (check-equal? (unary-mul 'z '(s . z)) 'z)
 (check-equal? (unary-mul '(s s . z) 'z) 'z)
@@ -82,7 +80,9 @@
 
 ;;Returns true iff proper-list ls contains only empty lists.
 (define (contains-empty-lists-only? ls)
-  0)
+  (or 
+    (null? ls)
+    (and (equal? (car ls) '()) (contains-empty-lists-only? (cdr ls)))))
 
 (check-equal? (contains-empty-lists-only? '()) #t)
 (check-equal? (contains-empty-lists-only? '(())) #t)
