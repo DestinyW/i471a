@@ -61,18 +61,15 @@
 ;;of their product.
 (define (unary-mul m n)
   (letrec ([aux-mul
-    (lambda (m n t)
-      (cond 
-        ((equal? m 'z) m)
-        ((equal? n 'z) n)
-        ((equal? t 'z) m)
-        (else (aux-mul (cons (car m) m) n (cdr t)))))])
-  (aux-mul m n n)))
-
-  ;;(cond 
-    ;;((equal? m 'z) m)
-    ;;((equal? n 'z) m)
-    ;;(else (unary-mul (cons (car m) m) (cdr n)))))
+    (lambda (ls i)
+      (cond
+        ((equal? ls 'z) 'z)
+        ((equal? n 'z) 'z)
+        ((equal? (cdr ls) 'z) n)
+        ((equal? (cdr n) 'z) ls)
+        ((> i (* (- (length (list m)) 1) (- (length (list n)) 1))) ls)
+        (else (aux-mul (unary-add ls m) (+ i 1)))))])
+  (aux-mul m 0)))
 
 (check-equal? (unary-mul 'z '(s . z)) 'z)
 (check-equal? (unary-mul '(s s . z) 'z) 'z)
@@ -81,6 +78,7 @@
 (check-equal? (unary-mul '(s s . z) '(s s  s . z))
 	      '(s s s s s s . z))
 (check-equal? (unary-mul (int->unary 5) (int->unary 9)) (int->unary 45))
+
 
 ;;Returns true iff proper-list ls contains only empty lists.
 (define (contains-empty-lists-only? ls)
@@ -92,6 +90,7 @@
 (check-equal? (contains-empty-lists-only? '(() ())) #t)
 (check-equal? (contains-empty-lists-only? '(() () ())) #t)
 (check-equal? (contains-empty-lists-only? '(1 () () ())) #f)
+
 
 ;;Given a non-empty proper list ls of proper sub-lists, return a pair.
 ;;The first element of the returned pair is a proper list containing
