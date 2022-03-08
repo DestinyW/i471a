@@ -1,0 +1,36 @@
+Script started on 2022-03-08 15:40:22-05:00 [TERM="xterm-256color" TTY="/dev/pts/52" COLUMNS="142" LINES="13"]
+[?2004hdwalcot1@remote04:~/i471a/submit/lab6$ prolog
+[?2004lWelcome to SWI-Prolog (threaded, 64 bits, version 8.2.4)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+For online help and background, visit https://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+?- [?- ['lab6-sol.pro[18G'[5G[19G[19G][4G[20G.
+[1mtrue.[0m
+
+?- [exit[[9G[K[9G][4G[10G
+|    
+|    .
+[1;31mERROR: source_sink `exit' does not exist
+ERROR: In:
+ERROR:   [22] throw(error(existence_error(source_sink,exit),_18382))
+ERROR:   [18] '$resolve_source_path'(exit,_18414,[expand(false),...]) at /usr/lib/swi-prolog/boot/init.pl:2318
+ERROR:   [17] '$load_file'(exit,user,[expand(false),...]) at /usr/lib/swi-prolog/boot/init.pl:2292
+ERROR:    [9] <user>
+ERROR: 
+ERROR: Note: some frames are missing due to last-call optimization.
+ERROR: Re-run your program in debug mode (:- debug.) to get more detail.
+[0m?- ^C
+Action (h for help) ? Options:
+a:           abort         b:           break
+c:           continue      e:           exit
+g:           goals         s:           C-backtrace
+t:           trace         p:		  Show PID
+h (?):       help
+Action (h for help) ? exit (status 4)
+[?2004hdwalcot1@remote04:~/i471a/submit/lab6$ [?2004l
+exit
+
+Script done on 2022-03-08 15:42:09-05:00 [COMMAND_EXIT_CODE="4"]
