@@ -15,6 +15,7 @@
 (check-equal? (int->unary 2) '(s s . z))
 (check-equal? (int->unary 5) '(s s s s s . z))
 
+
 ;;Given a valid unary representation of a natural number, return the 
 ;;corresponding scheme integer.
 (define (unary->int n)
@@ -39,6 +40,7 @@
 (check-equal? (unary-add '(s . z) 'z) '(s . z))
 (check-equal? (unary-add '(s  s . z) '(s . z)) '(s s s . z))
 (check-equal? (unary-add (int->unary 5) (int->unary 9)) (int->unary 14))
+
 
 ;;Instead of using successor on the result, we can use successor on
 ;;the 2nd argument to get this alternate function which has the
@@ -101,7 +103,11 @@
 ;;element is returned a '()).  It follows that each element of the
 ;;returned pair will have length equal to that of ls.
 (define (split-firsts ls (tuple '()) (rest '()))
-  0)
+  (if (null? ls) 
+    (cons tuple rest)
+    (if (pair? (car ls))
+      (split-firsts (cdr ls) (append tuple (list (caar ls))) (append rest (list (cdar ls))))
+      (split-firsts (cdr ls) (append tuple (list '())) (append rest (list '()))))))
 
 (check-equal? (split-firsts '((a) ())) '( (a ()) .(() ()) ))
 (check-equal? (split-firsts '((a) (1))) '( (a 1) . (() ()) ))
@@ -119,7 +125,9 @@
 ;;the length of the longest sub-list in ls and the # of elements in
 ;;each tuple is the length of ls.
 (define (list-tuples ls)
-  0)
+  (if (contains-empty-lists-only? ls)
+    '()
+    (append (list (car (split-firsts ls))) (list-tuples (cdr (split-firsts ls))))))
 
 (check-equal? (list-tuples '(() ())) '())
 (check-equal? (list-tuples '((a) ())) '((a ())))
