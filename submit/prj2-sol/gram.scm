@@ -26,7 +26,9 @@
 ;;with an uppercase letter whereas non-terminal symbols are
 ;;Scheme symbols which are not terminal symbols.
 (define (parse gram toks)
-  (parse-nonterm gram toks (caar gram)))
+  (if (null? toks)
+    #t
+    (parse-nonterm gram toks (caar gram))))
 ;(trace parse)
 
 (define (parse-nonterm gram toks nonterm)
@@ -42,11 +44,11 @@
 (define (parse-rhs gram toks rhs)
   (if (empty? rhs)
     toks
-    (and (parse-sym gram toks (car sym)) (parse-rhs gram toks (cdr rhs)))))
+    (and (parse-sym gram toks (car rhs)) (parse-rhs gram toks (cdr rhs)))))
 ;(trace parse-rhs)
 
 (define (parse-sym gram toks sym)
-  (if (and (terminal? sym) (not (empty? toks)) (equals? (caar toks) sym))
+  (if (and (terminal? sym) (not (empty? toks)) (equal? (caar toks) sym))
     (cdr toks)
     (parse-nonterm gram toks sym)))
 ;(trace parse-sym)
