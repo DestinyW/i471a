@@ -26,32 +26,39 @@
 ;;with an uppercase letter whereas non-terminal symbols are
 ;;Scheme symbols which are not terminal symbols.
 (define (parse gram toks)
-  (if (null? toks)
-    #t
-    (parse-nonterm gram toks (caar gram))))
-;(trace parse)
+  (let ((leftover-toks (parse-nonterm gram toks (caar gram))))
+    (if (null? leftover-toks)
+      #t
+      #f)))
+;;(trace parse)
 
 (define (parse-nonterm gram toks nonterm)
-  (parse-rhss gram toks (rhss gram nonterm)))
-;(trace parse-nonterm)
+  (let ((lst-of-rhss (rhss gram nonterm)))
+    (parse-rhss gram toks lst-of-rhss)))
+;;(trace parse-nonterm)
 
 (define (parse-rhss gram toks rhss)
   (if (null? rhss)
     #f
     (or (parse-rhs gram toks (car rhss)) (parse-rhss gram toks (cdr rhss)))))
-;(trace parse-rhss)
+;;(trace parse-rhss)
 
 (define (parse-rhs gram toks rhs)
-  (if (empty? rhs)
+  (if (null? rhs)
     toks
-    (and (parse-sym gram toks (car rhs)) (parse-rhs gram toks (cdr rhs)))))
-;(trace parse-rhs)
+    (let ((leftover-toks (parse-sym gram toks (car rhs))))
+      (if (eq? leftover-toks #f)
+        #f
+        (parse-rhs gram leftover-toks (cdr rhs))))))
+;;(trace parse-rhs)
 
 (define (parse-sym gram toks sym)
-  (if (and (terminal? sym) (not (empty? toks)) (equal? (caar toks) sym))
-    (cdr toks)
+  (if (terminal? sym)
+    (if (and (not (null? toks)) (eq? (caar toks) sym))
+      (cdr toks)
+      #f)
     (parse-nonterm gram toks sym)))
-;(trace parse-sym)
+;;(trace parse-sym)
 
 ;;; Utility Functions
 
