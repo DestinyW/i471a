@@ -1,0 +1,562 @@
+Script started on 2022-03-08 15:40:22-05:00 [TERM="xterm-256color" TTY="/dev/pts/52" COLUMNS="142" LINES="13"]
+[?2004hdwalcot1@remote04:~/i471a/submit/lab6$ prolog
+[?2004lWelcome to SWI-Prolog (threaded, 64 bits, version 8.2.4)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+For online help and background, visit https://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+?- [?- ['lab6-sol.pro[18G'[5G[19G[19G][4G[20G.
+[1mtrue.[0m
+
+?- [exit[[9G[K[9G][4G[10G
+|    
+|    .
+[1;31mERROR: source_sink `exit' does not exist
+ERROR: In:
+ERROR:   [22] throw(error(existence_error(source_sink,exit),_18382))
+ERROR:   [18] '$resolve_source_path'(exit,_18414,[expand(false),...]) at /usr/lib/swi-prolog/boot/init.pl:2318
+ERROR:   [17] '$load_file'(exit,user,[expand(false),...]) at /usr/lib/swi-prolog/boot/init.pl:2292
+ERROR:    [9] <user>
+ERROR: 
+ERROR: Note: some frames are missing due to last-call optimization.
+ERROR: Re-run your program in debug mode (:- debug.) to get more detail.
+[0m?- ^C
+Action (h for help) ? Options:
+a:           abort         b:           break
+c:           continue      e:           exit
+g:           goals         s:           C-backtrace
+t:           trace         p:		  Show PID
+h (?):       help
+Action (h for help) ? exit (status 4)
+[?2004hdwalcot1@remote04:~/i471a/submit/lab6$ [?2004l
+exit
+
+Script done on 2022-03-08 15:42:09-05:00 [COMMAND_EXIT_CODE="4"]
+Script started on 2022-03-08 17:20:41-05:00 [TERM="xterm-256color" TTY="/dev/pts/7" COLUMNS="142" LINES="21"]
+[?2004hdwalcot1@remote01:~/i471a/submit/lab6$ prolog
+[?2004lWelcome to SWI-Prolog (threaded, 64 bits, version 8.2.4)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+For online help and background, visit https://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+?- f(X, a[10G)[5G[11G = f(a, Y[20G)[15G[21G.
+X = Y, Y = a.
+
+?- f(X, a[10G)[5G[11G = f(a, X[20G)[15G[21G.
+X = a.
+
+?- f(X, a[10G)[5G[11G = f(b, X[20G)[15G[21G.
+[1;31mfalse.[0m
+
+?- f(X, Y[10G)[5G[11G = f(a, a[20G)[15G[21G, g(X, Y[29G)[24G[30G = g(a, b[39G)[34G[40G.
+[1;31mfalse.[0m
+
+?- f(1, 2, z[13G)[5G[14G = f(_, _, X[26G)[18G[27G
+|    .
+X = z.
+
+?- head(a, tail(z, B[21G)[16G[22G, Y[25G)[8G[26G = head(?- head(a, tail(z, B), Y) = head(_, tail(X, _[46G)[41G[47G, _[50G)[33G[51G.
+X = z.
+
+?- cons(a, cons(b, cons(c, z[29G)[24G[30G[30G)[16G[31G[31G)[8G[32G = cons(_, cos[45G[Kns(_, cons(_, X[60G)[55G[61G[61G)[47G[62G[62G)[39G[63G.
+X = z.
+
+?- ?- cons(a, cons(b, cons(c, z))) = cons(_, cons(_, cons(_, X))).[54G[P([53G[P([52G[P([51G[P([51G[1@_(ns[46G[P([45G[P([44G[P([43G[P([43G[1@_([38G[P([37G[P([36G[P([35G[P([35G[1@_(
+[1;31mERROR: Syntax error: Operator expected
+ERROR: cons(a, cons(b, cons(c, z))) = 
+ERROR: ** here **
+ERROR: _(_, _(_, _(_, X))) . 
+[0m?- ?- cons(a, cons(b, cons(c, z))) = _(_, _(_, _(_, X))).[35G[P([35G[1@c([36G[1@o([37G[1@n([38G[1@s(
+[1;31mERROR: Syntax error: Operator expected
+ERROR: cons(a, cons(b, cons(c, z))) = cons(_, 
+ERROR: ** here **
+ERROR: _(_, _(_, X))) . 
+[0m?- ?- cons(a, cons(b, cons(c, z))) = cons(_, _(_, _(_, X))).[35G[3P_[55G[35G[9@cons(_, cons(_, cons[64G
+X = z.
+
+?- [a, b[9G][4G[10G.
+[1;31mERROR: source_sink `a' does not exist
+[0m[1;31mERROR: source_sink `b' does not exist
+[0m[1mtrue.[0m
+
+?- [a|[b[9G][b][10G][4G[11G.
+[1;31mERROR: source_sink `a' does not exist
+[0m[1;31mERROR: source_sink `b' does not exist
+[0m[1mtrue.[0m
+
+?- ^C
+Action (h for help) ? exit (status 4)
+[?2004hdwalcot1@remote01:~/i471a/submit/lab6$ [?2004l
+exit
+
+Script done on 2022-03-08 17:38:29-05:00 [COMMAND_EXIT_CODE="4"]
+Script started on 2022-03-08 17:39:01-05:00 [TERM="xterm-256color" TTY="/dev/pts/7" COLUMNS="142" LINES="37"]
+[?2004hdwalcot1@remote01:~/i471a/submit/lab6$ racket
+[?2004lWelcome to Racket v7.9 [bc].
+> ca> c[Kddr[6G[K> cd[K> c[K> [K(cddr '(1, 2, 3, 4))
+'(,3 ,4)
+> > (cddr '(1, 2, 3, 4))[18G 4))[K,[15G[P [12G[P 
+'(3 4)
+> > (cddr '(1 2 3 4))c> (c[1@ad
+3
+> > (caddr '(1 2 3 4))> (c[Pddd[6G[Pr[6G[1@ar
+; cdar: contract violation
+;   expected: (cons/c pair? any/c)
+;   given: '(1 2 3 4)
+; [,bt for context]
+> > (cdar '(1 2 3 4))[13G[P [13G[P3[11G[P [11G[1@" [11G[P [11G[1@' [12G[1@( [13G[1@) [13G[1@1)[14G[1@ )[15G[1@2)) 
+'((1 2))
+> > (cdar '('(1 2) 3 4))[17G[P33[17G[1@ 33'(1 2) 3 4)))> (c[Pa
+''(1 2)
+> > (car '('(1 2) 3 4))> (c[1@da[23G
+'((1 2))
+> (exit)
+[?2004hdwalcot1@remote01:~/i471a/submit/lab6$ [Kdwalcot1@remote01:~/i471a/submit/lab6$ [Kdwalcot1@remote01:~/i471a/submit/lab6$ [Kdwalcot1@remote01:~/i471a/submit/lab6$ [Kdwalcot1@remote01:~/i471a/submit/lab6$ [Kdwalcot1@remote01:~/i471a/submit/lab6$ [Kdwalcot1@remote01:~/i471a/submit/lab6$ [Kdwalcot1@remote01:~/i471a/submit/lab6$ prolog
+[?2004lWelcome to SWI-Prolog (threaded, 64 bits, version 8.2.4)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+For online help and background, visit https://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+?- [1, 2, 3, 4[15G][4G[16G =[17G[K[16G = [_, _ | [X[29G][X][30G][19G[31G.
+[1;31mfalse.[0m
+
+?- ?- [1, 2, 3, 4] = [_, _ | [X]].[24G[1@, 
+[1;31mERROR: Syntax error: Operand expected, unquoted comma or bar found
+ERROR: [1, 2, 3, 4] = [_, _,
+ERROR: ** here **
+ERROR:  | [X]] . 
+[0m?- ?- [1, 2, 3, 4] = [_, _, | [X]].[24G[P  | [X]]X][30G.[K[28G].[K[27G].[K[27GX].].
+X = [3, 4].
+
+?- ?- [1, 2, 3, 4] = [_, _ | X].[29G[K[28G[K[27G[K[26G[25G[K[24G[23G[K[22G[21G[K[20G[K[19G[K[_ | [_ | [X | [_[36G][_][37G][29G[38G[38G][24G[39G[39G][19G[40G.
+X = 3.
+
+?- [[1, 2,[10G[K[10G][5G[11G [11G, 3, 4[17G][4G[18G = [X | [_[28G][_][29G][21G[30G.
+[1;31mfalse.[0m
+
+?- ?- [[1, 2], 3, 4] = [X | [_]].[22G[1@[XX[24G[1@] [X]
+[1;31mfalse.[0m
+
+?- ?- [[1, 2], 3, 4] = [[X] | [_]].?- [K?- [[1, 2], 3, 4] = [[X] | [_]].[22G[2PX[31G[29G.[K[26G_].[K_].
+X = [1, 2].
+
+?- [?- ['lab6-sol.pro[18G'[5G[19G[19G][4G[20G.
+[1;31mERROR: /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:5:35: Syntax error: Unexpected end of file
+[0m[1mtrue.[0m
+
+?- ?- ['lab6-sol.pro'].
+[31mWarning: /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:3:
+Warning:    Singleton variables: [X]
+[0m[1;31mERROR: /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:3:
+ERROR:    No permission to modify static procedure `(=)/2'
+[0m[31mWarning: /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:4:
+Warning:    Singleton variables: [X]
+[0m[1;31mERROR: /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:4:
+ERROR:    No permission to modify static procedure `(=)/2'
+[0m[31mWarning: /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:5:
+Warning:    Singleton variables: [X]
+[0m[1;31mERROR: /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:5:
+ERROR:    No permission to modify static procedure `(=)/2'
+[0m[1mtrue.[0m
+
+?- ?- ['lab6-sol.pro'].
+[31mWarning: /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:3:
+Warning:    Singleton variables: [X]
+[0m[1;31mERROR: /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:3:
+ERROR:    No permission to modify static procedure `(=)/2'
+[0m[31mWarning: /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:4:
+Warning:    Singleton variables: [X]
+[0m[1;31mERROR: /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:4:
+ERROR:    No permission to modify static procedure `(=)/2'
+[0m[31mWarning: /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:5:
+Warning:    Singleton variables: [X]
+[0m[1;31mERROR: /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:5:
+ERROR:    No permission to modify static procedure `(=)/2'
+[0m[1mtrue.[0m
+
+?- ?- ['lab6-sol.pro'].
+[31mWarning: /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:3:
+Warning:    Singleton variables: [X]
+[0m[1;31mERROR: /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:3:
+ERROR:    No permission to modify static procedure `(\=)/2'
+[0m[31mWarning: /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:4:
+Warning:    Singleton variables: [X]
+[0m[1;31mERROR: /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:4:
+ERROR:    No permission to modify static procedure `(\=)/2'
+[0m[31mWarning: /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:5:
+Warning:    Singleton variables: [X]
+[0m[1;31mERROR: /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:5:
+ERROR:    No permission to modify static procedure `(\=)/2'
+[0m[1mtrue.[0m
+
+?- ^C
+Action (h for help) ? exit (status 4)
+[?2004hdwalcot1@remote01:~/i471a/submit/lab6$ [Kdwalcot1@remote01:~/i471a/submit/lab6$ prologracketprolog
+[?2004lWelcome to SWI-Prolog (threaded, 64 bits, version 8.2.4)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+For online help and background, visit https://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+?- cdar([[1, 2[15G][10G[16G, 3, 4[22G][9G[23G[23G)[8G[24G = cdar([X | _[38G][32G[39G[39G)[31G[40G.
+X = [1, 2].
+
+?- ?- cdar([[1, 2], 3, 4]) = cdar([X | _]).?- ['lab6-sol.pro'].[K
+[31mWarning: /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:3:
+Warning:    Singleton variables: [X]
+[0m[1;31mERROR: /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:3:
+ERROR:    No permission to modify static procedure `(;)/2'
+ERROR:    Defined at /usr/lib/swi-prolog/boot/init.pl:370
+[0m[31mWarning: /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:4:
+Warning:    Singleton variables: [X]
+[0m[1;31mERROR: /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:4:
+ERROR:    No permission to modify static procedure `(;)/2'
+ERROR:    Defined at /usr/lib/swi-prolog/boot/init.pl:370
+[0m[31mWarning: /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:5:
+Warning:    Singleton variables: [X]
+[0m[1;31mERROR: /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:5:
+ERROR:    No permission to modify static procedure `(;)/2'
+ERROR:    Defined at /usr/lib/swi-prolog/boot/init.pl:370
+[0m[1mtrue.[0m
+
+?- ?- ['lab6-sol.pro'].
+[1mtrue.[0m
+
+?- cdar([9G'[[1, 2[16G], 3, 4[23G][24G)
+|    .
+|    
+|    ^C
+Action (h for help) ? Options:
+a:           abort         b:           break
+c:           continue      e:           exit
+g:           goals         s:           C-backtrace
+t:           trace         p:		  Show PID
+h (?):       help
+Action (h for help) ? abort
+[32m% Execution Aborted
+[0m?- ?- ['lab6-sol.pro'].?- cdar([[1, 2], 3, 4]) = cdar([X | _]).?- ['lab6-sol.pro'].[K?- [K?- ['lab6-sol.pro'].?- cdar([[1, 2], 3, 4]) = cdar([X | _]).?- ['lab6-sol.pro'].[K?- cdar([[1, 2], 3, 4]) = cdar([X | _]).[40G[K[39G[K[38G[K[37G[K[36G[35G[K[34G[33G[K[32G[K[31G[K[30G[K[29G[K[28G[K[27G[K[26G[25G[K[24G.)[23G,).[24G ).[25GX).
+X = [[[1, 2], 3, 4]|_18506].
+
+?- [1, 2, 3, 4[15G][4G[16G = [_, _ | X[28G][19G[29G.
+X = [3, 4].
+
+?- [1, 2, 3, 4[15G][4G[16G = [_ | [_ | [X | [_[36G][_][37G][29G[38G[38G][24G[39G[39G][19G[40G.
+X = 3.
+
+?- [[1, 2[10G][5G[11G, 3, 4[17G][4G[18G = [X | _[27G][21G[28G.
+X = [1, 2].
+
+?- ^C
+Action (h for help) ? Options:
+a:           abort         b:           break
+c:           continue      e:           exit
+g:           goals         s:           C-backtrace
+t:           trace         p:		  Show PID
+h (?):       help
+Action (h for help) ? exit (status 4)
+[?2004hdwalcot1@remote01:~/i471a/submit/lab6$ [?2004l
+exit
+
+Script done on 2022-03-08 18:29:23-05:00 [COMMAND_EXIT_CODE="4"]
+Script started on 2022-03-08 18:32:50-05:00 [TERM="xterm-256color" TTY="/dev/pts/7" COLUMNS="142" LINES="20"]
+[?2004hdwalcot1@remote01:~/i471a/submit/lab6$ prolog
+[?2004lWelcome to SWI-Prolog (threaded, 64 bits, version 8.2.4)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+For online help and background, visit https://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+?- [A|[B|C[11G][7G[12G[12G][4G[13G.
+[1;31mERROR: Arguments are not sufficiently instantiated
+ERROR: In:
+ERROR:   [16] throw(error(instantiation_error,_16180))
+ERROR:   [13] '$load_files'([_16212,_16218|_16220],user,[expand(true)]) at /usr/lib/swi-prolog/boot/init.pl:2102
+ERROR:    [9] <user>
+ERROR: 
+ERROR: Note: some frames are missing due to last-call optimization.
+ERROR: Re-run your program in debug mode (:- debug.) to get more detail.
+[0m?- [a|[b|c[11G][7G[12G[12G][4G[13G.
+[1;31mERROR: Type error: `list' expected, found `c' (an atom)
+ERROR: In:
+ERROR:   [16] throw(error(type_error(list,c),_17962))
+ERROR:   [13] '$load_files'([a,b|c],user,[expand(true)]) at /usr/lib/swi-prolog/boot/init.pl:2102
+ERROR:    [9] <user>
+ERROR: 
+ERROR: Note: some frames are missing due to last-call optimization.
+ERROR: Re-run your program in debug mode (:- debug.) to get more detail.
+[0m?- [a|[b[9G][b][10G][4G[11G.
+[1;31mERROR: source_sink `a' does not exist
+[0m[1;31mERROR: source_sink `b' does not exist
+[0m[1mtrue.[0m
+
+?- [a|b[8G][4G[9G.
+[1;31mERROR: Type error: `list' expected, found `b' (an atom)
+ERROR: In:
+ERROR:   [16] throw(error(type_error(list,b),_22036))
+ERROR:   [13] '$load_files'([a|b],user,[expand(true)]) at /usr/lib/swi-prolog/boot/init.pl:2102
+ERROR:    [9] <user>
+ERROR: 
+ERROR: Note: some frames are missing due to last-call optimization.
+ERROR: Re-run your program in debug mode (:- debug.) to get more detail.
+[0m?- N = 1 + 2.
+N = 1+2.
+
+?- N is 1 + 2.
+N = 3.
+
+?- N is 1 + 2*3.
+N = 7.
+
+?- 5 is 7 mod 2.
+[1;31mfalse.[0m
+
+?- X is 7 mod 2.
+X = 1.
+
+?- X is -7 mod 3.
+X = 2.
+
+?- N is sqrt(4[15G)(4).
+N = 2.0.
+
+?- N = pi.
+N = pi.
+
+?- N is pi.
+N = 3.141592653589793.
+
+?- ^C
+Action (h for help) ? exit (status 4)
+[?2004hdwalcot1@remote01:~/i471a/submit/lab6$ [?2004l
+exit
+
+Script done on 2022-03-08 18:37:16-05:00 [COMMAND_EXIT_CODE="4"]
+Script started on 2022-03-08 18:46:03-05:00 [TERM="xterm-256color" TTY="/dev/pts/7" COLUMNS="142" LINES="20"]
+[?2004hdwalcot1@remote01:~/i471a/submit/lab6$ [?2004l
+exit
+
+Script done on 2022-03-08 18:49:04-05:00 [COMMAND_EXIT_CODE="0"]
+Script started on 2022-03-09 14:24:43-05:00 [TERM="xterm-256color" TTY="/dev/pts/29" COLUMNS="142" LINES="20"]
+[?2004hdwalcot1@remote00:~/i471a/submit/lab6$ prolog
+[?2004lWelcome to SWI-Prolog (threaded, 64 bits, version 8.2.4)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+For online help and background, visit https://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+?- ?- N is pi.[6G[P= pi.[6Gis sqrt(4).?- X is -7 mod 3.[9G[P[15G2.?- 5[17G?- N is 1 + 2*3.[14G.[K[6G[P=[14G?- [a|b].[K[7G[b]].[9G|c]].?- [A|[B|C]].?- [[1, 2], 3, 4] = [X | _].?- [[P1, 2, 3, 4] = [_ | [_ | [X | [_]]]].[21G, _ | X].[K?- [6@cdar([[15G], 3, 4], X).[K?- ['lab6-sol.pro'].[K?- cdar([[1, 2], 3, 4]) = cdar([X | _]).?- ['lab6-sol.pro'].[K?- cdar([[1, 2], 3, 4]) = cdar([X | _]).?- ['lab6-sol.pro'].[K
+[1mtrue.[0m
+
+?- quadratic_roots(2, 5, 2, Z[30G)[19G[31G.
+Z = -0.5 [1m.[0m
+
+?- ?- quadratic_roots(2, 5, 2, Z).
+Z = -0.5 [1m.[0m
+
+?- ?- quadratic_roots(2, 5, 2, Z).?- ['lab6-sol.pro'].[K
+[1;31mERROR: /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:11:30: Syntax error: Operator priority clash
+[0m[1mtrue.[0m
+
+?- ?- ['lab6-sol.pro'].
+[1;31mERROR: /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:11:30: Syntax error: Operator priority clash
+[0m[1mtrue.[0m
+
+?- ?- ['lab6-sol.pro'].
+[1mtrue.[0m
+
+?- quadratic_roots(2, 5, 2, Z[30G)[19G[31G.
+Z = -0.5 [1m;[0m
+Z = -2.0.
+
+?- ?- quadratic_roots(2, 5, 2, Z).?- ['lab6-sol.pro'].[K?- quadratic_roots(2, 5, 2, Z).?- ['lab6-sol.pro'].[K
+[31mWarning: /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:23:
+Warning:    Singleton variables: [C]
+[0m[31mWarning: /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:26:
+Warning:    Singleton variables: [C]
+[0m[1mtrue.[0m
+
+?- ?- ['lab6-sol.pro'].
+[31mWarning: /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:23:
+Warning:    Clauses of [34mquadratic_roots/4[0m[0m[31m are not together in the source-file
+Warning:    Earlier definition at /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:11
+Warning:    Current predicate: [34mquadratic_roots2/4[0m[0m[31m
+Warning:    Use [34m:- discontiguous quadratic_roots/4.[0m[0m[31m to suppress this message
+[0m[1mtrue.[0m
+
+?- ?- ['lab6-sol.pro'].
+[1mtrue.[0m
+
+?- Discriminant is sqrt(B*B - 4*A*C[36G)[24G[37G,,[37G[K[36G[K[35G[K[34G[K[33G[K[32G[K[31G[K[30G[29G[K[28G[27G[K[26G[K[25G[K[24G[K[23G[K[22G[K[21G[K[20G[K[19G[18G[K[17G[K[16G[15G[K[14G[K[13G[K[12G[K[11G[K[10G[K[9G[K[8G[K[7G[K[6G[K?- D[K?- [K?- ['lab6-sol.pro'].?- quadratic_roots(2, 5, 2, Z).[19G[1@2(
+Z = -0.5 [1m;[0m
+Z = -2.0.
+
+?- ?- quadratic_roots2(2, 5, 2, Z).?- ['lab6-sol.pro'].[K
+[1mtrue.[0m
+
+?- sum_list([2, 3[18G][13G[19G, SUM[23G[K[22G[Kum[24G)[12G[25G.
+Sum = 5.
+
+?- ?- sum_list([2, 3], Sum).[17G[P][16G[P][15G[P][14G[P]
+Sum = 0.
+
+?- length [10G[9G[K[8G[K[7G[K[6G[K?- l[K?- [KN is length [[17G][][17G1][18G ][18G][K[18G,][19G ][20G2]
+|    .
+[1;31mERROR: Syntax error: Operator expected
+ERROR: N is length
+ERROR: ** here **
+ERROR:  [1, 2] . 
+[0m?- ?- N is length [1, 2].[15G[P[[15G[1@([[1, 2][22G).[15G[23G
+[1;31mERROR: Type error: `[]' expected, found `[1,2]' (a list) ("x" must hold one character)
+ERROR: In:
+ERROR:   [10] _44366 is length([1|...])
+ERROR:    [9] <user>
+[0m?- ?- N is length([1, 2]).[22G,).[23G ).[24G2).
+[1;31mERROR: Type error: `[]' expected, found `[1,2]' (a list) ("x" must hold one character)
+ERROR: In:
+ERROR:   [10] _1302 is length([1|...],2)
+ERROR:    [9] <user>
+[0m?- length(List,4[17G)[10G[18G.
+List = [_2400, _2406, _2412, _2418].
+
+?- ?- length(List,4).[14G,4).[K[13G,4).[K[12G,4).[K[11G,4).[K[11G[,4).[12G1,4).[14G,4).[14G2,4).[14G,4).[K[14G ,4).[15G2,4).[17G,4).[17G ,4).[18G3,4).[20G,4).[20G ,4).[21G4,4).[22G],4).[11G[23G,[24G 4).
+[1mtrue.[0m
+
+?- ?- length([1, 2, 3, 4], 4).?- [1@Nl?- N[1@ l[6G[1@=l[7G[1@ ll
+N = length([1, 2, 3, 4], 4).
+
+?- ?- N = length([1, 2, 3, 4], 4).[6G[P [6G[1@i [7G[1@s 
+[1;31mERROR: Type error: `[]' expected, found `[1,2,3,4]' (a list) ("x" must hold one character)
+ERROR: In:
+ERROR:   [10] _5698 is length([1|...],4)
+ERROR:    [9] <user>
+[0m?- ?- N is length([1, 2, 3, 4], 4).[30G).[K[29G).[K[28G).[K).
+[1;31mERROR: Type error: `[]' expected, found `[1,2,3,4]' (a list) ("x" must hold one character)
+ERROR: In:
+ERROR:   [10] _7078 is length([1|...])
+ERROR:    [9] <user>
+[0m?- ?- N is length([1, 2, 3, 4]).[28G,).[29G ).[30G2).
+[1;31mERROR: Type error: `[]' expected, found `[1,2,3,4]' (a list) ("x" must hold one character)
+ERROR: In:
+ERROR:   [10] _8464 is length([1|...],2)
+ERROR:    [9] <user>
+[0m?- ?- N is length([1, 2, 3, 4], 2).[28G).[K[28G, 4).[6G[P=[32G?- [4Pl[28G[25G).[K[25G2).
+[1;31mfalse.[0m
+
+?- ?- length([1, 2, 3, 4], 2).2[25G).[K[24G).[K[23G).[K
+[1;31mERROR: Unknown procedure: length/1
+ERROR:     However, there are definitions for:
+ERROR:         length/2
+[0m[1;31mfalse.[0m
+
+?- ?- length([1, 2, 3, 4]).[23G,).[24G ).[25GX).
+X = 4.
+
+?- ?- ?- ?- length([1, 2, 3, 4], X).X[25G).[K[24G).[K[23G).[K
+[1;31mERROR: Unknown procedure: length/1
+ERROR:     However, there are definitions for:
+ERROR:         length/2
+[0m[1;31mfalse.[0m
+
+?- X i[6G[Kis length([1, 2[21G][16G[22G, X[25G)[15G[26G.
+[1;31mERROR: Arguments are not sufficiently instantiated
+ERROR: In:
+ERROR:   [10] _13264 is length([1|...],_13272)
+ERROR:    [9] <user>
+[0m?- ?- X is length([1, 2], X).[7G[P [6G[P [6G[1@= 
+X = length([1, 2], X).
+
+?- ?- ^D
+[32m% halt
+[0m[?2004hdwalcot1@remote00:~/i471a/submit/lab6$ prologgit status[4Pprolog[K[?2004l
+exit
+
+Script done on 2022-03-09 14:43:52-05:00 [COMMAND_EXIT_CODE="0"]
+Script started on 2022-03-09 14:43:56-05:00 [TERM="xterm-256color" TTY="/dev/pts/29" COLUMNS="142" LINES="25"]
+[?2004hdwalcot1@remote00:~/i471a/submit/lab6$ prolog
+[?2004lWelcome to SWI-Prolog (threaded, 64 bits, version 8.2.4)
+SWI-Prolog comes with ABSOLUTELY NO WARRANTY. This is free software.
+Please run ?- license. for legal details.
+
+For online help and background, visit https://www.swi-prolog.org
+For built-in help, use ?- help(Topic). or ?- apropos(Word).
+
+?- ?- X = length([1, 2], X).[6G[1@is[27G?- [5P[16G, 3, 4]).[23G, X).[23G).[K[23G, 2).?- [5@N is l[33G[28G).[K[28G, 4).[6G[P=[32G?- [4Pl[28G[11GList,4).[K?- [5@N is [16G[1, 2], 2).[22G).[K[15G [1, 2].[K?- sum_list([], Sum).[K[14G[4@2, 3][26G?- ['lab6-sol.pro'].[K?- quadratic_roots2(2, 5, 2, Z).?- ['lab6-sol.pro'].[K?- quadratic_roots(2, 5, 2, Z).?- ['lab6-sol.pro'].[K
+[31mWarning: /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:35:
+Warning:    Singleton variables: [Z,Sum,X]
+[0m[1mtrue.[0m
+
+?- ?- ?- ['lab6-sol.pro'].
+[31mWarning: /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:35:
+Warning:    Singleton variables: [X]
+[0m[1mtrue.[0m
+
+?- ?- ['lab6-sol.pro'].
+[1mtrue.[0m
+
+?- sum_lengths([[1, 2[22G][17G[23G, [3, [4, 5[34G][29G[35G, 6[38G][25G[39G, [7, 8[46G][41G[47G, [9[51G][9][52G][16G[53G, Z[56G)[15G[57G.
+[1;31mERROR: Type error: `[]' expected, found `[7,8]' (a list) ("x" must hold one character)
+ERROR: In:
+ERROR:   [13] _26104 is [7|...]+9
+ERROR:   [11] sum_list([[3|...],...|...],_26144) at /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:31
+ERROR:   [10] sum_lengths([[1|...],...|...],_26188) at /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:36
+ERROR:    [9] <user>
+ERROR: 
+ERROR: Note: some frames are missing due to last-call optimization.
+ERROR: Re-run your program in debug mode (:- debug.) to get more detail.
+[0m?- ?- sum_lengths([[1, 2], [3, [4, 5], 6], [7, 8], [9]], Z).?- ['lab6-sol.pro'].[K
+[1mtrue.[0m
+
+?- ?- ['lab6-sol.pro'].?- sum_lengths([[1, 2], [3, [4, 5], 6], [7, 8], [9]], Z).
+[1;31mERROR: Type error: `[]' expected, found `[7,8]' (a list) ("x" must hold one character)
+ERROR: In:
+ERROR:   [13] _29472 is [7|...]+9
+ERROR:   [11] sum_list([[3|...],...|...],_29512) at /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:31
+ERROR:   [10] sum_lengths([[1|...],...|...],_29556) at /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:36
+ERROR:    [9] <user>
+ERROR: 
+ERROR: Note: some frames are missing due to last-call optimization.
+ERROR: Re-run your program in debug mode (:- debug.) to get more detail.
+[0m?- ?- sum_lengths([[1, 2], [3, [4, 5], 6], [7, 8], [9]], Z).?- ['lab6-sol.pro'].[K
+[1mtrue.[0m
+
+?- ?- ['lab6-sol.pro'].?- sum_lengths([[1, 2], [3, [4, 5], 6], [7, 8], [9]], Z).
+[1;31mERROR: Type error: `[]' expected, found `[7,8]' (a list) ("x" must hold one character)
+ERROR: In:
+ERROR:   [13] _32840 is [7|...]+9
+ERROR:   [11] sum_list([[3|...],...|...],_32880) at /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:31
+ERROR:   [10] sum_lengths([[1|...],...|...],_32924) at /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:36
+ERROR:    [9] <user>
+ERROR: 
+ERROR: Note: some frames are missing due to last-call optimization.
+ERROR: Re-run your program in debug mode (:- debug.) to get more detail.
+[0m?- ?- sum_lengths([[1, 2], [3, [4, 5], 6], [7, 8], [9]], Z).?- ['lab6-sol.pro'].[K
+[31mWarning: /home/dwalcot1/i471a/submit/lab6/lab6-sol.pro:35:
+Warning:    Singleton variables: [X]
+[0m[1mtrue.[0m
+
+?- ?- ['lab6-sol.pro'].
+[1mtrue.[0m
+
+?- ?- ['lab6-sol.pro'].?- sum_lengths([[1, 2], [3, [4, 5], 6], [7, 8], [9]], Z).
+Z = 8.
+
+?- ^C
+Action (h for help) ? exit (status 4)
+[?2004hdwalcot1@remote00:~/i471a/submit/lab6$ [?2004l
+exit
+
+Script done on 2022-03-09 14:55:59-05:00 [COMMAND_EXIT_CODE="4"]
+Script started on 2022-03-09 14:57:11-05:00 [TERM="xterm-256color" TTY="/dev/pts/29" COLUMNS="142" LINES="17"]
+[?2004hdwalcot1@remote00:~/i471a/submit/lab6$ [?2004l
+exit
+
+Script done on 2022-03-09 15:00:50-05:00 [COMMAND_EXIT_CODE="0"]
