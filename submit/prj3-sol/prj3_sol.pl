@@ -5,6 +5,11 @@
 %numbers List are greater than N.
 %%Hint: use recursion on List.
 
+is_all_greater_than([], 0).
+is_all_greater_than([L|Ls], N):-
+    L > N,
+    is_all_greater_than(Ls, N).
+
 /*************************** get_greater_than1 *************************/
 
 %% #2 10-points
@@ -19,6 +24,13 @@
 %
 %Restriction: May not use any auxiliary procedures.
 %Hint: Use separate rules for head and tail of List.
+
+get_greater_than1([], 0, 0).
+get_greater_than1([L|Ls], N, M):-
+    ( L > N 
+    -> M =:= L
+    ; get_greater_than1(Ls, N, M)
+    ).
 
 /*************************** get_greater_than2 *************************/
 
@@ -66,6 +78,10 @@
 %list Shapes.  A shape is either rect(X, Y, W, H) with area W*H or
 %circ(X, Y, R) with area pi * R * R (note pi is defined on the
 %RHS of is/2).
+
+sum_areas([], 0).
+sum_areas([S|Ss], SumArea):
+    sum_areas(Ss, SumArea).
 
 /******************************* n_prefix ******************************/
 
