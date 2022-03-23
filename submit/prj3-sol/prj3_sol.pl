@@ -41,6 +41,10 @@ get_greater_than1([_|Ls], N, M):-
 %Hint: use generate-and-test with member/2 used to generate
 %and comparison used to test.
 
+member(_, []):- false.
+get_greater_than2(List, N, M):-
+    get_greater_than1(List, N, M).
+
 /************************* get_all_greater_than ************************/
 
 %% #4 15-points
@@ -48,6 +52,18 @@ get_greater_than1([_|Ls], N, M):-
 %the list of numbers from List (in order) which are greater than N.
 %Restriction: May not use any auxiliary procedures.
 %Hint: use a rule for empty List and two separate rules for a non-empty List.
+
+get_all_greater_than([], _, []).
+get_all_greater_than([L|Ls], N, [L|Gs]):-
+    L > N,
+    get_all_greater_than(Ls, N, Gs).
+get_all_greater_than([L|Ls], N, Gs):-
+    L =< N,
+    get_all_greater_than(Ls, N, Gs).
+
+%get_all_greater_than([L|Ls], N, GreaterThanN):-
+    %( L > N -> GreaterThanN = [L|GreaterThanNs]; GreaterThanN = GreaterThanNs ),
+    %get_all_greater_than(Ls, N, GreaterThanNs).
 
 /*********************** get_all_greater_than_tr ***********************/
 
