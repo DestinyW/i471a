@@ -5,7 +5,7 @@
 %numbers List are greater than N.
 %%Hint: use recursion on List.
 
-is_all_greater_than([], 0).
+is_all_greater_than([], _).
 is_all_greater_than([L|Ls], N):-
     L > N,
     is_all_greater_than(Ls, N).
@@ -26,11 +26,11 @@ is_all_greater_than([L|Ls], N):-
 %Hint: Use separate rules for head and tail of List.
 
 get_greater_than1([], 0, 0).
-get_greater_than1([L|Ls], N, M):-
-    ( L > N 
-    -> M =:= L
-    ; get_greater_than1(Ls, N, M)
-    ).
+get_greater_than1([L|_], N, M):-
+    L > N,
+    M = L.
+get_greater_than1([_|Ls], N, M):-
+    get_greater_than1(Ls, N, M).
 
 /*************************** get_greater_than2 *************************/
 
@@ -80,8 +80,14 @@ get_greater_than1([L|Ls], N, M):-
 %RHS of is/2).
 
 sum_areas([], 0).
-sum_areas([S|Ss], SumArea):
-    sum_areas(Ss, SumArea).
+sum_areas([L|_], SumArea):-
+    sum_areas(L, SumArea).
+sum_areas([_|Ls], SumArea):-
+    sum_areas(Ls, SumArea).
+sum_areas(rect(_, _, W, H), SumArea):-
+    SumArea is W * H.
+sum_areas(circ(_, _, R), SumArea):-
+    SumArea is pi * R * R.
 
 /******************************* n_prefix ******************************/
 
