@@ -41,6 +41,8 @@ get_greater_than1([_|Ls], N, M):-
 %Hint: use generate-and-test with member/2 used to generate
 %and comparison used to test.
 
+%need to redo implementation
+
 member(_, []):- false.
 get_greater_than2(List, N, M):-
     get_greater_than1(List, N, M).
@@ -60,10 +62,6 @@ get_all_greater_than([L|Ls], N, [L|Gs]):-
 get_all_greater_than([L|Ls], N, Gs):-
     L =< N,
     get_all_greater_than(Ls, N, Gs).
-
-%get_all_greater_than([L|Ls], N, GreaterThanN):-
-    %( L > N -> GreaterThanN = [L|GreaterThanNs]; GreaterThanN = GreaterThanNs ),
-    %get_all_greater_than(Ls, N, GreaterThanNs).
 
 /*********************** get_all_greater_than_tr ***********************/
 
@@ -96,14 +94,12 @@ get_all_greater_than([L|Ls], N, Gs):-
 %RHS of is/2).
 
 sum_areas([], 0).
-sum_areas([L|_], SumArea):-
-    sum_areas(L, SumArea).
-sum_areas([_|Ls], SumArea):-
-    sum_areas(Ls, SumArea).
-sum_areas(rect(_, _, W, H), SumArea):-
-    SumArea is W * H.
-sum_areas(circ(_, _, R), SumArea):-
-    SumArea is pi * R * R.
+sum_areas([rect(_, _, W, H)|Ls], SumArea):-
+    sum_areas(Ls, S),
+    SumArea is S + W * H.
+sum_areas([circ(_, _, R)|Ls], SumArea):-
+    sum_areas(Ls, S),
+    SumArea is S + pi * R * R.
 
 /******************************* n_prefix ******************************/
 
@@ -113,6 +109,11 @@ sum_areas(circ(_, _, R), SumArea):-
 %length(List) >= N.
 %Restriction: May not use any auxiliary procedures.
 %Hint: Recurse on N.
+
+n_prefix(0, _, _, _).
+n_prefix(N, [_|Ls], [_|Ps], Rest):-
+    N1 is N - 1,
+    n_prefix(N1, Ls, Ps, Rest).
 
 /***************************** split_into_n_lists **********************/
 
