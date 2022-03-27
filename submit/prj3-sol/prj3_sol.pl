@@ -75,6 +75,18 @@ get_all_greater_than([L|Ls], N, Gs):-
 %Hint: Define an auxiliary procedure witn an extra argument which
 %accumulates GreaterThanN.
 
+get_all_greater_than_tr(List, N, GreaterThanN):-
+    aux_get_all_greater_than_tr(List, N, Acc, GreaterThanN),
+    append(Acc, [], GreaterThanN).
+
+aux_get_all_greater_than_tr([], _, [], _).
+aux_get_all_greater_than_tr([L|Ls], N, [L|Acc], GreaterThanN):-
+    L > N,
+    aux_get_all_greater_than_tr(Ls, N, Acc, GreaterThanN).
+aux_get_all_greater_than_tr([L|Ls], N, Acc, GreaterThanN):-
+    L =< N,
+    aux_get_all_greater_than_tr(Ls, N, Acc, GreaterThanN).
+
 /*************************** split_into_pairs **************************/
 
 %% #6 10-points
@@ -85,6 +97,11 @@ get_all_greater_than([L|Ls], N, Gs):-
 %Restriction: May not use any auxiliary procedures.
 %Hint: consider cases of List empty, List a 1-element list and List
 %containing 2-or-more elements.
+
+split_into_pairs([], []).
+split_into_pairs([_], [[_]]).
+split_into_pairs([_, _|Ls], [[_, _]|Ps]):-
+    split_into_pairs(Ls, Ps).
 
 /******************************** sum_areas ****************************/
 %% #7 10-points
@@ -125,3 +142,8 @@ n_prefix(N, [_|Ls], [_|Ps], Rest):-
 %Hint: List is either empty or non-empty.  If non-empty, its
 %length is < N, or its length is >= N; in the latter case, use n_prefix/3
 %to recurse.
+
+split_into_n_lists(_, [], _).
+split_into_n_lists(N, [L|Ls], [[N|Ns]|Nss]):-
+    n_prefix(N, [L|Ls], [N|Ns], _),
+    split_into_n_lists(N, Ls, Nss).
