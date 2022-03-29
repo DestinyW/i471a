@@ -143,7 +143,19 @@ n_prefix(N, [_|Ls], [_|Ps], Rest):-
 %length is < N, or its length is >= N; in the latter case, use n_prefix/3
 %to recurse.
 
-split_into_n_lists(_, [], _).
-split_into_n_lists(N, [L|Ls], [[N|Ns]|Nss]):-
-    n_prefix(N, [L|Ls], [N|Ns], _),
-    split_into_n_lists(N, Ls, Nss).
+split_into_n_lists(N, List, NLists):-
+    aux_split_into_n_lists(N, N, List, NLists).
+
+aux_split_into_n_lists(_, _, [], []).
+aux_split_into_n_lists(N, N1, List, [[]|Nss]):-
+    length(List, X),
+    X =< 0,
+    aux_split_into_n_lists(N, N1, List, Nss).
+aux_split_into_n_lists(N, N1, List, [[]|Nss]):-
+    N1 =< 0,
+    N2 = N,
+    aux_split_into_n_lists(N, N2, List, Nss).
+aux_split_into_n_lists(N, N1, [_|Ls], [[_|Ns]|Nss]):-
+    N1 > 0,
+    N2 is N1 - 1,
+    aux_split_into_n_lists(N, N2, Ls, [Ns|Nss]).
