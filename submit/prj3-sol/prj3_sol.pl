@@ -41,11 +41,8 @@ get_greater_than1([_|Ls], N, M):-
 %Hint: use generate-and-test with member/2 used to generate
 %and comparison used to test.
 
-%need to redo implementation
-
-member(_, []):- false.
 get_greater_than2(List, N, M):-
-    get_greater_than1(List, N, M).
+    member(M, List), M > N.
 
 /************************* get_all_greater_than ************************/
 
