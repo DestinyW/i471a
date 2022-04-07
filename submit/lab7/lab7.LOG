@@ -124,3 +124,413 @@ Ok, one module loaded.
 exit
 
 Script done on 2022-04-06 16:55:31-04:00 [COMMAND_EXIT_CODE="0"]
+Script started on 2022-04-06 19:19:05-04:00 [TERM="xterm-256color" TTY="/dev/pts/14" COLUMNS="98" LINES="19"]
+[?2004hdwalcot1@remote03:~/i471a/submit/lab7$ [Kdwalcot1@remote03:~/i471a/submit/lab7$ [Kdwalcot1@remote03:~/i471a/submit/lab7$ git statuspush -u origin lab7commit -m 'started lab7'[5Ppush -u origin lab7status[K[Kghci
+[?2004lGHCi, version 8.8.4: https://www.haskell.org/ghc/  :? for help
+[?1h=Prelude> :l "kab7ab7[K[3Dlab7[3D[C[C[C-sol.hs"
+[?1l>[1 of 1] Compiling Main             ( lab7-sol.hs, interpreted )
+Ok, one module loaded.
+[?1h=*Main> :t add
+[?1l>add :: Num a => a -> a -> a
+[?1h=*Main> :t pluss[K
+[?1l>plus :: Integer -> Integer -> Integer
+[?1h=*Main> :t conc
+[?1l>conc :: [a] -> [a] -> [a]
+[?1h=*Main> add 2 3
+[?1l>5
+[?1h=*Main> *Main> conc [1] [2, 3]
+[?1l>[1,2,3]
+[?1h=*Main> conc [1[K[1]] [[2, 3]]
+[?1l>[[1],[2,3]]
+[?1h=*Main> conc :[K"hello" "world"
+[?1l>"helloworld"
+[?1h=*Main> conc ["hello"] ["world"]
+[?1l>["hello","world"]
+[?1h=*Main> conc (conc ["hello"] ["world"]) ["goodbye"]
+[?1l>["hello","world","goodbye"]
+[?1h=*Main> conc (conc ["hello"] ["world"]) [42]
+[?1l>
+[;1m<interactive>:11:34: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • No instance for (Num [Char]) arising from the literal ‘42’
+    • In the expression: 42
+      In the second argument of ‘conc’, namely ‘[42]’
+      In the expression: conc (conc ["hello"] ["world"]) [42][0m[0m
+[0m[0m[0m[?1h=*Main> conc (conc ["hello"] ["world"]) ["goodbye"] ["goodbye"][K[12Dconc ["hello"] ["world"] ["goodbye"][K[36D
+[?1l>
+[;1m<interactive>:12:1: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘[[Char]] -> [[Char]] -> t’
+                  with actual type ‘[[Char]]’
+    • The function ‘conc’ is applied to four arguments,
+      but its type ‘[[Char]] -> [[Char]] -> [[Char]]’ has only two
+      In the expression: conc conc ["hello"] ["world"] ["goodbye"]
+      In an equation for ‘it’:
+          it = conc conc ["hello"] ["world"] ["goodbye"]
+    • Relevant bindings include it :: t (bound at <interactive>:12:1)[0m[0m
+[0m[0m[0m
+[;1m<interactive>:12:6: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘[[Char]]’
+                  with actual type ‘[a0] -> [a0] -> [a0]’
+    • Probable cause: ‘conc’ is applied to too few arguments
+      In the first argument of ‘conc’, namely ‘conc’
+      In the expression: conc conc ["hello"] ["world"] ["goodbye"]
+      In an equation for ‘it’:
+          it = conc conc ["hello"] ["world"] ["goodbye"][0m[0m
+[0m[0m[0m[?1h=*Main> :quit
+[?1l>Leaving GHCi.
+[?2004hdwalcot1@remote03:~/i471a/submit/lab7$ [?2004l
+exit
+
+Script done on 2022-04-06 19:25:59-04:00 [COMMAND_EXIT_CODE="0"]
+Script started on 2022-04-06 20:06:16-04:00 [TERM="xterm-256color" TTY="/dev/pts/15" COLUMNS="98" LINES="19"]
+[?2004hdwalcot1@remote07:~/i471a/submit/lab7$ [Kdwalcot1@remote07:~/i471a/submit/lab7$ script -a lab7.LOGghci[Kit status[6Phci
+[?2004lGHCi, version 8.8.4: https://www.haskell.org/ghc/  :? for help
+[?1h=Prelude> :quit[5Dconc conc ["hello"] ["world"] ["goodbye"][36D(conc ["hello"] ["world"]) [42][K[3D"goodbye"][38D["hello"] ["world"][K[19D"hello" "world"[K[15D[[1]] [[2, 3]][K[13D1] [2, 3][K[15Dadd 2 3[K[7D:t conc[4Dplus[4Dadd[K[5Dl "lab7-sol.hs"[15Dquit[K[4Dl "lab7-sol.hs"
+[?1l>[1 of 1] Compiling Main             ( lab7-sol.hs, interpreted )
+Ok, one module loaded.
+[?1h=*Main> :l "lab7-sol.hs"[15Dquit[K[5Dconc conc ["hello"] ["world"] ["goodbye"][36D(conc ["hello"] ["world"]) [42][K[31Dconc ["hello"] ["world"] ["goodbye"]
+[?1l>
+[;1m<interactive>:2:1: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘[[Char]] -> [[Char]] -> t’
+                  with actual type ‘[[Char]]’
+    • The function ‘conc’ is applied to four arguments,
+      but its type ‘[[Char]] -> [[Char]] -> [[Char]]’ has only two
+      In the expression: conc conc ["hello"] ["world"] ["goodbye"]
+      In an equation for ‘it’:
+          it = conc conc ["hello"] ["world"] ["goodbye"]
+    • Relevant bindings include it :: t (bound at <interactive>:2:1)[0m[0m
+[0m[0m[0m
+[;1m<interactive>:2:6: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘[[Char]]’
+                  with actual type ‘[a0] -> [a0] -> [a0]’
+    • Probable cause: ‘conc’ is applied to too few arguments
+      In the first argument of ‘conc’, namely ‘conc’
+      In the expression: conc conc ["hello"] ["world"] ["goodbye"]
+      In an equation for ‘it’:
+          it = conc conc ["hello"] ["world"] ["goodbye"][0m[0m
+[0m[0m[0m[?1h=*Main> *Main> conc conc ["hello"] ["world"] ["goodbye"][41D:l "lab7-sol.hs"[K[15Dquit[K[5Dconc conc ["hello"] ["world"] ["goodbye"][36D(conc ["hello"] ["world"]) [42][K[3D"goodbye"][38D["hello"] ["world"][K[19D"hello" "world"[K[15D["hello"] ["world"]
+[?1l>["hello","world"]
+[?1h=*Main> conc ["hello"] ["world"][19Dconc ["hello"] ["world"] ["goodbye"][36D["hello"] ["world"][K[24D[Kconc ["hello"] ["world"][K[K[K[K[K[K[K[K[K[K[K, "world"] ["goodbye"]
+[?1l>["hello","world","goodbye"]
+[?1h=*Main> conc ["hello", "world"] ["goodbye"][22D] ["world"][K[19Dconc ["hello"] ["world"] ["goodbye"][41D:l "lab7-sol.hs"[K[16Dconc conc ["hello"] ["world"] ["goodbye"]
+[?1l>
+[;1m<interactive>:5:1: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘[[Char]] -> [[Char]] -> t’
+                  with actual type ‘[[Char]]’
+    • The function ‘conc’ is applied to four arguments,
+      but its type ‘[[Char]] -> [[Char]] -> [[Char]]’ has only two
+      In the expression: conc conc ["hello"] ["world"] ["goodbye"]
+      In an equation for ‘it’:
+          it = conc conc ["hello"] ["world"] ["goodbye"]
+    • Relevant bindings include it :: t (bound at <interactive>:5:1)[0m[0m
+[0m[0m[0m
+[;1m<interactive>:5:6: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘[[Char]]’
+                  with actual type ‘[a0] -> [a0] -> [a0]’
+    • Probable cause: ‘conc’ is applied to too few arguments
+      In the first argument of ‘conc’, namely ‘conc’
+      In the expression: conc conc ["hello"] ["world"] ["goodbye"]
+      In an equation for ‘it’:
+          it = conc conc ["hello"] ["world"] ["goodbye"][0m[0m
+[0m[0m[0m[?1h=*Main> conc conc ["hello"] ["world"] ["goodbye"][36D["hello", "world"] ["goodbye"][K[22D] ["world"][K[19Dconc ["hello"] ["world"] ["goodbye"][41D:l "lab7-sol.hs"[K[15Dquit[K[5Dconc conc ["hello"] ["world"] ["goodbye"][36D(conc ["hello"] ["world"]) [42][K
+[?1l>
+[;1m<interactive>:6:34: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • No instance for (Num [Char]) arising from the literal ‘42’
+    • In the expression: 42
+      In the second argument of ‘conc’, namely ‘[42]’
+      In the expression: conc (conc ["hello"] ["world"]) [42][0m[0m
+[0m[0m[0m[?1h=*Main> *Main> :r
+[?1l>[1 of 1] Compiling Main             ( lab7-sol.hs, interpreted )
+Ok, one module loaded.
+[?1h=*Main> :add10[K[K[K[K[Kt add10
+[?1l>add10 :: Integer -> Integer
+[?1h=*Main> :t pu[Klus5
+[?1l>plus5 :: Integer -> Integer
+[?1h=*Main> :t concHello
+[?1l>concHello :: [Char] -> [Char]
+[?1h=*Main> add10 5
+[?1l>15
+[?1h=*Main> add10 5 5
+[?1l>
+[;1m<interactive>:12:1: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘Integer -> t’
+                  with actual type ‘Integer’
+    • The function ‘add10’ is applied to two arguments,
+      but its type ‘Integer -> Integer’ has only one
+      In the expression: add10 5 5
+      In an equation for ‘it’: it = add10 5 5
+    • Relevant bindings include it :: t (bound at <interactive>:12:1)[0m[0m
+[0m[0m[0m[?1h=*Main> plus5 `[K1
+[?1l>6
+[?1h=*Main> plus
+[?1l>
+[;1m<interactive>:14:1: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • No instance for (Show (Integer -> Integer -> Integer))
+        arising from a use of ‘print’
+        (maybe you haven't applied a function to enough arguments?)
+    • In a stmt of an interactive GHCi command: print it[0m[0m
+[0m[0m[0m[?1h=*Main> plus 5 1
+[?1l>6
+[?1h=*Main> plus 1 1
+[?1l>2
+[?1h=*Main> plus5 1 1
+[?1l>
+[;1m<interactive>:17:1: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘Integer -> t’
+                  with actual type ‘Integer’
+    • The function ‘plus5’ is applied to two arguments,
+      but its type ‘Integer -> Integer’ has only one
+      In the expression: plus5 1 1
+      In an equation for ‘it’: it = plus5 1 1
+    • Relevant bindings include it :: t (bound at <interactive>:17:1)[0m[0m
+[0m[0m[0m[?1h=*Main> concHello world
+[?1l>
+[;1m<interactive>:18:11: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m Variable not in scope: world :: [Char][0m[0m
+[0m[0m[0m[?1h=*Main> concHello world""world"[6D
+[?1l>"helloworld"
+[?1h=*Main> concHello "world" world"[6D
+[?1l>"hello world"
+[?1h=*Main> concHello " world"[" world"[8D[C[C[C[C[C[C[C[C]
+[?1l>
+[;1m<interactive>:21:12: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘Char’ with actual type ‘[Char]’
+    • In the expression: " world"
+      In the first argument of ‘concHello’, namely ‘[" world"]’
+      In the expression: concHello [" world"][0m[0m
+[0m[0m[0m[?1h=*Main> *Main> *Main> ley[Kt tu[K[K[K[K[K[Klet tuple = ("hello", 42) in fst tuple
+[?1l>"hello"
+[?1h=*Main> let tuple = ("hello", 42) in fst tuple tuple[K[6D tuple[K[6D tuple[K[6Ds tuple[6Dn tuple[6Dd tuple[6D
+[?1l>42
+[?1h=*Main> :r
+[?1l>[1 of 1] Compiling Main             ( lab7-sol.hs, interpreted )
+Ok, one module loaded.
+[?1h=*Main> f[Klet tuple = first[K[K[K[K[K("hello", 42) in first
+[?1l>
+[;1m<interactive>:25:1: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • No instance for (Show ((a0, b0) -> a0))
+        arising from a use of ‘print’
+        (maybe you haven't applied a function to enough arguments?)
+    • In a stmt of an interactive GHCi command: print it[0m[0m
+[0m[0m[0m[?1h=*Main> let tuple = ("hello", 42) in first tuple
+[?1l>"hello"
+[?1h=*Main> let tuple = ("hello", 42) in first tuple tuple[K[6D tuple[K[6D tuple[K[6D tuple[K[6D tuple[K[6Ds tuple[6De tuple[6Dc tuple[6Do tuple[6Dn tuple[6Dd tuple[6D
+[?1l>42
+[?1h=*Main> firt[Kst*[K("eh[K[Khello", 42)
+[?1l>"hello"
+[?1h=*Main> second("hello", 42)
+[?1l>42
+[?1h=*Main> first (12, "hello", [])
+[?1l>
+[;1m<interactive>:30:7: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘(a, b0)’
+                  with actual type ‘(Integer, [Char], [a0])’
+    • In the first argument of ‘first’, namely ‘(12, "hello", [])’
+      In the expression: first (12, "hello", [])
+      In an equation for ‘it’: it = first (12, "hello", [])
+    • Relevant bindings include it :: a (bound at <interactive>:30:1)[0m[0m
+[0m[0m[0m[?1h=*Main> let tuple = (12, "hellp[Ko" [], [][3D[C[C[C) in fst3 tuple
+[?1l>
+[;1m<interactive>:31:34: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Variable not in scope: fst3 :: (Integer, [Char], [a0]) -> t
+    • Perhaps you meant ‘fst’ (imported from Prelude)[0m[0m
+[0m[0m[0m[?1h=*Main> fst3 (12, "hello", [])
+[?1l>
+[;1m<interactive>:32:1: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Variable not in scope: fst3 :: (Integer, [Char], [a0]) -> t
+    • Perhaps you meant ‘fst’ (imported from Prelude)[0m[0m
+[0m[0m[0m[?1h=*Main> (12, "hello", [])f(12, "hello", [])[17Ds(12, "hello", [])[17Dt(12, "hello", [])[17D3(12, "hello", [])[17D
+[?1l>
+[;1m<interactive>:33:1: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Variable not in scope: fst3 :: (Integer, [Char], [a0]) -> t
+    • Perhaps you meant ‘fst’ (imported from Prelude)[0m[0m
+[0m[0m[0m[?1h=*Main> :r
+[?1l>[1 of 1] Compiling Main             ( lab7-sol.hs, interpreted )
+Ok, one module loaded.
+[?1h=*Main> :r[2Dfst3(12, "hello", [])[17D (12, "hello", [])
+[?1l>12
+[?1h=*Main> snd3 (12, "hello", [])
+[?1l>"hello"
+[?1h=*Main> :r
+[?1l>[1 of 1] Compiling Main             ( lab7-sol.hs, interpreted )
+
+[;1mlab7-sol.hs:33:36: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Occurs check: cannot construct the infinite type: a ~ [a]
+    • In the second argument of ‘(+)’, namely ‘second (x, xs)’
+      In the expression: first (x, xs) + second (x, xs)
+      In an equation for ‘sumFirst2’:
+          sumFirst2 (x : xs) = first (x, xs) + second (x, xs)
+    • Relevant bindings include
+        xs :: [a] (bound at lab7-sol.hs:33:14)
+        x :: a (bound at lab7-sol.hs:33:12)
+        sumFirst2 :: [a] -> a (bound at lab7-sol.hs:33:1)[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m33 |[0m[0m sumFirst2 (x:xs) = first (x, xs) + [;1m[31msecond (x, xs)[0m[0m
+[;1m[34m   |[0m[0m[;1m[31m                                    ^^^^^^^^^^^^^^[0m[0m
+[0m[0m[0mFailed, no modules loaded.
+[?1h=Prelude> :r
+[?1l>[1 of 1] Compiling Main             ( lab7-sol.hs, interpreted )
+
+[;1mlab7-sol.hs:33:34: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Variable not in scope: x2 :: [a]
+    • Perhaps you meant one of these: ‘x’ (line 33), ‘xs’ (line 33)[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m33 |[0m[0m sumFirst2 (x:xs) = x + sumFirst2 [;1m[31mx2[0m[0m
+[;1m[34m   |[0m[0m[;1m[31m                                  ^^[0m[0m
+[0m[0m[0mFailed, no modules loaded.
+[?1h=Prelude> :r
+[?1l>[1 of 1] Compiling Main             ( lab7-sol.hs, interpreted )
+Ok, one module loaded.
+[?1h=*Main> sumFirst2 [1, 2, 3],] ]4][C
+[?1l>*** Exception: lab7-sol.hs:33:1-35: Non-exhaustive patterns in function sumFirst2
+
+[?1h=*Main> take 2 sumFirst2 [1, 2, 3, 4]
+[?1l>
+[;1m<interactive>:41:1: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘[Integer] -> t’
+                  with actual type ‘[a0]’
+    • The function ‘take’ is applied to three arguments,
+      but its type ‘Int -> [a0] -> [a0]’ has only two
+      In the expression: take 2 sumFirst2 [1, 2, 3, 4]
+      In an equation for ‘it’: it = take 2 sumFirst2 [1, 2, 3, ....]
+    • Relevant bindings include it :: t (bound at <interactive>:41:1)[0m[0m
+[0m[0m[0m
+[;1m<interactive>:41:8: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Couldn't match expected type ‘[a0]’
+                  with actual type ‘[Integer] -> Integer’
+    • Probable cause: ‘sumFirst2’ is applied to too few arguments
+      In the second argument of ‘take’, namely ‘sumFirst2’
+      In the expression: take 2 sumFirst2 [1, 2, 3, 4]
+      In an equation for ‘it’: it = take 2 sumFirst2 [1, 2, 3, ....][0m[0m
+[0m[0m[0m[?1h=*Main> take 2 sumFirst2 [1, 2, 3, 4][C)(sumFirst2 [1, 2, 3, 4])[23D
+[?1l>
+[;1m<interactive>:42:1: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Non type-variable argument in the constraint: Num [a]
+      (Use FlexibleContexts to permit this)
+    • When checking the inferred type
+        it :: forall a. Num [a] => [a][0m[0m
+[0m[0m[0m[?1h=*Main> :r
+[?1l>[1 of 1] Compiling Main             ( lab7-sol.hs, interpreted )
+Ok, one module loaded.
+[?1h=*Main> :r[2Dtake 2 (sumFirst2 [1, 2, 3, 4])
+[?1l>
+[;1m<interactive>:44:1: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Non type-variable argument in the constraint: Num [a]
+      (Use FlexibleContexts to permit this)
+    • When checking the inferred type
+        it :: forall a. Num [a] => [a][0m[0m
+[0m[0m[0m[?1h=*Main> take 2 (sumFirst2 [1, 2, 3, 4])[31D:r[K[2Dtake 2 (sumFirst2 [1, 2, 3, 4])[24DsumFirst2 [1, 2, 3, 4][K[29DsumFirst2 [1, 2, 3, 4][K
+[?1l>10
+[?1h=*Main> :r
+[?1l>[1 of 1] Compiling Main             ( lab7-sol.hs, interpreted )
+
+[;1mlab7-sol.hs:33:15: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Occurs check: cannot construct the infinite type: a ~ [a]
+    • In the expression: a
+      In an equation for ‘sumFirst2’: sumFirst2 a = a
+    • Relevant bindings include
+        a :: [a] (bound at lab7-sol.hs:33:11)
+        sumFirst2 :: [a] -> a (bound at lab7-sol.hs:33:1)[0m[0m
+[;1m[34m   |[0m[0m
+[;1m[34m33 |[0m[0m sumFirst2 a = [;1m[31ma[0m[0m
+[;1m[34m   |[0m[0m[;1m[31m               ^[0m[0m
+[0m[0m[0mFailed, no modules loaded.
+[?1h=Prelude> r[K:r
+[?1l>[1 of 1] Compiling Main             ( lab7-sol.hs, interpreted )
+Ok, one module loaded.
+[?1h=*Main> :r[2DsumFirst2 [1, 2, 3, 4]
+[?1l>3
+[?1h=*Main> sumFirst2 [5, 5, 2, 6]
+[?1l>10
+[?1h=*Main> sumFirst2 [5, 5, 2, 6][C5, 5, 2, 6][10D[C5, 5, 2, 6][K[11D[C0, 5, 2, 6][10D[C[C[C, 2, 6][K[7D1, 2, 6][7D0, 2, 6][7D0, 2, 6][7D
+[?1l>150
+[?1h=*Main> :r
+[?1l>[1 of 1] Compiling Main             ( lab7-sol.hs, interpreted )
+Ok, one module loaded.
+[?1h=*Main> fnFirst2 [3, 4] (+) (*)
+[?1l>7
+[?1h=*Main> fnFirst2 [3, 4, 5] (+) (*)
+[?1l>12
+[?1h=*Main> :r
+[?1l>[1 of 1] Compiling Main             ( lab7-sol.hs, interpreted )
+Ok, one module loaded.
+[?1h=*Main> cartesianProduct [1..4] [2..4]
+[?1l>[(1,2),(1,3),(1,4),(2,2),(2,3),(2,4),(3,2),(3,3),(3,4),(4,2),(4,3),(4,4)]
+[?1h=*Main> cartesianProductIf [1..4] [2..4] (>)
+[?1l>[(3,2),(4,2),(4,3)]
+[?1h=*Main> [[K[ (x, 3*x^2 + 2*x + 1) | x <- [1...[K10]]
+[?1l>[(1,6),(2,17),(3,34),(4,57),(5,86),(6,121),(7,162),(8,209),(9,262),(10,321)]
+[?1h=*Main> [ (x, 3*x^2 + 2*x + 1) | x <- [1..10]][C,] ]x]][K(]r]e]m] ]x] ]3])][C
+[?1l>
+[;1m<interactive>:58:32: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • No instance for (Num Bool) arising from the literal ‘1’
+    • In the expression: 1
+      In the expression: [1 .. 10]
+      In a stmt of a list comprehension: x <- [1 .. 10][0m[0m
+[0m[0m[0m
+[;1m<interactive>:58:41: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • No instance for (Integral Bool) arising from a use of ‘rem’
+    • In the expression: (rem x 3)
+      In a stmt of a list comprehension: (rem x 3)
+      In the expression:
+        [(x, 3 * x ^ 2 + 2 * x + 1) | x <- [1 .. 10], (rem x 3)][0m[0m
+[0m[0m[0m[?1h=*Main> [ (x, 3*x^2 + 2*x + 1) | x <- [1..10], (rem x 3)][49D[K[ (x, 3*x^2 + 2*x + 1) | x <- [1..10], (rem x 3)]rem x 3)][K[9D[C[C[C[C[C[C[C[C][K
+[?1l>
+[;1m<interactive>:59:32: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • No instance for (Num Bool) arising from the literal ‘1’
+    • In the expression: 1
+      In the expression: [1 .. 10]
+      In a stmt of a list comprehension: x <- [1 .. 10][0m[0m
+[0m[0m[0m
+[;1m<interactive>:59:40: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • No instance for (Integral Bool) arising from a use of ‘rem’
+    • In the expression: rem x 3
+      In a stmt of a list comprehension: rem x 3
+      In the expression:
+        [(x, 3 * x ^ 2 + 2 * x + 1) | x <- [1 .. 10], rem x 3][0m[0m
+[0m[0m[0m[?1h=*Main> [ (x, 3*x^2 + 2*x + 1) | x <- [1..10], rem x 3][C[C[46D[K[ (x, 3*x^2 + 2*x + 1) | x <- [1..10], rem x 3][K[K[K[K[K[K[K[K(rem 3*x^2 + 2*x + 1 3) == 0]
+[?1l>
+[;1m<interactive>:60:1: [;1m[31merror:[0m[0m[;1m[0m[0m[;1m
+    • Non type-variable argument in the constraint: Num (a -> a)
+      (Use FlexibleContexts to permit this)
+    • When checking the inferred type
+        it :: forall a t.
+              (Integral a, Num t, Num (a -> a), Num (t -> a -> a), Eq (a -> a),
+               Enum (a -> a)) =>
+              [(a -> a, a -> a)][0m[0m
+[0m[0m[0m[?1h=*Main> [ (x, 3*x^2 + 2*x + 1) | x <- [1..10], (rem 3*x^2 + 2*x + 1 3) == 0][C) 3) == 0][9D(3*x^2 + 2*x + 1) 3) == 0][25D
+[?1l>[(1,6),(4,57),(7,162),(10,321)]
+[?1h=*Main> :r
+[?1l>[1 of 1] Compiling Main             ( lab7-sol.hs, interpreted )
+Ok, one module loaded.
+[?1h=*Main> oddEvenPairs 5
+[?1l>[(1,2),(1,4),(3,2),(3,4),(5,2),(5,4)]
+[?1h=*Main> oddEvenPairs 5
+[?1l>[(1,2),(1,4),(3,2),(3,4),(5,2),(5,4)]
+[?1h=*Main> oddEvenPairs 5[K7
+[?1l>[(1,2),(1,4),(1,6),(3,2),(3,4),(3,6),(5,2),(5,4),(5,6),(7,2),(7,4),(7,6)]
+[?1h=*Main> *Main> *Main> *Main> :quit
+[?1l>Leaving GHCi.
+[?2004hdwalcot1@remote07:~/i471a/submit/lab7$ [Kdwalcot1@remote07:~/i471a/submit/lab7$ ghci
+[?2004lGHCi, version 8.8.4: https://www.haskell.org/ghc/  :? for help
+[?1h=Prelude> :quit[5DoddEvenPairs 75[14D:r[K[2D[ (x, 3*x^2 + 2*x + 1) | x <- [1..10], (rem (3*x^2 + 2*x + 1) 3) == 0][26D3*x^2 + 2*x + 1 3) == 0][K[29Drem x 3][K[8D(rem x 3)][12D][K[38DcartesianProductIf [1..4] [2..4] (>)[K[20D [1..4] [2..4][K[30D:r[K[2DfnFirst2 [3, 4, 5] (+) (*)[12D] (+) (*)[K[23D:r[K[2DsumFirst2 [50, 100, 2, 6][13D, 5, 2, 6][K[11D1, 2, 3, 4][22D:r[K[2DsumFirst2 [1, 2, 3, 4][22Dtake 2 (sumFirst2 [1, 2, 3, 4])[31D:r[K[2Dtake 2 (sumFirst2 [1, 2, 3, 4])[24DsumFirst2 [1, 2, 3, 4][K[29DsumFirst2 [1, 2, 3, 4][K[22D:r[K[2Dsnd3 (12, "hello", [])[22Dfst3 (12, "hello", [])[22D:r[K[2Dfst3(12, "hello", [])[17D (12, "hello", [])[22Dlet tuple = (12, "hello", []) in fst3 tuple[43Dfirst (12, "hello", [])[K[23Dsecond("hello", 42)[K[19Dfirst("hello", 42)[K[18Dlet tuple = ("hello", 42) in second tuple[12Dfirst tuple[K[6D[K[34D:r[K[2Dlet tuple = ("hello", 42) in snd tuple[9Dfst tuple[38DconcHello [" world"][K[10D" world"[K[7Dworld"[K[7Dworld[K[15Dplus5 1 1[K[5D 1 1[K[3D5 1[4D[K5 1[7Dadd10 5 5[2D[K[7D:t concHello[9Dplus5[K[5Dadd10[7Dr[K[2Dconc (conc ["hello"] ["world"]) [42][31Dconc ["hello"] ["world"] ["goodbye"][36D["hello", "world"] ["goodbye"][K[22D] ["world"][K[19Dconc ["hello"] ["world"] ["goodbye"][41D:l "lab7-sol.hs"[K
+[?1l>[1 of 1] Compiling Main             ( lab7-sol.hs, interpreted )
+Ok, one module loaded.
+[?1h=*Main> :r
+[?1l>[1 of 1] Compiling Main             ( lab7-sol.hs, interpreted )
+Ok, one module loaded.
+[?1h=*Main> :r[2D[KfnFirst2 [3, 4] (+) (*)] (+) (*)[K[9D] (+) (*)[K[9D] (+) (*)[K[9D[C
+[?1l>*** Exception: lab7-sol.hs:(37,5)-(39,21): Non-exhaustive patterns in lambda
+
+[?1h=*Main> :r
+[?1l>[1 of 1] Compiling Main             ( lab7-sol.hs, interpreted )
+Ok, one module loaded.
+[?1h=*Main> :r[2DfnFirst2 [3] (+) (*)
+[?1l>*** Exception: lab7-sol.hs:(37,5)-(39,21): Non-exhaustive patterns in lambda
+
+[?1h=*Main> fnFirst2 [3] (+) (*)[20D:r[K[2DfnFirst2 [3] (+) (*)[20D:r[Kl "lab7-sol.hs"[15Dquit[K[5DoddEvenPairs 75[14D:r[K[2D[ (x, 3*x^2 + 2*x + 1) | x <- [1..10], (rem (3*x^2 + 2*x + 1) 3) == 0][26D3*x^2 + 2*x + 1 3) == 0][K[29Drem x 3][K[8D(rem 3*x^2 + 2*x + 1 3) == 0][24D(3*x^2 + 2*x + 1) 3) == 0][70D:r[K[2DoddEvenPairs 57[14D:quit[K[4Dl "lab7-sol.hs"[15Dr[K[2DfnFirst2 [3] (+) (*)[20D:r[K[2DfnFirst2 [3] (+) (*)[20D[KfnFirst2 [3, 4] (+) (*)
+[?1l>7
+[?1h=*Main> :quit
+[?1l>Leaving GHCi.
+[?2004hdwalcot1@remote07:~/i471a/submit/lab7$ [?2004l
+exit
+
+Script done on 2022-04-06 21:10:16-04:00 [COMMAND_EXIT_CODE="0"]
