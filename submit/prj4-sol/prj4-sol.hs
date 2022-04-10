@@ -168,7 +168,16 @@ testSplitIntoPairs = do
   assertEq "splitIntoPairs 6-elements"
             (splitIntoPairs [2, 2, 2, 1, 4, 1]) (Just [(2, 2), (2, 1), (4, 1)])
 
-splitIntoPairs _ = Nothing -- TODO
+splitIntoPairs [] = Just [] -- TODO
+splitIntoPairs xs  
+  | (length xs) `mod` 2 == 1 = Nothing
+  | otherwise = splitIntoPairsAux xs 
+    where splitIntoPairsAux [] = Just []
+          splitIntoPairsAux (x1:x2:xs) = Just [(x1, x2)]
+          
+-- splitIntoPairs (x1:x2:xs)  
+  -- | (length (x1:x2:xs)) `mod` 2 == 1 = Nothing
+  -- | otherwise = Just ((x1, x2) : ys) where ys = splitIntoPairs xs 
 
 -------------------------------- nPrefix --------------------------------
 
@@ -192,7 +201,12 @@ testNPrefix = do
   assertEq "testNPrefix 2" (nPrefix [1, 2, 3, 4] 2) ([1, 2], [3, 4])
   assertEq "testNPrefix 5" (nPrefix [1, 2, 3, 4] 5) ([], [1, 2, 3, 4])
   
-nPrefix _ _ = ([], []) -- TODO
+nPrefix [] _ = ([], []) -- TODO
+nPrefix xs 0 = ([], xs)
+nPrefix (x:xs) n 
+  | length (x:xs) < n = ([], (x:xs))
+  | otherwise = (x:xs', xs'')
+  where (xs', xs'') =  nPrefix xs (n-1) 
 
 ----------------------------- splitIntoNLists ---------------------------
 
@@ -222,7 +236,12 @@ testSplitIntoNLists = do
   assertEq "splitIntoNLists 4-elements 3"
            (splitIntoNLists [1, 2, 3, 4] 3) [[1, 2, 3], [4]]
 
-splitIntoNLists _ _ = [] -- TODO
+splitIntoNLists [] _ = [] -- TODO
+splitIntoNLists xs n 
+  | length (snd (nPrefix xs n)) == 0 = [fst (nPrefix xs n)]
+  | length (snd (nPrefix xs n)) < n = [fst (nPrefix xs n), snd (nPrefix xs n)]
+  | otherwise = (fst (nPrefix xs n) : ys)
+    where ys = splitIntoNLists (snd (nPrefix xs n)) n
 
 ------------------------------ Run All Tests ----------------------------
 
