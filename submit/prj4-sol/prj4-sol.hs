@@ -169,15 +169,13 @@ testSplitIntoPairs = do
             (splitIntoPairs [2, 2, 2, 1, 4, 1]) (Just [(2, 2), (2, 1), (4, 1)])
 
 splitIntoPairs [] = Just [] -- TODO
-splitIntoPairs xs  
-  | (length xs) `mod` 2 == 1 = Nothing
-  | otherwise = splitIntoPairsAux xs 
-    where splitIntoPairsAux [] = Just []
-          splitIntoPairsAux (x1:x2:xs) = Just [(x1, x2)]
-          
--- splitIntoPairs (x1:x2:xs)  
-  -- | (length (x1:x2:xs)) `mod` 2 == 1 = Nothing
-  -- | otherwise = Just ((x1, x2) : ys) where ys = splitIntoPairs xs 
+splitIntoPairs (xs:[]) 
+  | length (xs:[]) `mod` 2 == 1 = Nothing
+  | otherwise = Just []
+splitIntoPairs (x1:x2:xs)   
+  | length (x1:x2:xs) `mod` 2 == 1 = Nothing
+  | Just ys <- splitIntoPairs xs = Just ((x1, x2) : ys)
+  | otherwise = Just []
 
 -------------------------------- nPrefix --------------------------------
 
