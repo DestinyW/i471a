@@ -3,3 +3,193 @@ Script started on 2022-04-26 21:18:22-04:00 [TERM="xterm-256color" TTY="/dev/pts
 exit
 
 Script done on 2022-04-26 21:20:25-04:00 [COMMAND_EXIT_CODE="0"]
+Script started on 2022-04-26 21:22:22-04:00 [TERM="xterm-256color" TTY="/dev/pts/12" COLUMNS="98" LINES="20"]
+[?2004hdwalcot1@remote01:~/i471a/submit/lab8$ erl
+[?2004lErlang/OTP 23 [erts-11.1.8] [source] [64-bit] [smp:8:8] [ds:8:8:10] [async-threads:1]
+
+Eshell V11.1.8  (abort with ^G)
+1> c(lab8_sol)[C[C[C[C[C[C[C[C[C[C.
+lab8_sol.erl:6: Warning: export_all flag enabled - all functions will be exported
+{ok,lab8_sol}
+2> X = 123.
+123
+3> 123 = X.
+123
+4> 123 = Y.
+* 1: variable 'Y' is unbound
+5> Shapes = [ { square, 2 }, { circle, 1 }, { square, 4 } ].
+[{square,2},{circle,1},{square,4}]
+6> [{_, Side1}, _, {_, Side3}|_] = Shapes.
+[{square,2},{circle,1},{square,4}]
+7> Sides = [ Side1, Side3 ].
+[2,4]
+8> Sides.
+[2,4]
+9> Grades = [ {bill, 82}, {sue, 95}, { john, 85} ].
+[{bill,82},{sue,95},{john,85}]
+10> [{ _,_,Grade3][C[C[C[C[C[C[C[C[C[C[C[C = Grades.
+[{bill,82},{sue,95},{john,85}]
+11> Grade3.
+{john,85}
+12> [( {_,p1}[C[C[C[C[C[C} o}i}n}t}1}[C, {_point2,point2 point2[C[C[C[C[C[C}[C[C[C[C[C[C[C[C[C[C[C, {_, point3}[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Coint3} Point3}[Coint2}, {_, Point3} Point2}, {_, Point3}[Coint1}, {_, Point2}, {_, Point3} Point1}, {_, Point2}, {_, Point3}[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C][C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C = Grades.
+[{bill,82},{sue,95},{john,85}]
+13> Points = [Point1, Point2, Points 3][C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C.
+"R_U"
+14> Points.
+"R_U"
+15> Point1.
+82
+16> Pon int2/ .
+95
+17>     17> Point2.. 3.[C
+85
+18>     18> Point3.           18> Point2.           18> Point1.           18> Points.
+"R_U"
+19> io:format("~w~n", [Points]).
+[82,95,85]
+ok
+20> Grades2       Test =        [{}[C[C_},},} N,}a,}m,}e,}1,}[C_}[C, {Name2, _  _}[C[C[C[C[C[C[C[C[C, Name3{Name3[C[C[C[C[C,_}[C[C[C[C[C[C[C[C[C][C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C = Gar  rades.
+[{bill,82},{sue,95},{john,85}]
+21> Grades2 = [{Name1,  Point1+2 +2[C 2[C}[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C, {Name2, Point2 + 2}[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C, {Name3 +  , Point3 + 2}[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C][C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+21> Gra   Grades2.
+* 2: syntax error before: Grades2
+21>     21> Grades2.            21> Grades2 = [{Name1,Point1 + 2}, {Name2, Point2 + 2}, {Name3, Point3 + 2}].
+[{bill,84},{sue,97},{john,87}]
+22> Grades2.
+[{bill,84},{sue,97},{john,87}]
+23> 
+User switch command
+ --> q
+[?2004hdwalcot1@remote01:~/i471a/submit/lab8$ [?2004l
+exit
+
+Script done on 2022-04-26 21:47:31-04:00 [COMMAND_EXIT_CODE="0"]
+Script started on 2022-04-26 21:49:53-04:00 [TERM="xterm-256color" TTY="/dev/pts/6" COLUMNS="136" LINES="11"]
+[?2004hdwalcot1@remote00:~/i471a/submit/lab8$ [Kdwalcot1@remote00:~/i471a/submit/lab8$ erl
+[?2004lErlang/OTP 23 [erts-11.1.8] [source] [64-bit] [smp:8:8] [ds:8:8:10] [async-threads:1]
+
+Eshell V11.1.8  (abort with ^G)
+1> c(,a  lab8_sol)[C[C[C[C[C[C[C[C[C[C.
+lab8_sol.erl:6: Warning: export_all flag enabled - all functions will be exported
+{ok,lab8_sol}
+2> lab8_sol:perimeter({circle, 1}).
+6.28318
+3> lab8_sol:perimeter({square, 2}).
+8
+4> lab8_sol:perimeter({rectangle, 2, 3}).
+** exception error: no function clause matching lab8_sol:perimeter({rectangle,2,3}) (lab8_sol.erl, line 23)
+5> c(lan b8_sol)[C[C[C[C[C[C[C[C[C[C.
+lab8_sol.erl:6: Warning: export_all flag enabled - all functions will be exported
+{ok,lab8_sol}
+6>    6> c(lab8_sol).               6> lab8_sol:perimeter({rectangle, 2, 3}).gperimeter({rectangle, 2, 3}).uperimeter({rectangle, 2, 3}).aperimeter({rectangle, 2, 3}).rperimeter({rectangle, 2, 3}).dperimeter({rectangle, 2, 3})._perimeter({rectangle, 2, 3}).[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C, 2, 3}). , 2, 3}). , 2, 3}). , 2, 3}). , 2, 3}). , 2, 3}). , 2, 3}). , 2, 3}). , 2, 3}). s, 2, 3}).q, 2, 3}).u, 2, 3}).a, 2, 3}).r, 2, 3}).e, 2, 3}).[C[C[C[C[C[C}). }). }). [C[C[C
+8
+7>    7> lab8_sol:guard_perimeter({square, 2}).                                         7> c(lab8_sol).               7> lab8_sol:guard_perimeter({square, 2})., 2}). , 2}). , 2}). , 2}). , 2}). , 2}). c, 2}).i, 2}).r, 2}).c, 2}).l, 2}).e, 2}).[C[C[C}). 1}).[C[C[C
+6.28318
+8>    8> lab8_sol:guard_perimeter({circle, 1}).                                         8> lab8_sol:guard_perimeter({square, 2}).                                         8> c(lab8_sol).
+lab8_sol.erl:6: Warning: export_all flag enabled - all functions will be exported
+{ok,lab8_sol}
+9>    9> c(lab8_sol).               9> lab8_sol:guard_perimeter({circle, 1})._perimeter({circle, 1}). _perimeter({circle, 1}). _perimeter({circle, 1}). _perimeter({circle, 1}). _perimeter({circle, 1}). i_perimeter({circle, 1}).f_perimeter({circle, 1}).[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+6.28318
+10>     10> lab8_sol:if_perimeter({circle, 1}).                                       10> c(lab8_sol).                10> lab8_sol:guard_perimeter({circle, 1}).                                          10> lab8_sol:guard_perimeter({square, 2}).[C_perimeter({square, 2}). _perimeter({square, 2}). _perimeter({square, 2}). _perimeter({square, 2}). _perimeter({square, 2}). i_perimeter({square, 2}).f_perimeter({square, 2}).[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+8
+11>     11> lab8_sol:if_perimeter({square, 2}).                                       11> lab8_sol:if_perimeter({circle, 1}).                                       11> c(lab8_sol).
+lab8_sol.erl:6: Warning: export_all flag enabled - all functions will be exported
+{ok,lab8_sol}
+12>     12> c(lab8_sol).                12> lab8_sol:if_perimeter({square, 2})._perimeter({square, 2}). _perimeter({square, 2}). c_perimeter({square, 2}).a_perimeter({square, 2}).s_perimeter({square, 2}).e_perimeter({square, 2}).[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+8
+13>     13> lab8_sol:case_perimeter({square, 2}).                                         13> c(lab8_sol).                13> lab8_sol:if_perimeter({square, 2}).                                       13> lab8_sol:if_perimeter({circle, 1})._perimeter({circle, 1}). _perimeter({circle, 1}). c_perimeter({circle, 1}).a_perimeter({circle, 1}).s_perimeter({circle, 1}).e_perimeter({circle, 1}).[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+6.28318
+14>     14> lab8_sol:case_perimeter({circle, 1}).                                         14> lab8_sol:case_perimeter({square, 2}).                                         14> c(lab8_sol).
+lab8_sol.erl:46: syntax error before: '=<'
+lab8_sol.erl:6: Warning: export_all flag enabled - all functions will be exported
+error
+15>     15> c(lab8_sol).                15> lab8_sol:case_perimeter({circle, 1}).                                         15> c(lab8_sol).
+lab8_sol.erl:53: syntax error before: 
+lab8_sol.erl:6: Warning: export_all flag enabled - all functions will be exported
+error
+16>     16> c(lab8_sol).
+lab8_sol.erl:6: Warning: export_all flag enabled - all functions will be exported
+{ok,lab8_sol}
+17>     17> c(lab8_sol).
+lab8_sol.erl:53: syntax error before: 
+lab8_sol.erl:6: Warning: export_all flag enabled - all functions will be exported
+error
+18>     18> c(lab8_sol).
+lab8_sol.erl:45: syntax error before: 
+lab8_sol.erl:6: Warning: export_all flag enabled - all functions will be exported
+error
+19> 
+User switch command
+ --> q
+[?2004hdwalcot1@remote00:~/i471a/submit/lab8$ [?2004l
+exit
+
+Script done on 2022-04-26 22:23:38-04:00 [COMMAND_EXIT_CODE="0"]
+Script started on 2022-04-26 22:24:55-04:00 [TERM="xterm-256color" TTY="/dev/pts/6" COLUMNS="136" LINES="10"]
+[?2004hdwalcot1@remote00:~/i471a/submit/lab8$ erlgit statuserl[K
+[?2004lErlang/OTP 23 [erts-11.1.8] [source] [64-bit] [smp:8:8] [ds:8:8:10] [async-threads:1]
+
+Eshell V11.1.8  (abort with ^G)
+1> c(lab8_sol)[C[C[C[C[C[C[C[C[C[C.
+lab8_sol.erl:48: function letter_grade/1 already defined
+lab8_sol.erl:50: function letter_grade/1 already defined
+lab8_sol.erl:52: function letter_grade/1 already defined
+lab8_sol.erl:6: Warning: export_all flag enabled - all functions will be exported
+error
+2>    2> c(lab8_sol).
+lab8_sol.erl:6: Warning: export_all flag enabled - all functions will be exported
+{ok,lab8_sol}
+3>    3> c(lab8_sol).
+lab8_sol.erl:6: Warning: export_all flag enabled - all functions will be exported
+{ok,lab8_sol}
+4> lab8_sol:letter_grade(91).
+'A'
+5>    5> lab8_sol:letter_grade(91).). 0).[C[C
+'F'
+6>    6> lab8_sol:letter_grade(90).0). 80).[C). 1).[C[C
+'F'
+7>    7> lab8_sol:letter_grade(81).                             7> lab8_sol:letter_grade(90).                             7> lab8_sol:letter_grade(91).                             7> c(lab8_sol).
+lab8_sol.erl:6: Warning: export_all flag enabled - all functions will be exported
+{ok,lab8_sol}
+8>    8> c(lab8_sol).               8> lab8_sol:letter_grade(81).                             8> lab8_sol:letter_grade(90).
+'B'
+9>    9> lab8_sol:letter_grade(90).                             9> c(lab8_sol).               9> lab8_sol:letter_grade(81).                             9> lab8_sol:letter_grade(90).                             9> lab8_sol:letter_grade(91).
+'A'
+10>     10> lab8_sol:letter_grade(91).                              10> lab8_sol:letter_grade(90).                              10> c(lab8_sol).                10> lab8_sol:letter_grade(90).
+'B'
+11>     11> lab8_sol:letter_grade(90).[C). ). 8).1).[C[C
+'B'
+12>     12> lab8_sol:letter_grade(81).). ). 7).5).[C[C
+'C'
+13>     13> lab8_sol:letter_grade(75).). ). 8).0).[C[C
+'C'
+14>     14> lab8_sol:letter_grade(80).[C). ). 6).5).[C[C
+'D'
+15>     15> lab8_sol:letter_grade(65).5). 55).[C[C[C
+'F'
+16>     16> lab8_sol:letter_grade(55).[C). ). 6).0).[C[C
+'F'
+17>     17> lab8_sol:letter_grade(60).                              17> lab8_sol:letter_grade(55).                              17> lab8_sol:letter_grade(65).                              17> lab8_sol:letter_grade(80).                              17> lab8_sol:letter_grade(75).                              17> lab8_sol:letter_grade(81).                              17> lab8_sol:letter_grade(90).                              17> lab8_sol:letter_grade(91).                              17> lab8_sol:letter_grade(90).                              17> c(lab8_sol).                17> lab8_sol:letter_grade(81).                              17> c(lab8_sol).
+lab8_sol.erl:6: Warning: export_all flag enabled - all functions will be exported
+{ok,lab8_sol}
+18>     18> c(lab8_sol).                18> lab8_sol:letter_grade(60).                              18> lab8_sol:letter_grade(55).                              18> lab8_sol:letter_grade(65).                              18> lab8_sol:letter_grade(80).                              18> lab8_sol:letter_grade(75).                              18> lab8_sol:letter_grade(81).                              18> lab8_sol:letter_grade(90).                              18> lab8_sol:letter_grade(91).                              18> lab8_sol:letter_grade(90).                              18> c(lab8_sol).                18> lab8_sol:letter_grade(90).                              18> lab8_sol:letter_grade(91).iletter_grade(91).fletter_grade(91)._letter_grade(91).[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+'A'
+19>     19> lab8_sol:if_letter_grade(91).                                 19> c(lab8_sol).                19> lab8_sol:if_letter_grade(91).). 0).[C[C
+'B'
+20>     20> lab8_sol:if_letter_grade(90).[C). ). 8).1).[C[C
+'B'
+21>     21> lab8_sol:if_letter_grade(81).                                 21> lab8_sol:if_letter_grade(90).                                 21> lab8_sol:if_letter_grade(81).). 0).[C[C
+'C'
+22>     22> lab8_sol:if_letter_grade(80).). ). 7).5).[C[C
+'C'
+23>     23> lab8_sol:if_letter_grade(75).5). 65).[C[C[C
+'D'
+24>     24> lab8_sol:if_letter_grade(65).5). 55).[C[C[C
+'F'
+25> 
+User switch command
+ --> q
+[?2004hdwalcot1@remote00:~/i471a/submit/lab8$ [?2004l
+exit
+
+Script done on 2022-04-26 22:38:50-04:00 [COMMAND_EXIT_CODE="0"]
