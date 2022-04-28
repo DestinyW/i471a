@@ -193,3 +193,70 @@ User switch command
 exit
 
 Script done on 2022-04-26 22:38:50-04:00 [COMMAND_EXIT_CODE="0"]
+Script started on 2022-04-27 19:36:15-04:00 [TERM="xterm-256color" TTY="/dev/pts/29" COLUMNS="107" LINES="14"]
+[?2004hdwalcot1@remote00:~/i471a/submit/lab8$ git[K[K[K[Kdwalcot1@remote00:~/i471a/submit/lab8$ [Kdwalcot1@remote00:~/i471a/submit/lab8$ [Kdwalcot1@remote00:~/i471a/submit/lab8$ erl
+[?2004lErlang/OTP 23 [erts-11.1.8] [source] [64-bit] [smp:8:8] [ds:8:8:10] [async-threads:1]
+
+Eshell V11.1.8  (abort with ^G)
+1> c(lan b8_sol)[C[C[C[C[C[C[C[C[C[C.
+lab8_sol.erl:6: Warning: export_all flag enabled - all functions will be exported
+{ok,lab8_sol}
+2> Shapes = lab8_sol:shapes_data().
+[{square,2},
+ {circle,1},
+ {square,1},
+ {square,3},
+ {circle,2},
+ {square,4}]
+3> PID1 = lab8_sol:start_data_server(Shapes).
+<0.88.0>
+4> lab8_sol:data_client(PID1, fun (X) -> X end).
+[{square,2},
+ {circle,1},
+ {square,1},
+ {square,3},
+ {circle,2},
+ {square,4}]
+5> PID1.
+<0.88.0>
+6> F = fun ({T, S}) -> {T, S*3} end.
+#Fun<erl_eval.44.79398840>
+7> lab8_sol:data_client(PID1, fun (Shapes) -> lists:map(F, Shapes) end).
+[{square,6},
+ {circle,3},
+ {square,3},
+ {square,9},
+ {circle,6},
+ {square,12}]
+8> lab8_sol:stop_data_server(PID1).
+stop
+9> F2 = fun ({Person, Pon ints}[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C)[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -> {Person, Lw etterGrade  }[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C end.
+* 1: variable 'LetterGrade' is unbound
+10> LetterGrade = lab8_sol:letter_grade()[C[C.
+** exception error: undefined function lab8_sol:letter_grade/0
+11>     11> LetterGrade = lab8_sol:letter_grade().                                          11> F2 = fun ({Person, Points}) -> {Person, LetterGrade} end.                                                             11> lab8_sol:stop_data_server(PID1).                                    11> F2 = fun ({Person, Points}) -> {Person, LetterGrade} end.                                                             11> lab8_sol:stop_data_server(PID1).                                    11> F2 = fun ({Person, Points}) -> {Person, LetterGrade} end.                                                             11> LetterGrade = lab8_sol:letter_grade().                                          11>     11> LetterGrade = lab8_sol:letter_grade().[C[C                                          11>     11> LetterGrade = lab8_sol:letter_grade().                                          11> F2 = fun ({Person, Points}) -> {Person, LetterGrade} end.} end. } end. } end. } end. } end. } end. } end. } end. } end. } end. } end. l} end.a} end.b} end.8} end._} end.s} end.o} end.l} end.:} end.l} end.e} end.t} end.t} end.e} end.r} end._} end.g} end.r} end.a} end.d} end.e} end.(} end.P} end.o} end.i} end.n} end.t} end.s} end.)} end.[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+#Fun<erl_eval.44.79398840>
+12> F2({tom, 78}).
+{tom,'C'}
+13> Grades = lab8_sol:grades_data()[C[C.
+[{bill,82.0},{sue,95},{john,85},{joe,73},{mary,65},{tom,55}]
+14>     14> Grades = lab8_sol:grades_data().                                    14> PID1 = lab8_sol:start_data_server(Shapes). = lab8_sol:start_data_server(Shapes). 2 = lab8_sol:start_data_server(Shapes).[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cs). s). s). s). s). Gs).rs).as).ds).es).[C[C[C
+<0.101.0>
+15> lab8_sol:data_client(PID1, fun (X) -> X end)., fun (X) -> X end). 2, fun (X) -> X end).[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[{bill,82.0},{sue,95},{john,85},{joe,73},{mary,65},{tom,55}]
+16> lab8_sol:data_client(PID1, fun (Shapes) -> lists:map(F, Shapes) end).[Ces) -> lists:map(F, Shapes) end). es) -> lists:map(F, Shapes) end). es) -> lists:map(F, Shapes) end). es) -> lists:map(F, Shapes) end). Ges) -> lists:map(F, Shapes) end).res) -> lists:map(F, Shapes) end).aes) -> lists:map(F, Shapes) end).des) -> lists:map(F, Shapes) end).ees) -> lists:map(F, Shapes) end).[Ces) -> lists:map(F, Shapes) end). [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C2, Shapes) end).[C[C[C[C[C[C[Ces) end). es) end). es) end). es) end). Ges) end).res) end).aes) end).des) end).[C[C[C[C[C[C[C[C[C, fun (Grades) -> lists:map(F2, Grades) end). 2, fun (Grades) -> lists:map(F2, Grades) end).[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[{bill,'B'},
+ {sue,'A'},
+ {john,'B'},
+ {joe,'C'},
+ {mary,'D'},
+ {tom,'F'}]
+17> lab8_sol:stop_data_server(PID1).[C). 2).[C[C
+stop
+18> 
+User switch command
+ --> q
+[?2004hdwalcot1@remote00:~/i471a/submit/lab8$ [?2004l
+exit
+
+Script done on 2022-04-27 20:03:25-04:00 [COMMAND_EXIT_CODE="0"]

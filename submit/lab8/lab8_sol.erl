@@ -62,3 +62,26 @@ if_letter_grade(Points) ->
 
 %% Exercise 3.
 
+data_server(Data) ->       % Data is stored data
+  receive                  % receive a message
+    { ClientPid, Fn } ->   % msg contains function Fn
+      Result = Fn(Data),   % run arbitrary function on Data
+      %io:format("Result is ~w\n", [Result]),
+      ClientPid !  { self(), Result }, % send Result to client
+      data_server(Data);   % loop back
+    stop ->                % got stop message
+      true                 % terminate server
+   end.
+
+data_client(ServerPid, Fn) ->
+  ServerPid ! { self(), Fn }, % send Fn to server
+  receive
+    { _, Result } -> Result   % return Result 
+  end. 
+
+start_data_server(Data) ->
+  spawn(lab8_sol, data_server, [Data]).
+  
+stop_data_server(ServerPid) ->
+  ServerPid ! stop.
+
