@@ -25,7 +25,7 @@ is_all_greater_than([X|Xs], N) ->
     if V =:= false -> false;
         V =:= true -> is_all_greater_than(Xs, N)
     end;
-is_all_greater_than([], N) -> true.
+is_all_greater_than([], _) -> true.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% Predicate Server %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -37,12 +37,12 @@ is_all_greater_than([], N) -> true.
 pred_server(Pred) -> 
     receive
         { ClientPid, [] } ->
-            ClientPid !  { self(), true },
+            ClientPid ! { self(), true },
             pred_server(Pred);
         { ClientPid, N } ->
             Result = Pred(N),
-            if Result =:= false -> ClientPid !  { self(), false };
-                Result =:= true -> ClientPid !  { self(), true }
+            if Result =:= false -> ClientPid ! { self(), false };
+                Result =:= true -> ClientPid ! { self(), true }
             end,
             pred_server(Pred);
         stop ->
@@ -106,17 +106,16 @@ stop_pred_server(ServerPid) ->
 % a client.
 update_pred_server(Pred) -> 
     receive
-        { ClientPid, NewPred } ->
-            start_update_pred_server(NewPred),
-            ClientPid !  { self(), ok },
+        { ClientPid, [NewPred] } ->
+            ClientPid ! { self(), ok },
             update_pred_server(NewPred);
         { ClientPid, [] } ->
-            ClientPid !  { self(), true },
+            ClientPid ! { self(), true },
             update_pred_server(Pred);
         { ClientPid, N } ->
             Result = Pred(N),
-            if Result =:= false -> ClientPid !  { self(), false };
-                Result =:= true -> ClientPid !  { self(), true }
+            if Result =:= false -> ClientPid ! { self(), false };
+                Result =:= true -> ClientPid ! { self(), true }
             end,
             update_pred_server(Pred);
         stop ->
@@ -141,7 +140,7 @@ update_pred_client(ServerPid, []) ->
 % will update update_pred_server having PID ServerPid with NewPred.
 % returns 'ok' if the update is accepted.
 update_pred_server_update(ServerPid, NewPred) -> 
-    ServerPid ! { self(), NewPred },
+    ServerPid ! { self(), [NewPred] },
     receive
         { _, ok } -> ok
     end.
