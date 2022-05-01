@@ -20,7 +20,12 @@
 % N> prj5_sol:is_all_greater_than([7, 5], 5).
 % false
 %
-is_all_greater_than([X|Xs], N) -> 'TODO'.
+is_all_greater_than([X|Xs], N) -> 
+    V = X > N,
+    if V =:= false -> false;
+        V =:= true -> is_all_greater_than(Xs, N)
+    end;
+is_all_greater_than([], N) -> true.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%% Predicate Server %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -29,13 +34,36 @@ is_all_greater_than([X|Xs], N) -> 'TODO'.
 % return a true or false message to the client depending on whether or
 % not Pred(Val) is true or false.  It will stop when it receives a
 % 'stop' message from a client.
-pred_server(Pred) -> 'TODO'.
+pred_server(Pred) -> 
+    receive
+        { ClientPid, [] } ->
+            ClientPid !  { self(), true },
+            pred_server(Pred);
+        { ClientPid, N } ->
+            Result = Pred(N),
+            if Result =:= false -> ClientPid !  { self(), false };
+                Result =:= true -> ClientPid !  { self(), true }
+            end,
+            pred_server(Pred);
+        stop ->
+            true
+    end.
 
 
 % pred_client(ServerPid, List): given the PID ServerPid of a predicate
 % server and a list List of predicate arguments, it will return true iff
 % the predicate server returns true for all arguments in List.
-pred_client(ServerPid, [N|Ns]) -> 'TODO'.
+pred_client(ServerPid, [N|Ns]) -> 
+    ServerPid ! { self(), N },
+    receive
+        { _, true } -> pred_client(ServerPid, Ns);
+        { _, false } -> false
+    end;
+pred_client(ServerPid, []) -> 
+    ServerPid ! { self(), [] },
+    receive
+        { _, true } -> true
+    end.
 
 start_pred_server(Pred) ->
     spawn(prj5_sol, pred_server, [Pred]).
@@ -76,16 +104,47 @@ stop_pred_server(ServerPid) ->
 % update message providing a new predicate to replace the Pred it is
 % currently using. It will stop when it receives a 'stop' message from
 % a client.
-update_pred_server(Pred) -> 'TODO'.
+update_pred_server(Pred) -> 
+    receive
+        { ClientPid, NewPred } ->
+            start_update_pred_server(NewPred),
+            ClientPid !  { self(), ok },
+            update_pred_server(NewPred);
+        { ClientPid, [] } ->
+            ClientPid !  { self(), true },
+            update_pred_server(Pred);
+        { ClientPid, N } ->
+            Result = Pred(N),
+            if Result =:= false -> ClientPid !  { self(), false };
+                Result =:= true -> ClientPid !  { self(), true }
+            end,
+            update_pred_server(Pred);
+        stop ->
+            true
+    end.
 
 % update_pred_client(ServerPid, List): given the PID ServerPid of a predicate
 % server and a list List of predicate arguments, it will return true iff
 % the predicate server returns true for all arguments in List.
-update_pred_client(ServerPid, [N|Ns]) -> 'TODO'.
+update_pred_client(ServerPid, [N|Ns]) -> 
+    ServerPid ! { self(), N },
+    receive
+        { _, true } -> pred_client(ServerPid, Ns);
+        { _, false } -> false
+    end;
+update_pred_client(ServerPid, []) -> 
+    ServerPid ! { self(), [] },
+    receive
+        { _, true } -> true
+    end.
 
 % will update update_pred_server having PID ServerPid with NewPred.
 % returns 'ok' if the update is accepted.
-update_pred_server_update(ServerPid, NewPred) -> 'TODO'.
+update_pred_server_update(ServerPid, NewPred) -> 
+    ServerPid ! { self(), NewPred },
+    receive
+        { _, ok } -> ok
+    end.
 
 start_update_pred_server(Pred) ->
     spawn(prj5_sol, update_pred_server, [Pred]).
